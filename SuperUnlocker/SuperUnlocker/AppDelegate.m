@@ -14,6 +14,7 @@
 @interface AppDelegate ()
 
 @property (nonatomic, strong) MotionDetector *motionDetector;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier taskId;
 
 @end
 
@@ -27,6 +28,8 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    NSLog(@"will terminate");
+    [[Peripheral sharedInstance] disconnect];
 //    UIBackgroundTaskIdentifier taskId = [application beginBackgroundTaskWithExpirationHandler:^{
 //        [[Peripheral sharedInstance] disconnect];
 //        [application endBackgroundTask:taskId];
