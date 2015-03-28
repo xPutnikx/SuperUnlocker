@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8073DD873238D970A48F3899 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6A5553FDDEEE54C5803AAC /* libPods.a */; };
 		8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0531AC6859800EE17D9 /* BluetoothListener.m */; };
 		8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */; };
 		821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */; };
@@ -39,6 +40,7 @@
 		A1A352681AC6C694002EC254 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352671AC6C694002EC254 /* sound.caf */; };
 		A1A3526A1AC6C854002EC254 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352691AC6C854002EC254 /* silence.caf */; };
 		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
+		B4D7ACC3C7DFBF824A629F75 /* AuthDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7A34B2009D1432F520F6F /* AuthDataProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B6A5553FDDEEE54C5803AAC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8215D0521AC6859800EE17D9 /* BluetoothListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothListener.h; sourceTree = "<group>"; };
 		8215D0531AC6859800EE17D9 /* BluetoothListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothListener.m; sourceTree = "<group>"; };
 		8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerManager.h; sourceTree = "<group>"; };
@@ -119,7 +122,9 @@
 		A1A352641AC6C527002EC254 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A1A352671AC6C694002EC254 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
 		A1A352691AC6C854002EC254 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
+		B4D7A34B2009D1432F520F6F /* AuthDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthDataProvider.m; sourceTree = "<group>"; };
 		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
+		B4D7AFA44CB797B7E087933F /* AuthDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthDataProvider.h; sourceTree = "<group>"; };
 		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
 		E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EF65A6DF2460593F9584962F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +138,7 @@
 				A1A352651AC6C527002EC254 /* AVFoundation.framework in Frameworks */,
 				A1A3525F1AC6BB42002EC254 /* CoreMotion.framework in Frameworks */,
 				8278342F1ABF1AEA006F5A63 /* CoreBluetooth.framework in Frameworks */,
+				8073DD873238D970A48F3899 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +186,7 @@
 				8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */,
 				821E56A21AC5CCE2000515A5 /* Cocoa.framework */,
 				821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */,
+				1B6A5553FDDEEE54C5803AAC /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -243,6 +250,8 @@
 				828D0D521ABDAA96002BEFC9 /* Supporting Files */,
 				828D0D7A1ABDAE4F002BEFC9 /* MainViewController.h */,
 				828D0D7B1ABDAE4F002BEFC9 /* MainViewController.m */,
+				B4D7AFA44CB797B7E087933F /* AuthDataProvider.h */,
+				B4D7A34B2009D1432F520F6F /* AuthDataProvider.m */,
 			);
 			path = SuperUnlocker;
 			sourceTree = "<group>";
@@ -371,10 +380,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 828D0D721ABDAA96002BEFC9 /* Build configuration list for PBXNativeTarget "SuperUnlocker" */;
 			buildPhases = (
+				D0C7878677581475204C093C /* Check Pods Manifest.lock */,
 				828D0D4B1ABDAA96002BEFC9 /* Sources */,
 				828D0D4C1ABDAA96002BEFC9 /* Frameworks */,
 				828D0D4D1ABDAA96002BEFC9 /* Resources */,
 				8278342D1ABE8B9A006F5A63 /* Embed App Extensions */,
+				9D57DA59D562CD9338A76C25 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -534,6 +545,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9D57DA59D562CD9338A76C25 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0C7878677581475204C093C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		828D0D4B1ABDAA96002BEFC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -544,6 +588,7 @@
 				828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */,
 				828D0D551ABDAA96002BEFC9 /* main.m in Sources */,
 				828D0D7C1ABDAE4F002BEFC9 /* MainViewController.m in Sources */,
+				B4D7ACC3C7DFBF824A629F75 /* AuthDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

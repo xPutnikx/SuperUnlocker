@@ -2,17 +2,19 @@
 //  AppDelegate.m
 //  MacGuarder
 //
-//  Created by user on 14-7-23.
-//  Copyright (c) 2014年 TrendMicro. All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import "MacGuarderHelper.h"
 #import "BluetoothListener.h"
-#import "ListenerManager.h"
-#import "BluetoothListener.h"
+
+//key pair auth
+//первый запрос делать с данными
 
 #define kAUTH_RIGHT_CONFIG_MODIFY    "com.trendmicro.iTIS.MacGuarder"
+
+//central = client (macbook)
+//periferial = server (phone)
 
 @interface AppDelegate () <ListenerManagerDelegate>
 
@@ -31,45 +33,8 @@
     return self;
 }
 
-
-#pragma mark - UI action
-
-- (IBAction)didClickSelectDevice:(id)sender {
-    self.lbSelectedDevice.stringValue = @"Selecting Device";
-}
-
-- (IBAction)didClickSaveDevice:(id)sender {
-}
-- (IBAction)didClickStart:(id)sender {
-    self.btStart.Enabled = NO;
-    self.btSelectDevice.Enabled = NO;
-    self.btSaveDevice.Enabled = NO;
-    self.tfMacPassword.Enabled = NO;
-
-    [_macGuarderHelper setPassword:self.tfMacPassword.stringValue];
-    self.btStop.Enabled = YES;
-}
-
-- (IBAction)didClickStop:(id)sender {
-    self.btStop.Enabled = NO;
-
-    self.tfMacPassword.Enabled = YES;
-    self.btStart.Enabled = YES;
-    self.btSelectDevice.Enabled = YES;
-    self.btSaveDevice.Enabled = YES;
-}
-
 - (IBAction)didClickQuit:(id)sender {
     [[NSRunningApplication currentApplication] terminate];
-}
-
-- (IBAction)testService:(id)sender {
-
-}
-
-#pragma mark - startup
-
-- (void)trackFavoriteDevicesNow {
 }
 
 - (void)awakeFromNib {
@@ -85,19 +50,6 @@
     // setup
     [_authorizationView setAutoupdate:YES];
     [_authorizationView setDelegate:self];
-}
-
-#pragma mark - GUI
-
-- (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus {
-    NSImage *img = [NSImage imageNamed:(bluetoothStatus == InRange) ? @"on" : @"off"];
-
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-
-        [weakSelf.bluetoothStatus setImage:img];
-        [weakSelf.bluetoothStatus setNeedsDisplay:YES];
-    });
 }
 
 #pragma mark - delegate
@@ -153,6 +105,7 @@
     [peripheral respondToRequest:request withResult:CBATTErrorSuccess];
 }
 
+//call when received data
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveWriteRequests:(NSArray *)requests {
     for (CBATTRequest *aReq in requests) {
         NSLog([[NSString alloc] initWithData:aReq.value encoding:NSUTF8StringEncoding]);
@@ -239,15 +192,7 @@ didSubscribeToCharacteristic:(CBCharacteristic *)characteristic12 {
 
 }
 
-#pragma mark - Bluetooth
-
-- (IBAction)changeDevice:(id)sender {
-    [self.bluetoothListener changeDevice];
-}
-
 #pragma mark default methods
-
-
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     _macGuarderHelper = [[MacGuarderHelper alloc] initWithSettings:self.userSettings];
   
