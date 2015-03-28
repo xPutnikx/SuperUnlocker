@@ -7,6 +7,8 @@
 #import "AppDelegate.h"
 #import "MacGuarderHelper.h"
 #import "BluetoothListener.h"
+#import <IOBluetooth/IOBluetooth.h>
+#import <IOBluetoothUI/IOBluetoothUI.h>
 
 //key pair auth
 //первый запрос делать с данными
@@ -23,6 +25,7 @@
 
 @implementation AppDelegate {
     NSString *connectedDevice;
+    BOOL connected;
 }
 
 - (instancetype)init {
@@ -35,6 +38,10 @@
 
 - (IBAction)didClickQuit:(id)sender {
     [[NSRunningApplication currentApplication] terminate];
+}
+
+- (IBAction)didClickSelectDevice:(id) sender{
+    [self.bluetoothListener changeDevice];
 }
 
 - (void)awakeFromNib {
@@ -123,54 +130,35 @@
 }
 
 
-- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    NSLog(@"Finish Write\n");
-    NSLog(@"5");
-//    [TextView insertText:@"Finish Write\n"];
-}
-
-- (void)peripheral:(CBPeripheral *)aPeripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-//    NSData *updatedValue = characteristic.value;
-//    NSLog(@"%@", [[NSString alloc] initWithData:updatedValue encoding:NSUTF8StringEncoding]);
-    if ([_macGuarderHelper isScreenLocked]) {
-        [_macGuarderHelper unlock];
-    } else {
-        [_macGuarderHelper lock];
-    }
-}
-
 - (void)peripheral:(CBPeripheral *)aPeripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error {
     NSLog(@"4");
     for (CBCharacteristic *aChar in service.characteristics) {
         NSLog(@"%@", aChar.UUID);
-//            [TextView insertText:[NSString stringWithFormat:@"Characteristic UUID:%@\n", aChar.UUID]];
         if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"DA18"]]) {
-            NSLog(@"%lu", aChar.properties);
-//                [TextView insertText:[NSString stringWithFormat:@"Characteristic Prop:%lu\n", aChar.properties]];
+            NSLog(@"%d", aChar.properties);
             [aPeripheral setNotifyValue:YES forCharacteristic:aChar];
-        }
-        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"DA17"]]) {
-            //NSLog(@"Find DA17");
-            NSLog(@"%lu", aChar.properties);
-//                [TextView insertText:[NSString stringWithFormat:@"Characteristic Prop:%lu\n", aChar.properties]];
             NSString *mainString = [NSString stringWithFormat:@"ping"];
             NSData *mainData = [mainString dataUsingEncoding:NSUTF8StringEncoding];
             [aPeripheral writeValue:mainData forCharacteristic:aChar type:CBCharacteristicWriteWithResponse];
         }
-        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"DA16"]]) {
-            NSLog(@"Find DA16");
-            NSLog(@"%lu", aChar.properties);
-//                [TextView insertText:[NSString stringWithFormat:@"Characteristic Prop:%lu\n", aChar.properties]];
-//                [aPeripheral readValueForCharacteristic:aChar];
+    }
+}
+
+- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+    NSLog(@"Finish Write\n");
+    NSLog(@"5");
+    connected = YES;
+}
+
+- (void)peripheral:(CBPeripheral *)aPeripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+    if([aPeripheral.name isEqualToString:connectedDevice] && connected) {
+        if ([_macGuarderHelper isScreenLocked]) {
+            [_macGuarderHelper unlock];
+        } else {
+            [_macGuarderHelper lock];
         }
     }
-
 }
-
-- (void)makeAction:(id)sender {
-
-}
-
 
 - (void)willEnterBackgroud {
     [centmanager stopScan];
@@ -187,6 +175,15 @@
     _macGuarderHelper = [[MacGuarderHelper alloc] initWithSettings:self.userSettings];
 
     centmanager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+
+
+    self.bluetoothListener = [[BluetoothListener alloc] initWithSettings:self.userSettings];
+    self.bluetoothListener.delegate = self;
+    __weak typeof(self) weakSelf = self;
+    self.bluetoothListener.bluetoothStatusChangedBlock = ^(BluetoothStatus bluetoothStatus) {
+
+        [weakSelf updateBluetoothStatus:bluetoothStatus];
+    };
 
     //* By BLE
     self.btSelectDevice.Enabled = YES;
@@ -205,4 +202,15 @@
     [self.bluetoothListener stopListen];
 }
 
+- (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus
+{
+    NSImage *img = [NSImage imageNamed:(bluetoothStatus == InRange) ? @"on" : @"off"];
+
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+
+        [weakSelf.bluetoothStatus setImage:img];
+        [weakSelf.bluetoothStatus setNeedsDisplay:YES];
+    });
+}
 @end
