@@ -18,7 +18,6 @@
 		821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */; };
 		821E56A31AC5CCE2000515A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A21AC5CCE2000515A5 /* Cocoa.framework */; };
 		821E56A51AC5CF3F000515A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A41AC5CF3F000515A5 /* libPods.a */; };
-		821E56A61AC5CFC7000515A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A41AC5CF3F000515A5 /* libPods.a */; };
 		821E56AB1AC5F129000515A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 821E56AA1AC5F129000515A5 /* main.m */; };
 		8278342F1ABF1AEA006F5A63 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		828D0D551ABDAA96002BEFC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D541ABDAA96002BEFC9 /* main.m */; };
@@ -139,7 +138,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				821E56A61AC5CFC7000515A5 /* libPods.a in Frameworks */,
 				8278342F1ABF1AEA006F5A63 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,12 +380,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 828D0D721ABDAA96002BEFC9 /* Build configuration list for PBXNativeTarget "SuperUnlocker" */;
 			buildPhases = (
-				B6FF3CE0D58C355E4C7570F4 /* Check Pods Manifest.lock */,
 				828D0D4B1ABDAA96002BEFC9 /* Sources */,
 				828D0D4C1ABDAA96002BEFC9 /* Frameworks */,
 				828D0D4D1ABDAA96002BEFC9 /* Resources */,
 				8278342D1ABE8B9A006F5A63 /* Embed App Extensions */,
-				AB80FB0BEAA3C82D43D23D0D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -537,39 +533,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		AB80FB0BEAA3C82D43D23D0D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6FF3CE0D58C355E4C7570F4 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		828D0D4B1ABDAA96002BEFC9 /* Sources */ = {
