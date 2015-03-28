@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
@@ -17,10 +17,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zOa-ih-E2b">
-                                <rect key="frame" x="277" y="174" width="46" height="30"/>
+                                <rect key="frame" x="196" y="140" width="208" height="152"/>
+                                <color key="backgroundColor" red="0.5" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="2rA-Y6-rvu"/>
-                                    <constraint firstAttribute="height" constant="30" id="ZS3-eS-dGT"/>
+                                    <constraint firstAttribute="width" constant="208" id="2rA-Y6-rvu"/>
+                                    <constraint firstAttribute="height" constant="152" id="ZS3-eS-dGT"/>
                                 </constraints>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -29,26 +30,11 @@
                                     <action selector="sendPush:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HlM-cL-xLL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OC2-Fc-c7l">
-                                <rect key="frame" x="255" y="269" width="91" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="91" id="FeG-Hb-eBN"/>
-                                    <constraint firstAttribute="height" constant="30" id="YVa-p9-MiB"/>
-                                </constraints>
-                                <state key="normal" title="Disconnect">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="disconnect:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="jCV-jw-h5k"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="OC2-Fc-c7l" secondAttribute="centerX" id="CE2-Ty-iMm"/>
-                            <constraint firstItem="OC2-Fc-c7l" firstAttribute="top" secondItem="zOa-ih-E2b" secondAttribute="bottom" constant="65" id="Jcq-nq-6Wv"/>
                             <constraint firstAttribute="centerX" secondItem="zOa-ih-E2b" secondAttribute="centerX" id="ghq-ae-OhA"/>
-                            <constraint firstItem="zOa-ih-E2b" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="154" id="jnN-G2-BYq"/>
+                            <constraint firstItem="zOa-ih-E2b" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="120" id="jnN-G2-BYq"/>
                         </constraints>
                     </view>
                 </viewController>

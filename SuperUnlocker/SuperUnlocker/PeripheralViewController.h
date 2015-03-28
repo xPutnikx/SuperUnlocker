@@ -10,7 +10,7 @@
 @class SFAuthorizationView;
 
 
-@interface PeripheralViewController : UIViewController<CBPeripheralManagerDelegate>
+@interface PeripheralViewController : UIViewController//<CBPeripheralManagerDelegate>
 {
     CBPeripheralManager *manager;
     CBMutableCharacteristic *characteristic;
