@@ -41,7 +41,6 @@
 		A1A3526A1AC6C854002EC254 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352691AC6C854002EC254 /* silence.caf */; };
 		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
 		B4D7A905E0222A394B729A81 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */; };
-		B4D7ACC3C7DFBF824A629F75 /* AuthDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7A34B2009D1432F520F6F /* AuthDataProvider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,11 +122,9 @@
 		A1A352641AC6C527002EC254 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A1A352671AC6C694002EC254 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
 		A1A352691AC6C854002EC254 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
-		B4D7A34B2009D1432F520F6F /* AuthDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthDataProvider.m; sourceTree = "<group>"; };
 		B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralViewController.m; sourceTree = "<group>"; };
 		B4D7ABDA58345C84CB1FC713 /* PeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralViewController.h; sourceTree = "<group>"; };
 		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
-		B4D7AFA44CB797B7E087933F /* AuthDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthDataProvider.h; sourceTree = "<group>"; };
 		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
 		E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EF65A6DF2460593F9584962F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -253,8 +250,6 @@
 				828D0D521ABDAA96002BEFC9 /* Supporting Files */,
 				828D0D7A1ABDAE4F002BEFC9 /* MainViewController.h */,
 				828D0D7B1ABDAE4F002BEFC9 /* MainViewController.m */,
-				B4D7AFA44CB797B7E087933F /* AuthDataProvider.h */,
-				B4D7A34B2009D1432F520F6F /* AuthDataProvider.m */,
 				B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */,
 				B4D7ABDA58345C84CB1FC713 /* PeripheralViewController.h */,
 			);
@@ -465,7 +460,7 @@
 				TargetAttributes = {
 					828D0D4E1ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = HAA7HHCXKP;
+						DevelopmentTeam = Q9XAZK223S;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -593,7 +588,6 @@
 				828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */,
 				828D0D551ABDAA96002BEFC9 /* main.m in Sources */,
 				828D0D7C1ABDAE4F002BEFC9 /* MainViewController.m in Sources */,
-				B4D7ACC3C7DFBF824A629F75 /* AuthDataProvider.m in Sources */,
 				B4D7A905E0222A394B729A81 /* PeripheralViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

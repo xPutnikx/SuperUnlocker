@@ -53,7 +53,7 @@
     if ([CMPedometer isStepCountingAvailable]) {
         [self.pedometer startPedometerUpdatesFromDate:[NSDate date] withHandler:^(CMPedometerData *pedometerData, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"number of steps since date %@ %@ %@", pedometerData.numberOfSteps, pedometerData.startDate, pedometerData.endDate);
+//                NSLog(@"number of steps since date %@ %@ %@", pedometerData.numberOfSteps, pedometerData.startDate, pedometerData.endDate);
             });
         }];
     } else {
@@ -61,7 +61,7 @@
     }
     
     [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
-        NSLog(@"%f %f %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y, accelerometerData.acceleration.z);
+//        NSLog(@"%f %f %f", accelerometerData.acceleration.x, accelerometerData.acceleration.y, accelerometerData.acceleration.z);
     }];
 }
 
