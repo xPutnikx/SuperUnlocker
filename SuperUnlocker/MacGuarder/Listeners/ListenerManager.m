@@ -10,7 +10,7 @@
 
 @implementation ListenerManager
 
-- (instancetype)initWithSettings:(IGRUserDefaults *)aSettings
+- (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
 {
     if (self = [super init])
     {
@@ -30,7 +30,7 @@
     NSLog(@"%@", @"stop");
 }
 
-- (void)setUserSettings:(IGRUserDefaults *)userSettings
+- (void)setUserSettings:(GuarderUserDefaults *)userSettings
 {
     [self stopListen];
     

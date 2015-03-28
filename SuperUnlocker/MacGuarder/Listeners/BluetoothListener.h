@@ -1,8 +1,6 @@
 //
 //  BluetoothListener.h
-//  LockMeNow
 //
-//  Created by Vitalii Parovishnyk on 1/27/15.
 //
 //
 

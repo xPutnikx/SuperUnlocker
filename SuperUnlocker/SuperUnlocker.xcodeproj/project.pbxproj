@@ -11,7 +11,6 @@
 		8215D0591AC68A1700EE17D9 /* DeviceKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0571AC68A1700EE17D9 /* DeviceKeeper.m */; };
 		8215D05A1AC68A1700EE17D9 /* DeviceTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0581AC68A1700EE17D9 /* DeviceTracker.m */; };
 		8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */; };
-		8215D0611AC68AF900EE17D9 /* IGRUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0601AC68AF900EE17D9 /* IGRUserDefaults.m */; };
 		821E569E1AC5CCD3000515A5 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */; };
 		821E569F1AC5CCD3000515A5 /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */; };
 		821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */; };
@@ -38,6 +37,7 @@
 		82A6B03C1AC5CAA500EC00C7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02E1AC5CAA500EC00C7 /* Info.plist */; };
 		82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */; };
 		A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
+		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,8 +79,6 @@
 		8215D0581AC68A1700EE17D9 /* DeviceTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceTracker.m; path = Device/DeviceTracker.m; sourceTree = "<group>"; };
 		8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerManager.h; sourceTree = "<group>"; };
 		8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerManager.m; sourceTree = "<group>"; };
-		8215D05F1AC68AF900EE17D9 /* IGRUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGRUserDefaults.h; sourceTree = "<group>"; };
-		8215D0601AC68AF900EE17D9 /* IGRUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGRUserDefaults.m; sourceTree = "<group>"; };
 		821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = DEVELOPER_DIR; };
 		821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/SecurityInterface.framework; sourceTree = DEVELOPER_DIR; };
@@ -120,6 +118,8 @@
 		82A6B02D1AC5CAA500EC00C7 /* DevicesConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DevicesConfig.plist; sourceTree = "<group>"; };
 		82A6B02E1AC5CAA500EC00C7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
+		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
+		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
 		E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		EF65A6DF2460593F9584962F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,8 +197,8 @@
 		8215D05E1AC68AF900EE17D9 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				8215D05F1AC68AF900EE17D9 /* IGRUserDefaults.h */,
-				8215D0601AC68AF900EE17D9 /* IGRUserDefaults.m */,
+				B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */,
+				B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -548,9 +548,9 @@
 				82A6B03A1AC5CAA500EC00C7 /* RSSISmootheningFilter.m in Sources */,
 				8215D0591AC68A1700EE17D9 /* DeviceKeeper.m in Sources */,
 				8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */,
-				8215D0611AC68AF900EE17D9 /* IGRUserDefaults.m in Sources */,
 				821E56AB1AC5F129000515A5 /* main.m in Sources */,
 				82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */,
+				B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

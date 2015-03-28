@@ -1,13 +1,11 @@
 //
 //  BluetoothListener.m
-//  LockMeNow
 //
-//  Created by Vitalii Parovishnyk on 1/27/15.
 //
 //
 
 #import "BluetoothListener.h"
-#import "IGRUserDefaults.h"
+#import "GuarderUserDefaults.h"
 
 #import <IOBluetooth/objc/IOBluetoothSDPServiceRecord.h>
 #import <IOBluetooth/objc/IOBluetoothRFCOMMChannel.h>
@@ -29,7 +27,7 @@
 
 @implementation BluetoothListener
 
-- (instancetype)initWithSettings:(IGRUserDefaults *)aSettings
+- (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
 {
     if (self = [super initWithSettings:aSettings])
     {

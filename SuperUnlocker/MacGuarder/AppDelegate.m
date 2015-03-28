@@ -10,8 +10,17 @@
 #import "MacGuarderHelper.h"
 #import "DeviceTracker.h"
 #import "DeviceKeeper.h"
+#import "BluetoothListener.h"
 
 #define kAUTH_RIGHT_CONFIG_MODIFY    "com.trendmicro.iTIS.MacGuarder"
+
+@interface AppDelegate() <ListenerManagerDelegate>
+
+    @property (nonatomic) GuarderUserDefaults *userSettings;
+    @property (nonatomic) BluetoothListener *bluetoothListener;
+    @property (nonatomic) MacGuarderHelper *macGuarderHelper;
+
+@end
 
 @implementation AppDelegate
 
@@ -54,7 +63,7 @@
     self.btSaveDevice.Enabled = NO;
     self.tfMacPassword.Enabled = NO;
     
-    [MacGuarderHelper setPassword:self.tfMacPassword.stringValue];
+    [_macGuarderHelper setPassword:self.tfMacPassword.stringValue];
     if (![[DeviceTracker sharedTracker] isMonitoring]) {
         [[DeviceTracker sharedTracker] startMonitoring];
     }
@@ -109,7 +118,7 @@
                 
                 self.tfMacPassword.stringValue = [DeviceKeeper getPasswordForUser:self.user];
                 self.tfMacPassword.Enabled = NO;
-                [MacGuarderHelper setPassword:self.tfMacPassword.stringValue];
+                [_macGuarderHelper setPassword:self.tfMacPassword.stringValue];
                 
                 if (![[DeviceTracker sharedTracker] isMonitoring]) {
                     [[DeviceTracker sharedTracker] startMonitoring];
@@ -141,9 +150,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+
+    //todo init userSettings
+    _macGuarderHelper = [[MacGuarderHelper alloc] initWithSettings:self.userSettings];
+    self.bluetoothListener = [[BluetoothListener alloc] initWithSettings:self.userSettings];
+    self.bluetoothListener.delegate = self;
+
     manager = [[CBPeripheralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 1)];
-    
-    [MacGuarderHelper lock];
+
     //* By BLE
     self.btSelectDevice.Enabled = YES;
     self.btSaveDevice.Enabled = NO;
@@ -241,10 +255,10 @@
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveWriteRequests:(NSArray *)requests{
     for (CBATTRequest *aReq in requests){
         NSLog([[NSString alloc]initWithData:aReq.value encoding:NSUTF8StringEncoding]);
-        if(![MacGuarderHelper isScreenLocked]){
-            [MacGuarderHelper lock];
+        if(![_macGuarderHelper isScreenLocked]){
+            [_macGuarderHelper lock];
         }else{
-            [MacGuarderHelper unlock];
+            [_macGuarderHelper unlock];
         }
         [peripheral respondToRequest:aReq withResult:CBATTErrorSuccess];
     }
@@ -317,5 +331,10 @@ didSubscribeToCharacteristic: (CBCharacteristic *)characteristic12 {
     }
     return data;
 }
+
+- (void)makeAction:(id)sender {
+
+}
+
 
 @end

@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 
-@interface MainViewController : NSObject
+@interface MainViewController : UIViewController <CBCentralManagerDelegate,CBPeripheralDelegate>{
+    CBCentralManager *centmanager;
+    CBPeripheral *aCperipheral;
+}
+
+@property (weak, nonatomic) IBOutlet UIButton *sendBtn;
+
+-(IBAction)clickToSend:(id)sender;
+
 
 @end

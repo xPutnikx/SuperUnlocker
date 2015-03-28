@@ -26,7 +26,7 @@ typedef NS_ENUM(NSUInteger, DeviceType)
 
 typedef void (^IGRUserDefaultsBluetoothData)(NSData *bluetoothData);
 
-@interface IGRUserDefaults : NSObject
+@interface GuarderUserDefaults : NSObject
 
 @property (nonatomic, assign) BOOL bEnableStartup;
 @property (nonatomic, assign) BOOL bUseIconOnMainMenu;

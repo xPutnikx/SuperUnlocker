@@ -6,7 +6,7 @@
 //
 //
 
-#import "IGRUserDefaults.h"
+#import "GuarderUserDefaults.h"
 
 NSString *kEnableStartup                    = @"EnableStartup";
 NSString *kGlobalHotKey                     = @"LockMeNowHotKey";
@@ -25,13 +25,13 @@ NSString *kSendPhotoOnIncorrectPasword      = @"SendPhotoOnIncorrectPasword";
 NSString *kIncorrectPaswordMail             = @"IncorrectPaswordMail";
 NSString *kSendLocationOnIncorrectPasword   = @"SendLocationOnIncorrectPasword";
 
-@interface IGRUserDefaults ()
+@interface GuarderUserDefaults ()
 
 @property (nonatomic, strong) NSUserDefaults *defaults;
 
 @end
 
-@implementation IGRUserDefaults
+@implementation GuarderUserDefaults
 
 - (void)initialize
 {
