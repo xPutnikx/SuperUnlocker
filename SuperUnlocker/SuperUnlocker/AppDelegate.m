@@ -21,7 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.motionDetector = [[MotionDetector alloc] init];
-    [self.motionDetector start];
+    [self.motionDetector start];//test
     return YES;
 }
 
