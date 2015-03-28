@@ -10,15 +10,8 @@
 @class SFAuthorizationView;
 
 
-@interface PeripheralViewController : UIViewController//<CBPeripheralManagerDelegate>
-{
-    CBPeripheralManager *manager;
-    CBMutableCharacteristic *characteristic;
-    CBMutableCharacteristic *characteristic1;
-    CBMutableCharacteristic *characteristic2;
-    CBMutableService *servicea;
-    NSData *mainData;
-    NSString *range;
+@interface PeripheralViewController : UIViewController
 
-}
+- (IBAction)sendPush:(id)sender;
+
 @end

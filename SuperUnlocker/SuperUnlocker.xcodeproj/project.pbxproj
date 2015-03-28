@@ -15,12 +15,10 @@
 		8278342F1ABF1AEA006F5A63 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		828D0D551ABDAA96002BEFC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D541ABDAA96002BEFC9 /* main.m */; };
 		828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D571ABDAA96002BEFC9 /* AppDelegate.m */; };
-		828D0D5B1ABDAA96002BEFC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D5A1ABDAA96002BEFC9 /* ViewController.m */; };
 		828D0D5E1ABDAA96002BEFC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 828D0D5C1ABDAA96002BEFC9 /* Main.storyboard */; };
 		828D0D601ABDAA96002BEFC9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 828D0D5F1ABDAA96002BEFC9 /* Images.xcassets */; };
 		828D0D631ABDAA96002BEFC9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828D0D611ABDAA96002BEFC9 /* LaunchScreen.xib */; };
 		828D0D6F1ABDAA96002BEFC9 /* SuperUnlockerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D6E1ABDAA96002BEFC9 /* SuperUnlockerTests.m */; };
-		828D0D7C1ABDAE4F002BEFC9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D7B1ABDAE4F002BEFC9 /* MainViewController.m */; };
 		82A6AFF51AC5C8B700EC00C7 /* MacGuarderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6AFF41AC5C8B700EC00C7 /* MacGuarderTests.m */; };
 		82A6B0301AC5CAA500EC00C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B01B1AC5CAA500EC00C7 /* MainMenu.xib */; };
 		82A6B0311AC5CAA500EC00C7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */; };
@@ -90,16 +88,12 @@
 		828D0D541ABDAA96002BEFC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		828D0D561ABDAA96002BEFC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		828D0D571ABDAA96002BEFC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		828D0D591ABDAA96002BEFC9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		828D0D5A1ABDAA96002BEFC9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		828D0D5D1ABDAA96002BEFC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		828D0D5F1ABDAA96002BEFC9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		828D0D5F1ABDAA96002BEFC9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		828D0D621ABDAA96002BEFC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		828D0D681ABDAA96002BEFC9 /* SuperUnlockerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuperUnlockerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		828D0D6D1ABDAA96002BEFC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		828D0D6E1ABDAA96002BEFC9 /* SuperUnlockerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperUnlockerTests.m; sourceTree = "<group>"; };
-		828D0D7A1ABDAE4F002BEFC9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		828D0D7B1ABDAE4F002BEFC9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		82A6AFD91AC5C8B700EC00C7 /* MacGuarder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacGuarder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A6AFEE1AC5C8B700EC00C7 /* MacGuarderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacGuarderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A6AFF31AC5C8B700EC00C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -251,22 +245,17 @@
 		828D0D511ABDAA96002BEFC9 /* SuperUnlocker */ = {
 			isa = PBXGroup;
 			children = (
+				A1A352601AC6BF3B002EC254 /* Inputs */,
 				828D0D561ABDAA96002BEFC9 /* AppDelegate.h */,
 				828D0D571ABDAA96002BEFC9 /* AppDelegate.m */,
-				828D0D5F1ABDAA96002BEFC9 /* Images.xcassets */,
-				A1A352601AC6BF3B002EC254 /* Inputs */,
-				828D0D611ABDAA96002BEFC9 /* LaunchScreen.xib */,
-				828D0D5C1ABDAA96002BEFC9 /* Main.storyboard */,
-				828D0D7A1ABDAE4F002BEFC9 /* MainViewController.h */,
-				828D0D7B1ABDAE4F002BEFC9 /* MainViewController.m */,
 				B4D7ABDA58345C84CB1FC713 /* PeripheralViewController.h */,
 				B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */,
-				A1A352661AC6C694002EC254 /* Resources */,
-				828D0D521ABDAA96002BEFC9 /* Supporting Files */,
-				828D0D591ABDAA96002BEFC9 /* ViewController.h */,
-				828D0D5A1ABDAA96002BEFC9 /* ViewController.m */,
 				A1F28E8A1AC6FB1300C6D876 /* Peripheral.h */,
 				A1F28E8B1AC6FB1300C6D876 /* Peripheral.m */,
+				828D0D611ABDAA96002BEFC9 /* LaunchScreen.xib */,
+				828D0D5C1ABDAA96002BEFC9 /* Main.storyboard */,
+				A1A352661AC6C694002EC254 /* Resources */,
+				828D0D521ABDAA96002BEFC9 /* Supporting Files */,
 			);
 			path = SuperUnlocker;
 			sourceTree = "<group>";
@@ -382,6 +371,7 @@
 		A1A352661AC6C694002EC254 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				828D0D5F1ABDAA96002BEFC9 /* Images.xcassets */,
 				A1A352691AC6C854002EC254 /* silence.caf */,
 				A1A352671AC6C694002EC254 /* sound.caf */,
 			);
@@ -607,12 +597,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */,
-				828D0D5B1ABDAA96002BEFC9 /* ViewController.m in Sources */,
 				A1F28E901AC6FBED00C6D876 /* CommonConstants.m in Sources */,
 				828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */,
 				A1F28E8C1AC6FB1300C6D876 /* Peripheral.m in Sources */,
 				828D0D551ABDAA96002BEFC9 /* main.m in Sources */,
-				828D0D7C1ABDAE4F002BEFC9 /* MainViewController.m in Sources */,
 				B4D7A905E0222A394B729A81 /* PeripheralViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
