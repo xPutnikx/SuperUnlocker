@@ -41,6 +41,7 @@
 		A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A352621AC6BF59002EC254 /* MotionDetector.m */; };
 		A1A352651AC6C527002EC254 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A352641AC6C527002EC254 /* AVFoundation.framework */; };
 		A1A352681AC6C694002EC254 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352671AC6C694002EC254 /* sound.caf */; };
+		A1A3526A1AC6C854002EC254 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352691AC6C854002EC254 /* silence.caf */; };
 		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		A1A352621AC6BF59002EC254 /* MotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionDetector.m; sourceTree = "<group>"; };
 		A1A352641AC6C527002EC254 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A1A352671AC6C694002EC254 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
+		A1A352691AC6C854002EC254 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
 		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
 		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
 		E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -382,6 +384,7 @@
 		A1A352661AC6C694002EC254 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1A352691AC6C854002EC254 /* silence.caf */,
 				A1A352671AC6C694002EC254 /* sound.caf */,
 			);
 			path = Resources;
@@ -523,6 +526,7 @@
 				828D0D631ABDAA96002BEFC9 /* LaunchScreen.xib in Resources */,
 				A1A352681AC6C694002EC254 /* sound.caf in Resources */,
 				828D0D601ABDAA96002BEFC9 /* Images.xcassets in Resources */,
+				A1A3526A1AC6C854002EC254 /* silence.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
