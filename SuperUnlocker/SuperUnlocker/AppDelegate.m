@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "DDLog.h"
 
 @interface AppDelegate ()
 

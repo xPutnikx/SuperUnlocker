@@ -7,14 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8278340D1ABE8B9A006F5A63 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8278340C1ABE8B9A006F5A63 /* InterfaceController.m */; };
-		827834101ABE8B9A006F5A63 /* NotificationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8278340F1ABE8B9A006F5A63 /* NotificationController.m */; };
-		827834131ABE8B9A006F5A63 /* GlanceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 827834121ABE8B9A006F5A63 /* GlanceController.m */; };
-		827834151ABE8B9A006F5A63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827834141ABE8B9A006F5A63 /* Images.xcassets */; };
-		827834191ABE8B9A006F5A63 /* SuperUnlocker WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 827834181ABE8B9A006F5A63 /* SuperUnlocker WatchKit App.app */; };
-		827834211ABE8B9A006F5A63 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8278341F1ABE8B9A006F5A63 /* Interface.storyboard */; };
-		827834231ABE8B9A006F5A63 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827834221ABE8B9A006F5A63 /* Images.xcassets */; };
-		827834261ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 827834061ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0531AC6859800EE17D9 /* BluetoothListener.m */; };
+		8215D0591AC68A1700EE17D9 /* DeviceKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0571AC68A1700EE17D9 /* DeviceKeeper.m */; };
+		8215D05A1AC68A1700EE17D9 /* DeviceTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0581AC68A1700EE17D9 /* DeviceTracker.m */; };
+		8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */; };
+		8215D0611AC68AF900EE17D9 /* IGRUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0601AC68AF900EE17D9 /* IGRUserDefaults.m */; };
+		821E569B1AC5CCC9000515A5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569A1AC5CCC9000515A5 /* CoreBluetooth.framework */; };
+		821E569E1AC5CCD3000515A5 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */; };
+		821E569F1AC5CCD3000515A5 /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */; };
+		821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */; };
+		821E56A31AC5CCE2000515A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A21AC5CCE2000515A5 /* Cocoa.framework */; };
+		821E56A51AC5CF3F000515A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A41AC5CF3F000515A5 /* libPods.a */; };
+		821E56A61AC5CFC7000515A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A41AC5CF3F000515A5 /* libPods.a */; };
+		821E56AB1AC5F129000515A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 821E56AA1AC5F129000515A5 /* main.m */; };
+		8278342F1ABF1AEA006F5A63 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		828D0D551ABDAA96002BEFC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D541ABDAA96002BEFC9 /* main.m */; };
 		828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D571ABDAA96002BEFC9 /* AppDelegate.m */; };
 		828D0D5B1ABDAA96002BEFC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D5A1ABDAA96002BEFC9 /* ViewController.m */; };
@@ -23,29 +29,33 @@
 		828D0D631ABDAA96002BEFC9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828D0D611ABDAA96002BEFC9 /* LaunchScreen.xib */; };
 		828D0D6F1ABDAA96002BEFC9 /* SuperUnlockerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D6E1ABDAA96002BEFC9 /* SuperUnlockerTests.m */; };
 		828D0D7C1ABDAE4F002BEFC9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D7B1ABDAE4F002BEFC9 /* MainViewController.m */; };
+		82A6AFF51AC5C8B700EC00C7 /* MacGuarderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6AFF41AC5C8B700EC00C7 /* MacGuarderTests.m */; };
+		82A6B0301AC5CAA500EC00C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B01B1AC5CAA500EC00C7 /* MainMenu.xib */; };
+		82A6B0311AC5CAA500EC00C7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */; };
+		82A6B0321AC5CAA500EC00C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B0201AC5CAA500EC00C7 /* InfoPlist.strings */; };
+		82A6B0331AC5CAA500EC00C7 /* MacGuarderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */; };
+		82A6B0341AC5CAA500EC00C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B0251AC5CAA500EC00C7 /* Images.xcassets */; };
+		82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */; };
+		82A6B03A1AC5CAA500EC00C7 /* RSSISmootheningFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B02B1AC5CAA500EC00C7 /* RSSISmootheningFilter.m */; };
+		82A6B03B1AC5CAA500EC00C7 /* DevicesConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02D1AC5CAA500EC00C7 /* DevicesConfig.plist */; };
+		82A6B03C1AC5CAA500EC00C7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02E1AC5CAA500EC00C7 /* Info.plist */; };
+		82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8278341A1ABE8B9A006F5A63 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 828D0D471ABDAA96002BEFC9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 827834171ABE8B9A006F5A63;
-			remoteInfo = "SuperUnlocker WatchKit App";
-		};
-		827834241ABE8B9A006F5A63 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 828D0D471ABDAA96002BEFC9 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 827834051ABE8B9A006F5A63;
-			remoteInfo = "SuperUnlocker WatchKit Extension";
-		};
 		828D0D691ABDAA96002BEFC9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 828D0D471ABDAA96002BEFC9 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 828D0D4E1ABDAA96002BEFC9;
 			remoteInfo = SuperUnlocker;
+		};
+		82A6AFEF1AC5C8B700EC00C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 828D0D471ABDAA96002BEFC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82A6AFD81AC5C8B700EC00C7;
+			remoteInfo = MacGuarder;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -56,7 +66,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				827834261ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,20 +73,30 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		827834061ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SuperUnlocker WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		827834091ABE8B9A006F5A63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8278340A1ABE8B9A006F5A63 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		8278340B1ABE8B9A006F5A63 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
-		8278340C1ABE8B9A006F5A63 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
-		8278340E1ABE8B9A006F5A63 /* NotificationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationController.h; sourceTree = "<group>"; };
-		8278340F1ABE8B9A006F5A63 /* NotificationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationController.m; sourceTree = "<group>"; };
-		827834111ABE8B9A006F5A63 /* GlanceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlanceController.h; sourceTree = "<group>"; };
-		827834121ABE8B9A006F5A63 /* GlanceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlanceController.m; sourceTree = "<group>"; };
-		827834141ABE8B9A006F5A63 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		827834181ABE8B9A006F5A63 /* SuperUnlocker WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SuperUnlocker WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8278341E1ABE8B9A006F5A63 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		827834201ABE8B9A006F5A63 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		827834221ABE8B9A006F5A63 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0C8D147E7ED0A3BBCFC367BC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8215D0521AC6859800EE17D9 /* BluetoothListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothListener.h; sourceTree = "<group>"; };
+		8215D0531AC6859800EE17D9 /* BluetoothListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothListener.m; sourceTree = "<group>"; };
+		8215D0551AC68A1700EE17D9 /* DeviceKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceKeeper.h; path = Device/DeviceKeeper.h; sourceTree = "<group>"; };
+		8215D0561AC68A1700EE17D9 /* DeviceTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceTracker.h; path = Device/DeviceTracker.h; sourceTree = "<group>"; };
+		8215D0571AC68A1700EE17D9 /* DeviceKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceKeeper.m; path = Device/DeviceKeeper.m; sourceTree = "<group>"; };
+		8215D0581AC68A1700EE17D9 /* DeviceTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceTracker.m; path = Device/DeviceTracker.m; sourceTree = "<group>"; };
+		8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerManager.h; sourceTree = "<group>"; };
+		8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerManager.m; sourceTree = "<group>"; };
+		8215D05F1AC68AF900EE17D9 /* IGRUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGRUserDefaults.h; sourceTree = "<group>"; };
+		8215D0601AC68AF900EE17D9 /* IGRUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGRUserDefaults.m; sourceTree = "<group>"; };
+		821E56921AC5CBE0000515A5 /* libPods-CocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CocoaLumberjack.a"; path = "Pods/../build/Debug/libPods-CocoaLumberjack.a"; sourceTree = "<group>"; };
+		821E56931AC5CBE0000515A5 /* libPods-MacGuarder-CocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MacGuarder-CocoaLumberjack.a"; path = "Pods/../build/Debug/libPods-MacGuarder-CocoaLumberjack.a"; sourceTree = "<group>"; };
+		821E56941AC5CBE0000515A5 /* libPods-MacGuarder.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MacGuarder.a"; path = "Pods/../build/Debug/libPods-MacGuarder.a"; sourceTree = "<group>"; };
+		821E56951AC5CBE0000515A5 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = Pods/../build/Debug/libPods.a; sourceTree = "<group>"; };
+		821E569A1AC5CCC9000515A5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = DEVELOPER_DIR; };
+		821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/SecurityInterface.framework; sourceTree = DEVELOPER_DIR; };
+		821E56A21AC5CCE2000515A5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		821E56A41AC5CF3F000515A5 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = DerivedData/Build/Products/Debug/libPods.a; sourceTree = "<group>"; };
+		821E56A71AC5CFCD000515A5 /* libPods-SuperUnlocker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SuperUnlocker.a"; path = "Pods/../build/Debug/libPods-SuperUnlocker.a"; sourceTree = "<group>"; };
+		821E56AA1AC5F129000515A5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		828D0D4F1ABDAA96002BEFC9 /* SuperUnlocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperUnlocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828D0D531ABDAA96002BEFC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		828D0D541ABDAA96002BEFC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -93,20 +112,35 @@
 		828D0D6E1ABDAA96002BEFC9 /* SuperUnlockerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperUnlockerTests.m; sourceTree = "<group>"; };
 		828D0D7A1ABDAE4F002BEFC9 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		828D0D7B1ABDAE4F002BEFC9 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		82A6AFD91AC5C8B700EC00C7 /* MacGuarder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacGuarder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		82A6AFEE1AC5C8B700EC00C7 /* MacGuarderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MacGuarderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		82A6AFF31AC5C8B700EC00C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82A6AFF41AC5C8B700EC00C7 /* MacGuarderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MacGuarderTests.m; sourceTree = "<group>"; };
+		82A6B0151AC5CAA500EC00C7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		82A6B0191AC5CAA500EC00C7 /* RSSISmootheningFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSISmootheningFilter.h; sourceTree = "<group>"; };
+		82A6B01C1AC5CAA500EC00C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MainMenu.xib; sourceTree = "<group>"; };
+		82A6B01F1AC5CAA500EC00C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = Credits.rtf; sourceTree = "<group>"; };
+		82A6B0211AC5CAA500EC00C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
+		82A6B0231AC5CAA500EC00C7 /* MacGuarderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacGuarderHelper.h; sourceTree = "<group>"; };
+		82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacGuarderHelper.m; sourceTree = "<group>"; };
+		82A6B0251AC5CAA500EC00C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		82A6B02B1AC5CAA500EC00C7 /* RSSISmootheningFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSISmootheningFilter.m; sourceTree = "<group>"; };
+		82A6B02C1AC5CAA500EC00C7 /* MacGuarder-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MacGuarder-Prefix.pch"; sourceTree = "<group>"; };
+		82A6B02D1AC5CAA500EC00C7 /* DevicesConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DevicesConfig.plist; sourceTree = "<group>"; };
+		82A6B02E1AC5CAA500EC00C7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
+		E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		EF65A6DF2460593F9584962F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		827834031ABE8B9A006F5A63 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		828D0D4C1ABDAA96002BEFC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				821E56A61AC5CFC7000515A5 /* libPods.a in Frameworks */,
+				8278342F1ABF1AEA006F5A63 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,59 +151,99 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		82A6AFD61AC5C8B700EC00C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				821E56A51AC5CF3F000515A5 /* libPods.a in Frameworks */,
+				821E56A31AC5CCE2000515A5 /* Cocoa.framework in Frameworks */,
+				821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */,
+				821E569E1AC5CCD3000515A5 /* IOBluetooth.framework in Frameworks */,
+				821E569F1AC5CCD3000515A5 /* IOBluetoothUI.framework in Frameworks */,
+				821E569B1AC5CCC9000515A5 /* CoreBluetooth.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82A6AFEB1AC5C8B700EC00C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		827834071ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension */ = {
+		105506A3A3B4734CB3BC6E68 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8278340B1ABE8B9A006F5A63 /* InterfaceController.h */,
-				8278340C1ABE8B9A006F5A63 /* InterfaceController.m */,
-				8278340E1ABE8B9A006F5A63 /* NotificationController.h */,
-				8278340F1ABE8B9A006F5A63 /* NotificationController.m */,
-				827834111ABE8B9A006F5A63 /* GlanceController.h */,
-				827834121ABE8B9A006F5A63 /* GlanceController.m */,
-				827834141ABE8B9A006F5A63 /* Images.xcassets */,
-				827834081ABE8B9A006F5A63 /* Supporting Files */,
+				E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */,
+				EF65A6DF2460593F9584962F /* Pods.release.xcconfig */,
 			);
-			path = "SuperUnlocker WatchKit Extension";
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		827834081ABE8B9A006F5A63 /* Supporting Files */ = {
+		1ACA95C07774A9D38332359C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				827834091ABE8B9A006F5A63 /* Info.plist */,
-				8278340A1ABE8B9A006F5A63 /* PushNotificationPayload.apns */,
+				821E56A71AC5CFCD000515A5 /* libPods-SuperUnlocker.a */,
+				821E56A41AC5CF3F000515A5 /* libPods.a */,
+				821E56A21AC5CCE2000515A5 /* Cocoa.framework */,
+				821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */,
+				821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */,
+				821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */,
+				821E569A1AC5CCC9000515A5 /* CoreBluetooth.framework */,
+				821E56921AC5CBE0000515A5 /* libPods-CocoaLumberjack.a */,
+				821E56931AC5CBE0000515A5 /* libPods-MacGuarder-CocoaLumberjack.a */,
+				821E56941AC5CBE0000515A5 /* libPods-MacGuarder.a */,
+				821E56951AC5CBE0000515A5 /* libPods.a */,
+				0C8D147E7ED0A3BBCFC367BC /* libPods.a */,
 			);
-			name = "Supporting Files";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8278341C1ABE8B9A006F5A63 /* SuperUnlocker WatchKit App */ = {
+		8215D0511AC6859800EE17D9 /* Listeners */ = {
 			isa = PBXGroup;
 			children = (
-				8278341F1ABE8B9A006F5A63 /* Interface.storyboard */,
-				827834221ABE8B9A006F5A63 /* Images.xcassets */,
-				8278341D1ABE8B9A006F5A63 /* Supporting Files */,
+				8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */,
+				8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */,
+				8215D0521AC6859800EE17D9 /* BluetoothListener.h */,
+				8215D0531AC6859800EE17D9 /* BluetoothListener.m */,
 			);
-			path = "SuperUnlocker WatchKit App";
+			path = Listeners;
 			sourceTree = "<group>";
 		};
-		8278341D1ABE8B9A006F5A63 /* Supporting Files */ = {
+		8215D05E1AC68AF900EE17D9 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				8278341E1ABE8B9A006F5A63 /* Info.plist */,
+				8215D05F1AC68AF900EE17D9 /* IGRUserDefaults.h */,
+				8215D0601AC68AF900EE17D9 /* IGRUserDefaults.m */,
 			);
-			name = "Supporting Files";
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		821E56A91AC5EF00000515A5 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				8215D0551AC68A1700EE17D9 /* DeviceKeeper.h */,
+				8215D0561AC68A1700EE17D9 /* DeviceTracker.h */,
+				8215D0571AC68A1700EE17D9 /* DeviceKeeper.m */,
+				8215D0581AC68A1700EE17D9 /* DeviceTracker.m */,
+			);
+			name = Device;
 			sourceTree = "<group>";
 		};
 		828D0D461ABDAA96002BEFC9 = {
 			isa = PBXGroup;
 			children = (
+				8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */,
 				828D0D511ABDAA96002BEFC9 /* SuperUnlocker */,
 				828D0D6B1ABDAA96002BEFC9 /* SuperUnlockerTests */,
-				827834071ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension */,
-				8278341C1ABE8B9A006F5A63 /* SuperUnlocker WatchKit App */,
+				82A6AFDA1AC5C8B700EC00C7 /* MacGuarder */,
+				82A6AFF11AC5C8B700EC00C7 /* MacGuarderTests */,
 				828D0D501ABDAA96002BEFC9 /* Products */,
+				105506A3A3B4734CB3BC6E68 /* Pods */,
+				1ACA95C07774A9D38332359C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -178,8 +252,8 @@
 			children = (
 				828D0D4F1ABDAA96002BEFC9 /* SuperUnlocker.app */,
 				828D0D681ABDAA96002BEFC9 /* SuperUnlockerTests.xctest */,
-				827834061ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension.appex */,
-				827834181ABE8B9A006F5A63 /* SuperUnlocker WatchKit App.app */,
+				82A6AFD91AC5C8B700EC00C7 /* MacGuarder.app */,
+				82A6AFEE1AC5C8B700EC00C7 /* MacGuarderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,55 +301,97 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		82A6AFDA1AC5C8B700EC00C7 /* MacGuarder */ = {
+			isa = PBXGroup;
+			children = (
+				8215D05E1AC68AF900EE17D9 /* UserDefaults */,
+				8215D0511AC6859800EE17D9 /* Listeners */,
+				821E56A91AC5EF00000515A5 /* Device */,
+				82A6B0151AC5CAA500EC00C7 /* AppDelegate.h */,
+				82A6B0191AC5CAA500EC00C7 /* RSSISmootheningFilter.h */,
+				82A6B01A1AC5CAA500EC00C7 /* Base.lproj */,
+				82A6B01D1AC5CAA500EC00C7 /* en.lproj */,
+				82A6B0221AC5CAA500EC00C7 /* Helper */,
+				82A6B0251AC5CAA500EC00C7 /* Images.xcassets */,
+				82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */,
+				82A6B02B1AC5CAA500EC00C7 /* RSSISmootheningFilter.m */,
+				82A6B02D1AC5CAA500EC00C7 /* DevicesConfig.plist */,
+				82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */,
+				82A6AFDB1AC5C8B700EC00C7 /* Supporting Files */,
+			);
+			path = MacGuarder;
+			sourceTree = "<group>";
+		};
+		82A6AFDB1AC5C8B700EC00C7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				82A6B02C1AC5CAA500EC00C7 /* MacGuarder-Prefix.pch */,
+				82A6B02E1AC5CAA500EC00C7 /* Info.plist */,
+				821E56AA1AC5F129000515A5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		82A6AFF11AC5C8B700EC00C7 /* MacGuarderTests */ = {
+			isa = PBXGroup;
+			children = (
+				82A6AFF41AC5C8B700EC00C7 /* MacGuarderTests.m */,
+				82A6AFF21AC5C8B700EC00C7 /* Supporting Files */,
+			);
+			path = MacGuarderTests;
+			sourceTree = "<group>";
+		};
+		82A6AFF21AC5C8B700EC00C7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				82A6AFF31AC5C8B700EC00C7 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		82A6B01A1AC5CAA500EC00C7 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				82A6B01B1AC5CAA500EC00C7 /* MainMenu.xib */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		82A6B01D1AC5CAA500EC00C7 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */,
+				82A6B0201AC5CAA500EC00C7 /* InfoPlist.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		82A6B0221AC5CAA500EC00C7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				82A6B0231AC5CAA500EC00C7 /* MacGuarderHelper.h */,
+				82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		827834051ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8278342C1ABE8B9A006F5A63 /* Build configuration list for PBXNativeTarget "SuperUnlocker WatchKit Extension" */;
-			buildPhases = (
-				827834021ABE8B9A006F5A63 /* Sources */,
-				827834031ABE8B9A006F5A63 /* Frameworks */,
-				827834041ABE8B9A006F5A63 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8278341B1ABE8B9A006F5A63 /* PBXTargetDependency */,
-			);
-			name = "SuperUnlocker WatchKit Extension";
-			productName = "SuperUnlocker WatchKit Extension";
-			productReference = 827834061ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit-extension";
-		};
-		827834171ABE8B9A006F5A63 /* SuperUnlocker WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8278342B1ABE8B9A006F5A63 /* Build configuration list for PBXNativeTarget "SuperUnlocker WatchKit App" */;
-			buildPhases = (
-				827834161ABE8B9A006F5A63 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "SuperUnlocker WatchKit App";
-			productName = "SuperUnlocker WatchKit App";
-			productReference = 827834181ABE8B9A006F5A63 /* SuperUnlocker WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp";
-		};
 		828D0D4E1ABDAA96002BEFC9 /* SuperUnlocker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 828D0D721ABDAA96002BEFC9 /* Build configuration list for PBXNativeTarget "SuperUnlocker" */;
 			buildPhases = (
+				B6FF3CE0D58C355E4C7570F4 /* Check Pods Manifest.lock */,
 				828D0D4B1ABDAA96002BEFC9 /* Sources */,
 				828D0D4C1ABDAA96002BEFC9 /* Frameworks */,
 				828D0D4D1ABDAA96002BEFC9 /* Resources */,
 				8278342D1ABE8B9A006F5A63 /* Embed App Extensions */,
+				AB80FB0BEAA3C82D43D23D0D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				827834251ABE8B9A006F5A63 /* PBXTargetDependency */,
 			);
 			name = SuperUnlocker;
 			productName = SuperUnlocker;
@@ -300,6 +416,41 @@
 			productReference = 828D0D681ABDAA96002BEFC9 /* SuperUnlockerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		82A6AFD81AC5C8B700EC00C7 /* MacGuarder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82A6AFF61AC5C8B700EC00C7 /* Build configuration list for PBXNativeTarget "MacGuarder" */;
+			buildPhases = (
+				82A6AFD51AC5C8B700EC00C7 /* Sources */,
+				82A6AFD61AC5C8B700EC00C7 /* Frameworks */,
+				82A6AFD71AC5C8B700EC00C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacGuarder;
+			productName = MacGuarder;
+			productReference = 82A6AFD91AC5C8B700EC00C7 /* MacGuarder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		82A6AFED1AC5C8B700EC00C7 /* MacGuarderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 82A6AFF91AC5C8B700EC00C7 /* Build configuration list for PBXNativeTarget "MacGuarderTests" */;
+			buildPhases = (
+				82A6AFEA1AC5C8B700EC00C7 /* Sources */,
+				82A6AFEB1AC5C8B700EC00C7 /* Frameworks */,
+				82A6AFEC1AC5C8B700EC00C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				82A6AFF01AC5C8B700EC00C7 /* PBXTargetDependency */,
+			);
+			name = MacGuarderTests;
+			productName = MacGuarderTests;
+			productReference = 82A6AFEE1AC5C8B700EC00C7 /* MacGuarderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -309,19 +460,19 @@
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = ProductDevBy;
 				TargetAttributes = {
-					827834051ABE8B9A006F5A63 = {
-						CreatedOnToolsVersion = 6.2;
-					};
-					827834171ABE8B9A006F5A63 = {
-						CreatedOnToolsVersion = 6.2;
-					};
 					828D0D4E1ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = Q9XAZK223S;
 					};
 					828D0D671ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 828D0D4E1ABDAA96002BEFC9;
+					};
+					82A6AFD81AC5C8B700EC00C7 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					82A6AFED1AC5C8B700EC00C7 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 82A6AFD81AC5C8B700EC00C7;
 					};
 				};
 			};
@@ -340,31 +491,13 @@
 			targets = (
 				828D0D4E1ABDAA96002BEFC9 /* SuperUnlocker */,
 				828D0D671ABDAA96002BEFC9 /* SuperUnlockerTests */,
-				827834051ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension */,
-				827834171ABE8B9A006F5A63 /* SuperUnlocker WatchKit App */,
+				82A6AFD81AC5C8B700EC00C7 /* MacGuarder */,
+				82A6AFED1AC5C8B700EC00C7 /* MacGuarderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		827834041ABE8B9A006F5A63 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				827834151ABE8B9A006F5A63 /* Images.xcassets in Resources */,
-				827834191ABE8B9A006F5A63 /* SuperUnlocker WatchKit App.app in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		827834161ABE8B9A006F5A63 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				827834211ABE8B9A006F5A63 /* Interface.storyboard in Resources */,
-				827834231ABE8B9A006F5A63 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		828D0D4D1ABDAA96002BEFC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,19 +515,63 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		827834021ABE8B9A006F5A63 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		82A6AFD71AC5C8B700EC00C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				827834101ABE8B9A006F5A63 /* NotificationController.m in Sources */,
-				8278340D1ABE8B9A006F5A63 /* InterfaceController.m in Sources */,
-				827834131ABE8B9A006F5A63 /* GlanceController.m in Sources */,
+				82A6B03B1AC5CAA500EC00C7 /* DevicesConfig.plist in Resources */,
+				82A6B0301AC5CAA500EC00C7 /* MainMenu.xib in Resources */,
+				82A6B0341AC5CAA500EC00C7 /* Images.xcassets in Resources */,
+				82A6B03C1AC5CAA500EC00C7 /* Info.plist in Resources */,
+				82A6B0321AC5CAA500EC00C7 /* InfoPlist.strings in Resources */,
+				82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */,
+				82A6B0311AC5CAA500EC00C7 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		82A6AFEC1AC5C8B700EC00C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB80FB0BEAA3C82D43D23D0D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6FF3CE0D58C355E4C7570F4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		828D0D4B1ABDAA96002BEFC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -414,35 +591,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		82A6AFD51AC5C8B700EC00C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82A6B0331AC5CAA500EC00C7 /* MacGuarderHelper.m in Sources */,
+				8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */,
+				8215D05A1AC68A1700EE17D9 /* DeviceTracker.m in Sources */,
+				82A6B03A1AC5CAA500EC00C7 /* RSSISmootheningFilter.m in Sources */,
+				8215D0591AC68A1700EE17D9 /* DeviceKeeper.m in Sources */,
+				8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */,
+				8215D0611AC68AF900EE17D9 /* IGRUserDefaults.m in Sources */,
+				821E56AB1AC5F129000515A5 /* main.m in Sources */,
+				82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		82A6AFEA1AC5C8B700EC00C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				82A6AFF51AC5C8B700EC00C7 /* MacGuarderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8278341B1ABE8B9A006F5A63 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 827834171ABE8B9A006F5A63 /* SuperUnlocker WatchKit App */;
-			targetProxy = 8278341A1ABE8B9A006F5A63 /* PBXContainerItemProxy */;
-		};
-		827834251ABE8B9A006F5A63 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 827834051ABE8B9A006F5A63 /* SuperUnlocker WatchKit Extension */;
-			targetProxy = 827834241ABE8B9A006F5A63 /* PBXContainerItemProxy */;
-		};
 		828D0D6A1ABDAA96002BEFC9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 828D0D4E1ABDAA96002BEFC9 /* SuperUnlocker */;
 			targetProxy = 828D0D691ABDAA96002BEFC9 /* PBXContainerItemProxy */;
 		};
+		82A6AFF01AC5C8B700EC00C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 82A6AFD81AC5C8B700EC00C7 /* MacGuarder */;
+			targetProxy = 82A6AFEF1AC5C8B700EC00C7 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8278341F1ABE8B9A006F5A63 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				827834201ABE8B9A006F5A63 /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
 		828D0D5C1ABDAA96002BEFC9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -459,63 +647,33 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		82A6B01B1AC5CAA500EC00C7 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82A6B01C1AC5CAA500EC00C7 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82A6B01F1AC5CAA500EC00C7 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		82A6B0201AC5CAA500EC00C7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				82A6B0211AC5CAA500EC00C7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		827834271ABE8B9A006F5A63 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SuperUnlocker WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		827834281ABE8B9A006F5A63 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "SuperUnlocker WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		827834291ABE8B9A006F5A63 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				IBSC_MODULE = SuperUnlocker_WatchKit_Extension;
-				INFOPLIST_FILE = "SuperUnlocker WatchKit App/Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
-			};
-			name = Debug;
-		};
-		8278342A1ABE8B9A006F5A63 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				IBSC_MODULE = SuperUnlocker_WatchKit_Extension;
-				INFOPLIST_FILE = "SuperUnlocker WatchKit App/Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = 4;
-				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
-			};
-			name = Release;
-		};
 		828D0D701ABDAA96002BEFC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -594,23 +752,37 @@
 		};
 		828D0D731ABDAA96002BEFC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SuperUnlocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		828D0D741ABDAA96002BEFC9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF65A6DF2460593F9584962F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SuperUnlocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Debug",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -648,25 +820,93 @@
 			};
 			name = Release;
 		};
+		82A6AFF71AC5C8B700EC00C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MacGuarder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Debug",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		82A6AFF81AC5C8B700EC00C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = MacGuarder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug",
+					"$(PROJECT_DIR)/DerivedData/Build/Products/Debug",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		82A6AFFA1AC5C8B700EC00C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MacGuarderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacGuarder.app/Contents/MacOS/MacGuarder";
+			};
+			name = Debug;
+		};
+		82A6AFFB1AC5C8B700EC00C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MacGuarderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MacGuarder.app/Contents/MacOS/MacGuarder";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8278342B1ABE8B9A006F5A63 /* Build configuration list for PBXNativeTarget "SuperUnlocker WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				827834291ABE8B9A006F5A63 /* Debug */,
-				8278342A1ABE8B9A006F5A63 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		8278342C1ABE8B9A006F5A63 /* Build configuration list for PBXNativeTarget "SuperUnlocker WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				827834271ABE8B9A006F5A63 /* Debug */,
-				827834281ABE8B9A006F5A63 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
 		828D0D4A1ABDAA96002BEFC9 /* Build configuration list for PBXProject "SuperUnlocker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -690,6 +930,24 @@
 			buildConfigurations = (
 				828D0D761ABDAA96002BEFC9 /* Debug */,
 				828D0D771ABDAA96002BEFC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		82A6AFF61AC5C8B700EC00C7 /* Build configuration list for PBXNativeTarget "MacGuarder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82A6AFF71AC5C8B700EC00C7 /* Debug */,
+				82A6AFF81AC5C8B700EC00C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		82A6AFF91AC5C8B700EC00C7 /* Build configuration list for PBXNativeTarget "MacGuarderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				82A6AFFA1AC5C8B700EC00C7 /* Debug */,
+				82A6AFFB1AC5C8B700EC00C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

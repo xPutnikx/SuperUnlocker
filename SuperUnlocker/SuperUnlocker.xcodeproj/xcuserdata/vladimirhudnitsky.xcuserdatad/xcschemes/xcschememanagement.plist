@@ -4,20 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Glance - SuperUnlocker WatchKit App.xcscheme</key>
+		<key>MacGuarder.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
-		<key>Notification - SuperUnlocker WatchKit App.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>SuperUnlocker WatchKit App.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>4</integer>
 		</dict>
 		<key>SuperUnlocker.xcscheme</key>
 		<dict>
@@ -38,6 +28,26 @@
 			<true/>
 		</dict>
 		<key>828D0D671ABDAA96002BEFC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82A6AFB71AC5C79500EC00C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82A6AFC61AC5C79500EC00C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82A6AFD81AC5C8B700EC00C7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>82A6AFED1AC5C8B700EC00C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
