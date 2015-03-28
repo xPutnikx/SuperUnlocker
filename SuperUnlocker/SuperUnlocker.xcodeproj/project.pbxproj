@@ -12,12 +12,10 @@
 		8215D05A1AC68A1700EE17D9 /* DeviceTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0581AC68A1700EE17D9 /* DeviceTracker.m */; };
 		8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */; };
 		8215D0611AC68AF900EE17D9 /* IGRUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0601AC68AF900EE17D9 /* IGRUserDefaults.m */; };
-		821E569B1AC5CCC9000515A5 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569A1AC5CCC9000515A5 /* CoreBluetooth.framework */; };
 		821E569E1AC5CCD3000515A5 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */; };
 		821E569F1AC5CCD3000515A5 /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */; };
 		821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */; };
 		821E56A31AC5CCE2000515A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A21AC5CCE2000515A5 /* Cocoa.framework */; };
-		821E56A51AC5CF3F000515A5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A41AC5CF3F000515A5 /* libPods.a */; };
 		821E56AB1AC5F129000515A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 821E56AA1AC5F129000515A5 /* main.m */; };
 		8278342F1ABF1AEA006F5A63 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		828D0D551ABDAA96002BEFC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D541ABDAA96002BEFC9 /* main.m */; };
@@ -39,6 +37,7 @@
 		82A6B03B1AC5CAA500EC00C7 /* DevicesConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02D1AC5CAA500EC00C7 /* DevicesConfig.plist */; };
 		82A6B03C1AC5CAA500EC00C7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02E1AC5CAA500EC00C7 /* Info.plist */; };
 		82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */; };
+		A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +71,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0C8D147E7ED0A3BBCFC367BC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8215D0521AC6859800EE17D9 /* BluetoothListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothListener.h; sourceTree = "<group>"; };
 		8215D0531AC6859800EE17D9 /* BluetoothListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothListener.m; sourceTree = "<group>"; };
 		8215D0551AC68A1700EE17D9 /* DeviceKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceKeeper.h; path = Device/DeviceKeeper.h; sourceTree = "<group>"; };
@@ -83,17 +81,10 @@
 		8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerManager.m; sourceTree = "<group>"; };
 		8215D05F1AC68AF900EE17D9 /* IGRUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGRUserDefaults.h; sourceTree = "<group>"; };
 		8215D0601AC68AF900EE17D9 /* IGRUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGRUserDefaults.m; sourceTree = "<group>"; };
-		821E56921AC5CBE0000515A5 /* libPods-CocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-CocoaLumberjack.a"; path = "Pods/../build/Debug/libPods-CocoaLumberjack.a"; sourceTree = "<group>"; };
-		821E56931AC5CBE0000515A5 /* libPods-MacGuarder-CocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MacGuarder-CocoaLumberjack.a"; path = "Pods/../build/Debug/libPods-MacGuarder-CocoaLumberjack.a"; sourceTree = "<group>"; };
-		821E56941AC5CBE0000515A5 /* libPods-MacGuarder.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-MacGuarder.a"; path = "Pods/../build/Debug/libPods-MacGuarder.a"; sourceTree = "<group>"; };
-		821E56951AC5CBE0000515A5 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = Pods/../build/Debug/libPods.a; sourceTree = "<group>"; };
-		821E569A1AC5CCC9000515A5 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = DEVELOPER_DIR; };
 		821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/SecurityInterface.framework; sourceTree = DEVELOPER_DIR; };
 		821E56A21AC5CCE2000515A5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
-		821E56A41AC5CF3F000515A5 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = DerivedData/Build/Products/Debug/libPods.a; sourceTree = "<group>"; };
-		821E56A71AC5CFCD000515A5 /* libPods-SuperUnlocker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-SuperUnlocker.a"; path = "Pods/../build/Debug/libPods-SuperUnlocker.a"; sourceTree = "<group>"; };
 		821E56AA1AC5F129000515A5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		828D0D4F1ABDAA96002BEFC9 /* SuperUnlocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperUnlocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,12 +144,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				821E56A51AC5CF3F000515A5 /* libPods.a in Frameworks */,
 				821E56A31AC5CCE2000515A5 /* Cocoa.framework in Frameworks */,
 				821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */,
 				821E569E1AC5CCD3000515A5 /* IOBluetooth.framework in Frameworks */,
 				821E569F1AC5CCD3000515A5 /* IOBluetoothUI.framework in Frameworks */,
-				821E569B1AC5CCC9000515A5 /* CoreBluetooth.framework in Frameworks */,
+				A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,18 +174,11 @@
 		1ACA95C07774A9D38332359C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				821E56A71AC5CFCD000515A5 /* libPods-SuperUnlocker.a */,
-				821E56A41AC5CF3F000515A5 /* libPods.a */,
+				8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */,
 				821E56A21AC5CCE2000515A5 /* Cocoa.framework */,
 				821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */,
 				821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */,
 				821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */,
-				821E569A1AC5CCC9000515A5 /* CoreBluetooth.framework */,
-				821E56921AC5CBE0000515A5 /* libPods-CocoaLumberjack.a */,
-				821E56931AC5CBE0000515A5 /* libPods-MacGuarder-CocoaLumberjack.a */,
-				821E56941AC5CBE0000515A5 /* libPods-MacGuarder.a */,
-				821E56951AC5CBE0000515A5 /* libPods.a */,
-				0C8D147E7ED0A3BBCFC367BC /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -234,7 +217,6 @@
 		828D0D461ABDAA96002BEFC9 = {
 			isa = PBXGroup;
 			children = (
-				8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */,
 				828D0D511ABDAA96002BEFC9 /* SuperUnlocker */,
 				828D0D6B1ABDAA96002BEFC9 /* SuperUnlockerTests */,
 				82A6AFDA1AC5C8B700EC00C7 /* MacGuarder */,
@@ -458,6 +440,7 @@
 				TargetAttributes = {
 					828D0D4E1ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = HAA7HHCXKP;
 					};
 					828D0D671ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
@@ -465,6 +448,7 @@
 					};
 					82A6AFD81AC5C8B700EC00C7 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = HAA7HHCXKP;
 					};
 					82A6AFED1AC5C8B700EC00C7 = {
 						CreatedOnToolsVersion = 6.2;
@@ -654,6 +638,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -695,6 +680,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -787,7 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -810,7 +796,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				INFOPLIST_FILE = MacGuarder/Info.plist;
@@ -830,6 +816,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -852,6 +839,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
