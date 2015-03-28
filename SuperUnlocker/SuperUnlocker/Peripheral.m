@@ -16,12 +16,10 @@
 @interface Peripheral ()<CBPeripheralManagerDelegate>
 
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
-@property (strong, nonatomic) CBMutableCharacteristic *transferCharacteristic;
-@property (strong, nonatomic) NSData *dataToSend;
-@property (nonatomic, readwrite) NSInteger sendDataIndex;
+@property (nonatomic, strong) NSMutableArray *subscribeCentrals;
 
 @property (nonatomic, strong) CBMutableCharacteristic *shouldLockCharacterestic;
-@property (nonatomic, strong) NSMutableArray *subscribeCentrals;
+@property (nonatomic, strong) CBMutableCharacteristic *onPowerCharacterestic;
 
 @end
 
@@ -39,6 +37,29 @@
     [self.peripheralManager updateValue:data forCharacteristic:self.shouldLockCharacterestic onSubscribedCentrals:self.subscribeCentrals];
 }
 
++ (instancetype)sharedInstance {
+    static Peripheral *peripheral = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        peripheral = [[Peripheral alloc] init];
+    });
+    return peripheral;
+}
+
+- (void)setOnPower:(BOOL)onPower {
+    if (self.isOnPower == onPower) {
+        return;
+    }
+    _onPower = onPower;
+    NSInteger i = self.isOnPower ? 1 : 0;
+    NSData *data = [NSData dataWithBytes:&i length: sizeof(i)];
+    [self.peripheralManager updateValue:data forCharacteristic:self.onPowerCharacterestic onSubscribedCentrals:self.subscribeCentrals];
+}
+
+- (void)disconnect {
+    self.onPower = NO;
+}
+
 - (instancetype)init {
     self = [super init];
     
@@ -52,19 +73,22 @@
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
     NSLog(@"0  peripheralManagerDidUpdateState");
-    if (peripheral.state != CBPeripheralManagerStatePoweredOn) {
-        return;
-    }
     
-    if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
-        CBUUID *serviceUuid = [CBUUID UUIDWithString:UnlockerServiceUuid];
-        CBMutableService *service = [[CBMutableService alloc] initWithType:serviceUuid primary:YES];
-        
-        CBUUID *shouldLockCharacteresticUuid = [CBUUID UUIDWithString:@"DA18"];
-        
-        self.shouldLockCharacterestic = [[CBMutableCharacteristic alloc] initWithType:shouldLockCharacteresticUuid properties:CBCharacteristicPropertyNotify value:nil permissions:CBAttributePermissionsReadable];
-        service.characteristics = @[self.shouldLockCharacterestic];
-        [self.peripheralManager addService:service];
+    switch (peripheral.state) {
+        case CBPeripheralManagerStatePoweredOn: {
+            CBUUID *serviceUuid = [CBUUID UUIDWithString:UnlockerServiceUuid];
+            CBMutableService *service = [[CBMutableService alloc] initWithType:serviceUuid primary:YES];
+            CBUUID *shouldLockCharacteresticUuid = [CBUUID UUIDWithString:ShouldLockCharacteristicUuid];
+            self.shouldLockCharacterestic = [[CBMutableCharacteristic alloc] initWithType:shouldLockCharacteresticUuid properties:CBCharacteristicPropertyNotify value:nil permissions:CBAttributePermissionsWriteable];
+            CBUUID *onPowerCharacteresticUuid = [CBUUID UUIDWithString:OnPowerCharacteristicUuid];
+            self.onPowerCharacterestic = [[CBMutableCharacteristic alloc] initWithType:onPowerCharacteresticUuid properties:CBCharacteristicPropertyNotify value:nil permissions:CBAttributePermissionsReadable];
+            service.characteristics = @[self.shouldLockCharacterestic, self.onPowerCharacterestic];
+            
+            [self.peripheralManager addService:service];
+            break;
+        }
+        default:
+            break;
     }
 }
 
@@ -82,7 +106,6 @@
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveReadRequest:(CBATTRequest *)request {
     NSLog(@"received read request");
-//    [peripheral respondToRequest:request withResult:CBATTErrorSuccess];
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveWriteRequests:(NSArray *)requests {
@@ -110,3 +133,4 @@
 }
 
 @end
+

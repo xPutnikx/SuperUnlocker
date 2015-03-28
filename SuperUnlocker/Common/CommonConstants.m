@@ -11,3 +11,4 @@
 
 NSString * const UnlockerServiceUuid = @"EBA38950-0D9B-4DBA-B0DF-BC7196DD44FC";
 NSString * const ShouldLockCharacteristicUuid = @"DA18";
+NSString * const OnPowerCharacteristicUuid = @"DA17";

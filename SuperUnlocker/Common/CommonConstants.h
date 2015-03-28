@@ -11,3 +11,4 @@
 
 extern NSString * const UnlockerServiceUuid;
 extern NSString * const ShouldLockCharacteristicUuid;//0 - don't lock,1 - lock
+extern NSString * const OnPowerCharacteristicUuid;
