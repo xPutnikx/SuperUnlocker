@@ -66,7 +66,9 @@ NSString *password = @"piupiu";
     }
 
 // use Apple Script to input password and unlock Mac
-    NSString *command = @"tell application \"System Events\" to keystroke \"%@\" \n tell application \"System Events\" to keystroke return";
+    NSString *command = @"tell application \"System Events\" to keystroke \"a\" using command down \n"
+            "tell application \"System Events\" to keystroke (ASCII character 8) \n"
+            "tell application \"System Events\" to keystroke \"%@\" \n tell application \"System Events\" to keystroke return";
 
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, password, nil]];
     [script executeAndReturnError:nil];
