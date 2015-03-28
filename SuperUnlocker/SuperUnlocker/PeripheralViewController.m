@@ -19,12 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.peripheral = [[Peripheral alloc] init];
+    self.peripheral = [Peripheral sharedInstance];
 }
 
 - (IBAction)sendPush:(id)sender {
     self.shouldLock = !self.shouldLock;
     self.peripheral.shouldLockMac = self.shouldLock;
+}
+
+- (IBAction)disconnect:(id)sender {
+    [self.peripheral disconnect];
 }
 
 @end

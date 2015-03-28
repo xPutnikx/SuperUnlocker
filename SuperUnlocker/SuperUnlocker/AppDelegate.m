@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MotionDetector.h"
+#import "Peripheral.h"
 
 
 @interface AppDelegate ()
@@ -23,6 +24,13 @@
     self.motionDetector = [[MotionDetector alloc] init];
     [self.motionDetector start];//test
     return YES;
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+//    UIBackgroundTaskIdentifier taskId = [application beginBackgroundTaskWithExpirationHandler:^{
+//        [[Peripheral sharedInstance] disconnect];
+//        [application endBackgroundTask:taskId];
+//    }];
 }
 
 @end
