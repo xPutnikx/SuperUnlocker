@@ -18,6 +18,7 @@
     CBCentralManager *centmanager;
     CBPeripheral *aCperipheral;
 }
+@property (weak) IBOutlet NSSecureTextField *passwordField;
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSButton *btSelectDevice;
@@ -25,10 +26,10 @@
 @property (weak) IBOutlet NSButton *btQuit;
 
 @property (weak) IBOutlet NSImageView	*bluetoothStatus;
-- (IBAction)changePassword:(id)sender;
 
 @property (nonatomic) GuarderUserDefaults *userSettings;
 @property (nonatomic) BluetoothListener *bluetoothListener;
 @property (nonatomic) MacGuarderHelper *macGuarderHelper;
+@property (nonatomic, strong) NSString* user;
 
 @end

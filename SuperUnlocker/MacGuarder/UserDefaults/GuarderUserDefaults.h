@@ -18,5 +18,6 @@ typedef void (^IGRUserDefaultsBluetoothData)(NSData *bluetoothData);
 
 - (void)loadUserSettings;
 - (void)saveUserSettingsWithBluetoothData:(NSData *)bluetoothData;
+- (void)savePass;
 
 @end

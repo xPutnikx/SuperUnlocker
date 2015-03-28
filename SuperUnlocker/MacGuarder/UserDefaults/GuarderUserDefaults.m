@@ -54,10 +54,11 @@ NSString *kUserPassword                     = @"UserPassword";
 	{
 		_bluetoothData = deviceAsData;
 	}
-	
+
+    _userPassword = [self.defaults stringForKey:kUserPassword];
 	// Monitoring enabled
 	_bMonitoringBluetooth = [self.defaults boolForKey:kBluetoothMonitoring];
-    _userPassword = [self.defaults stringForKey:kUserPassword];
+
 }
 
 - (void)saveUserSettingsWithBluetoothData:(NSData *)bluetoothData
@@ -71,11 +72,14 @@ NSString *kUserPassword                     = @"UserPassword";
 	{
 		[self.defaults setObject:bluetoothData forKey:kBluetoothDevice];
 	}
-
-    //password
-    [self.defaults setObject:_userPassword forKey:kUserPassword];
 	
 	[self.defaults synchronize];
+}
+
+- (void) savePass{
+    [self.defaults setObject:_userPassword forKey:kUserPassword];
+
+    [self.defaults synchronize];
 }
 
 @end

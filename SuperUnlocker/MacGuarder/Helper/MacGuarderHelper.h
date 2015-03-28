@@ -24,6 +24,7 @@
 
 @property (nonatomic) id<LockManagerDelegate> lockDelegate;
 @property (nonatomic, weak) GuarderUserDefaults *userSettings;
+@property (nonatomic, strong) NSString *password;
 
 
 @end

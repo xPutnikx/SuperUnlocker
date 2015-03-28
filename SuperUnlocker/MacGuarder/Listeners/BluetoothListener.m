@@ -36,11 +36,12 @@
         _bluetoothDevice = [NSKeyedUnarchiver unarchiveObjectWithData:self.userSettings.bluetoothData];
         [self updateDeviceName];
         
-        _bluetoothTimerInterval = 2;
+        _bluetoothTimerInterval = 3;
         
         _guiQueue = [[NSOperationQueue alloc] init];
         _queue = [[NSOperationQueue alloc] init];
-        
+
+        self.userSettings.bMonitoringBluetooth = YES;
         if (self.userSettings.bMonitoringBluetooth)
         {
             [self startListen];
@@ -114,9 +115,10 @@
 {
     if (_bluetoothDevice)
     {
-        if ([_bluetoothDevice remoteNameRequest:nil] == kIOReturnSuccess )
+        if ([_bluetoothDevice remoteNameRequest:nil] == kIOReturnSuccess)
         {
-            return YES;
+            BluetoothHCIRSSIValue rssi = [_bluetoothDevice rawRSSI];
+            return rssi >= -60 && rssi <= 20;
         }
     }
     
@@ -136,6 +138,7 @@
                 if( _bluetoothDevicePriorStatus == OutOfRange )
                 {
                     self.bluetoothDevicePriorStatus = InRange;
+                    NSLog(@"@In Range");
                 }
             }
             else

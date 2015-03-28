@@ -38,6 +38,7 @@
 }
 
 - (IBAction)didClickQuit:(id)sender {
+    [_userSettings savePass];
     [[NSRunningApplication currentApplication] terminate];
 }
 
@@ -73,9 +74,9 @@
     switch (central.state) {
         case CBCentralManagerStatePoweredOn:
             NSLog(@"0");
-            [centmanager scanForPeripheralsWithServices:
+            [centmanager                    scanForPeripheralsWithServices:
                     @[[CBUUID UUIDWithString:UnlockerServiceUuid]] options:
-                    @{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
+                    @{CBCentralManagerScanOptionAllowDuplicatesKey : @(YES)}];
             break;
 
         default:
@@ -100,10 +101,11 @@
 }
 
 //connected to peripheral
-- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)aPeripheral {
-    NSLog(@"Connected:%@", aPeripheral.name);
+- (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral {
+    NSLog(@"Connected:%@", peripheral.name);
     NSLog(@"2");
-    connectedDevice = aPeripheral.name;
+    connectedDevice = peripheral.name;
+    aCperipheral = peripheral;
     [aCperipheral setDelegate:self];
     [aCperipheral discoverServices:nil];
 }
@@ -125,6 +127,9 @@
         if ([aChar.UUID isEqual:[CBUUID UUIDWithString:ShouldLockCharacteristicUuid]]) {
             NSLog(@"%d", aChar.properties);
             [aPeripheral setNotifyValue:YES forCharacteristic:aChar];
+        } else if ([aChar.UUID isEqual:[CBUUID UUIDWithString:OnPowerCharacteristicUuid]]) {
+            NSLog(@"%d", aChar.properties);
+            [aPeripheral setNotifyValue:YES forCharacteristic:aChar];
             NSString *mainString = [NSString stringWithFormat:@"ping"];
             NSData *mainData = [mainString dataUsingEncoding:NSUTF8StringEncoding];
             [aPeripheral writeValue:mainData forCharacteristic:aChar type:CBCharacteristicWriteWithResponse];
@@ -139,19 +144,39 @@
 }
 
 - (void)peripheral:(CBPeripheral *)aPeripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    int shouldLockMac;
-    [characteristic.value getBytes:&shouldLockMac length:sizeof(shouldLockMac)];
-    BOOL needToLock = shouldLockMac == 1;
-    if ([aPeripheral.name isEqualToString:connectedDevice] && connected) {
-        BOOL isLocked = [_macGuarderHelper isScreenLocked];
-        if (needToLock && !isLocked) {
-            [_macGuarderHelper lock];
+    int data;
+    [characteristic.value getBytes:&data length:sizeof(data)];
+//    if (![aPeripheral.name isEqualToString:self.bluetoothListener.bluetoothName]) {
+//        [centmanager cancelPeripheralConnection:aPeripheral];
+//        [centmanager                    scanForPeripheralsWithServices:
+//                @[[CBUUID UUIDWithString:UnlockerServiceUuid]] options:
+//                @{CBCentralManagerScanOptionAllowDuplicatesKey : @(YES)}];
+//        return;
+//    }
+    if ([characteristic.UUID.UUIDString isEqualToString:ShouldLockCharacteristicUuid]) {
+        BOOL needToLock = data == 1;
+        [_macGuarderHelper setPassword:self.passwordField.stringValue];
+        if ([aPeripheral.name isEqualToString:connectedDevice] && connected) {
+            BOOL isLocked = [_macGuarderHelper isScreenLocked];
+            if (needToLock && !isLocked) {
+                [_macGuarderHelper lock];
+            }
+            BOOL needUnlock = !needToLock;
+            if (needUnlock && isLocked) {
+                [_macGuarderHelper unlock];
+            }
         }
-        BOOL needUnlock = !needToLock;
-        if (needUnlock && isLocked) {
-            [_macGuarderHelper unlock];
+    } else if ([characteristic.UUID.UUIDString isEqualToString:OnPowerCharacteristicUuid]) {
+        BOOL needDisconnect = data == 0;
+        if (needDisconnect) {
+            NSLog(@"Unsubscribe");
+            [centmanager cancelPeripheralConnection:aPeripheral];
+            [centmanager                    scanForPeripheralsWithServices:
+                    @[[CBUUID UUIDWithString:UnlockerServiceUuid]] options:
+                    @{CBCentralManagerScanOptionAllowDuplicatesKey : @(YES)}];
         }
     }
+
 
 }
 
@@ -181,7 +206,8 @@
 
     //* By BLE
     self.btSelectDevice.Enabled = YES;
-//    [self trackFavoriteDevicesNow];
+    self.user = [NSString stringWithFormat:@"%d", getuid()];
+    self.passwordField.stringValue = _userSettings.userPassword;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -198,4 +224,19 @@
         [weakSelf.bluetoothStatus setNeedsDisplay:YES];
     });
 }
+
+- (void)makeAction:(id)sender {
+    NSLog(@"@Out of range");
+//    if(![_macGuarderHelper isScreenLocked]){
+//        [_macGuarderHelper lock];
+//    }
+    if(centmanager != nil && aCperipheral != nil) {
+        [centmanager cancelPeripheralConnection:aCperipheral];
+        [centmanager                    scanForPeripheralsWithServices:
+                @[[CBUUID UUIDWithString:UnlockerServiceUuid]] options:
+                @{CBCentralManagerScanOptionAllowDuplicatesKey : @(YES)}];
+    }
+
+}
+
 @end

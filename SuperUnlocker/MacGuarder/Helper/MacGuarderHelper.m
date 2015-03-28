@@ -10,8 +10,6 @@
 #import "ListenerManager.h"
 #import "GuarderUserDefaults.h"
 
-NSString *password = @"piupiu";
-
 @implementation MacGuarderHelper
 
 - (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
@@ -19,6 +17,7 @@ NSString *password = @"piupiu";
     if (self = [super init])
     {
         _userSettings = aSettings;
+        _password = _userSettings.userPassword;
     }
 
     return self;
@@ -27,14 +26,14 @@ NSString *password = @"piupiu";
 - (BOOL)isScreenLocked
 {
     BOOL locked = NO;
-    
+
     CFDictionaryRef CGSessionCurrentDictionary = CGSessionCopyCurrentDictionary();
     id o = ((__bridge NSDictionary *) CGSessionCurrentDictionary)[@"CGSSessionScreenIsLocked"];
     if (o) {
         locked = [o boolValue];
     }
     CFRelease(CGSessionCurrentDictionary);
-    
+
     return locked;
 }
 
@@ -43,7 +42,7 @@ NSString *password = @"piupiu";
     if ([self isScreenLocked]) return;
 
     NSLog(@"lock");
-    
+
     io_registry_entry_t r =	IORegistryEntryFromPath(kIOMasterPortDefault, "IOService:/IOResources/IODisplayWrangler");
     if(!r) return;
     IORegistryEntrySetCFProperty(r, CFSTR("IORequestIdle"), kCFBooleanTrue);
@@ -54,7 +53,7 @@ NSString *password = @"piupiu";
 {
     NSLog(@"unlock");
     if (![self isScreenLocked]) return;
-    
+
 // wakeup display from idle status to show login window
     io_registry_entry_t r = IORegistryEntryFromPath(kIOMasterPortDefault, "IOService:/IOResources/IODisplayWrangler");
     if (r) {
@@ -67,7 +66,7 @@ NSString *password = @"piupiu";
             "tell application \"System Events\" to keystroke (ASCII character 8) \n"
             "tell application \"System Events\" to keystroke \"%@\" \n tell application \"System Events\" to keystroke return";
 
-    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, password, nil]];
+    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, _password, nil]];
     [script executeAndReturnError:nil];
 
     [_lockDelegate unLockSuccess];
@@ -75,6 +74,7 @@ NSString *password = @"piupiu";
 
 - (void)setPassword:(NSString*)password
 {
-    password = [password copy];
+    _password = [password copy];
+    _userSettings.userPassword = _password;
 }
 @end
