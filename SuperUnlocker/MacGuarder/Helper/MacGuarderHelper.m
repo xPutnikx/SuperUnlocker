@@ -73,8 +73,8 @@ NSString *password = @"piupiu";
     [_lockDelegate unLockSuccess];
 }
 
-- (void)setPassword:(NSString*)p
+- (void)setPassword:(NSString*)password
 {
-    password = [p copy];
+    password = [password copy];
 }
 @end

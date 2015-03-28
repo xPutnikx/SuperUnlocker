@@ -9,6 +9,7 @@
 #import "BluetoothListener.h"
 #import <IOBluetooth/IOBluetooth.h>
 #import <IOBluetoothUI/IOBluetoothUI.h>
+#import "CommonConstants.h"
 
 //key pair auth
 //первый запрос делать с данными
@@ -40,7 +41,7 @@
     [[NSRunningApplication currentApplication] terminate];
 }
 
-- (IBAction)didClickSelectDevice:(id) sender{
+- (IBAction)didClickSelectDevice:(id)sender {
     [self.bluetoothListener changeDevice];
 }
 
@@ -52,27 +53,16 @@
     //    Once the admin user logins Mac, this kind of right is got, and their locks are automatically unlocked.
     // 2. But Apple's Preferences->Users & Groups app uses a higher super root user right,
     //    even the admin user logins Mac, this kind of right is still not got, need to input password to get it.
-    [_authorizationView setString:kAUTH_RIGHT_CONFIG_MODIFY];
-
-    // setup
-    [_authorizationView setAutoupdate:YES];
-    [_authorizationView setDelegate:self];
 }
 
 #pragma mark - delegate
 
 - (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view {
-    _tfMacPassword.Enabled = YES;
 
-    AuthorizationRights *rights = self.authorizationView.authorizationRights;
-    AuthorizationItem *items = rights->items;
-    for (int i = 0; i < rights->count; ++i) {
-        NSLog(@"%s", items[i].name);
-    }
 }
 
 - (void)authorizationViewDidDeauthorize:(SFAuthorizationView *)view {
-    _tfMacPassword.Enabled = NO;
+
 }
 
 
@@ -84,14 +74,12 @@
         case CBCentralManagerStatePoweredOn:
             NSLog(@"0");
             [centmanager scanForPeripheralsWithServices:
-                    @[
-                            [CBUUID UUIDWithString:@"FC44DD96-71BC-DFB0-BA4D-9B0D5089A3EB"],
-                            [CBUUID UUIDWithString:@"EBA38950-0D9B-4DBA-B0DF-BC7196DD44FC"]
-                    ]                           options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
+                    @[[CBUUID UUIDWithString:UnlockerServiceUuid]] options:
+                    @{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
             break;
 
         default:
-            NSLog(@"%i", central.state);
+            NSLog(@"State %i", central.state);
             break;
     }
 }
@@ -123,7 +111,7 @@
 - (void)peripheral:(CBPeripheral *)aPeripheral didDiscoverServices:(NSError *)error {
     NSLog(@"3");
     for (CBService *aService in aPeripheral.services) {
-        if ([aService.UUID isEqual:[CBUUID UUIDWithString:@"EBA38950-0D9B-4DBA-B0DF-BC7196DD44FC"]]) {
+        if ([aService.UUID isEqual:[CBUUID UUIDWithString:UnlockerServiceUuid]]) {
             [aPeripheral discoverCharacteristics:nil forService:aService];
         }
     }
@@ -134,7 +122,7 @@
     NSLog(@"4");
     for (CBCharacteristic *aChar in service.characteristics) {
         NSLog(@"%@", aChar.UUID);
-        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"DA18"]]) {
+        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:ShouldLockCharacteristicUuid]]) {
             NSLog(@"%d", aChar.properties);
             [aPeripheral setNotifyValue:YES forCharacteristic:aChar];
             NSString *mainString = [NSString stringWithFormat:@"ping"];
@@ -151,13 +139,20 @@
 }
 
 - (void)peripheral:(CBPeripheral *)aPeripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
-    if([aPeripheral.name isEqualToString:connectedDevice] && connected) {
-        if ([_macGuarderHelper isScreenLocked]) {
-            [_macGuarderHelper unlock];
-        } else {
+    int shouldLockMac;
+    [characteristic.value getBytes:&shouldLockMac length:sizeof(shouldLockMac)];
+    BOOL needToLock = shouldLockMac == 1;
+    if ([aPeripheral.name isEqualToString:connectedDevice] && connected) {
+        BOOL isLocked = [_macGuarderHelper isScreenLocked];
+        if (needToLock && !isLocked) {
             [_macGuarderHelper lock];
         }
+        BOOL needUnlock = !needToLock;
+        if (needUnlock && isLocked) {
+            [_macGuarderHelper unlock];
+        }
     }
+
 }
 
 - (void)willEnterBackgroud {
@@ -176,7 +171,6 @@
 
     centmanager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 
-
     self.bluetoothListener = [[BluetoothListener alloc] initWithSettings:self.userSettings];
     self.bluetoothListener.delegate = self;
     __weak typeof(self) weakSelf = self;
@@ -187,23 +181,14 @@
 
     //* By BLE
     self.btSelectDevice.Enabled = YES;
-    self.btSaveDevice.Enabled = NO;
-    self.btStart.Enabled = NO;
-    self.btStop.Enabled = NO;
-
-    // startup
-    self.user = [NSString stringWithFormat:@"%d", getuid()];
 //    [self trackFavoriteDevicesNow];
-    //*/
-
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
     [self.bluetoothListener stopListen];
 }
 
-- (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus
-{
+- (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus {
     NSImage *img = [NSImage imageNamed:(bluetoothStatus == InRange) ? @"on" : @"off"];
 
     __weak typeof(self) weakSelf = self;

@@ -21,19 +21,11 @@
 
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSButton *btSelectDevice;
-@property (weak) IBOutlet NSButton *btSaveDevice;
-@property (weak) IBOutlet NSTextField *lbSelectedDevice;
-@property (weak) IBOutlet NSSecureTextField *tfMacPassword;
-@property (weak) IBOutlet NSButton *btStart;
-@property (weak) IBOutlet NSButton *btStop;
+
 @property (weak) IBOutlet NSButton *btQuit;
 
-@property (weak) IBOutlet SFAuthorizationView *authorizationView;
-
-@property (strong) NSString *user;  // uid of current user
-
-
 @property (weak) IBOutlet NSImageView	*bluetoothStatus;
+- (IBAction)changePassword:(id)sender;
 
 @property (nonatomic) GuarderUserDefaults *userSettings;
 @property (nonatomic) BluetoothListener *bluetoothListener;

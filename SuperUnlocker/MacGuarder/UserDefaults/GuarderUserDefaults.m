@@ -8,22 +8,9 @@
 
 #import "GuarderUserDefaults.h"
 
-NSString *kEnableStartup                    = @"EnableStartup";
-NSString *kGlobalHotKey                     = @"LockMeNowHotKey";
-NSString *kIconOnMainMenu                   = @"IconOnMainMenu";
-NSString *kLockType                         = @"LockType";
-NSString *kUseCurrentScreenSaver            = @"UseCurrentScreenSaver";
-NSString *kPauseiTunes                      = @"PauseiTunes";
-NSString *kResumeiTunes                     = @"ResumeiTunes";
 NSString *kBluetoothDevice                  = @"BluetoothDevice";
-NSString *kBluetoothCheckInterval           = @"BluetoothCheckInterval";
 NSString *kBluetoothMonitoring              = @"BluetoothMonitoring";
-NSString *kUSBMonitoring                    = @"USBMonitoring";
-NSString *kUSBDeviceType                    = @"USBDevice";
-NSString *kMakePhotoOnIncorrectPasword      = @"MakePhotoOnIncorrectPasword";
-NSString *kSendPhotoOnIncorrectPasword      = @"SendPhotoOnIncorrectPasword";
-NSString *kIncorrectPaswordMail             = @"IncorrectPaswordMail";
-NSString *kSendLocationOnIncorrectPasword   = @"SendLocationOnIncorrectPasword";
+NSString *kUserPassword                     = @"UserPassword";
 
 @interface GuarderUserDefaults ()
 
@@ -37,26 +24,10 @@ NSString *kSendLocationOnIncorrectPasword   = @"SendLocationOnIncorrectPasword";
 {
 	// Create a dictionary
 	NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
-	defaultValues[kEnableStartup] = @NO;
-	defaultValues[kIconOnMainMenu] = @YES;
-	defaultValues[kLockType] = @(LOCK_SCREEN);
-	defaultValues[kUseCurrentScreenSaver] = @NO;
-	defaultValues[kPauseiTunes] = @YES;
-	defaultValues[kResumeiTunes] = @YES;
-	
-	defaultValues[kBluetoothCheckInterval] = @60;
 	defaultValues[kBluetoothMonitoring] = @NO;
-	defaultValues[kUSBMonitoring] = @NO;
-	defaultValues[kUSBDeviceType] = @(USB_ALL_DEVICES);
-    
-    defaultValues[kMakePhotoOnIncorrectPasword] = @NO;
-    defaultValues[kSendPhotoOnIncorrectPasword] = @NO;
-    defaultValues[kIncorrectPaswordMail] = @"";
-	defaultValues[kSendLocationOnIncorrectPasword] = @NO;
-    
+    defaultValues[kUserPassword] = @"";
 	// Register the dictionary of defaults
 	[self.defaults registerDefaults: defaultValues];
-	//DBNSLog(@"registered defaults: %@", defaultValues);
 }
 
 - (instancetype)init
@@ -76,18 +47,7 @@ NSString *kSendLocationOnIncorrectPasword   = @"SendLocationOnIncorrectPasword";
 
 - (void)loadUserSettings
 {
-	_bEnableStartup                     = [self.defaults boolForKey:kEnableStartup];
-	_bUseIconOnMainMenu                 = [self.defaults boolForKey:kIconOnMainMenu];
-	_iLockType                          = [self.defaults objectForKey:kLockType];
-	_bUseCurrentScreenSaver             = [self.defaults boolForKey:kUseCurrentScreenSaver];
-	_bPauseiTunes                       = [self.defaults boolForKey:kPauseiTunes];
-	_bResumeiTunes                      = [self.defaults boolForKey:kResumeiTunes];
-	_bNeedResumeiTunes                  = [self.defaults boolForKey:kResumeiTunes];
-	_keyCombo                           = [self.defaults objectForKey:kGlobalHotKey];
-    _bMakePhotoOnIncorrectPasword       = [self.defaults boolForKey:kMakePhotoOnIncorrectPasword];
-    _bSendMailOnIncorrectPasword        = [self.defaults boolForKey:kSendPhotoOnIncorrectPasword];
-    _sIncorrectPaswordMail              = [self.defaults objectForKey:kIncorrectPaswordMail];
-    _bSendLocationOnIncorrectPasword    = [self.defaults boolForKey:kSendLocationOnIncorrectPasword];
+
     
 	NSData *deviceAsData = [self.defaults objectForKey:kBluetoothDevice];
 	if( [deviceAsData length] > 0 )
@@ -97,23 +57,12 @@ NSString *kSendLocationOnIncorrectPasword   = @"SendLocationOnIncorrectPasword";
 	
 	// Monitoring enabled
 	_bMonitoringBluetooth = [self.defaults boolForKey:kBluetoothMonitoring];
-	_bMonitoringUSB = [self.defaults boolForKey:kUSBMonitoring];
-	_iUSBDeviceType = [self.defaults objectForKey:kUSBDeviceType];
+    _userPassword = [self.defaults stringForKey:kUserPassword];
 }
 
 - (void)saveUserSettingsWithBluetoothData:(NSData *)bluetoothData
 {
-	[self.defaults setBool:_bUseIconOnMainMenu forKey:kIconOnMainMenu];
-	[self.defaults setObject:_iLockType forKey:kLockType];
-	[self.defaults setBool:_bUseCurrentScreenSaver forKey:kUseCurrentScreenSaver];
-	[self.defaults setBool:_bPauseiTunes forKey:kPauseiTunes];
-	[self.defaults setBool:_bResumeiTunes forKey:kResumeiTunes];
-	[self.defaults setBool:_bEnableStartup forKey:kEnableStartup];
-    [self.defaults setBool:_bMakePhotoOnIncorrectPasword forKey:kMakePhotoOnIncorrectPasword];
-    [self.defaults setBool:_bSendMailOnIncorrectPasword forKey:kSendPhotoOnIncorrectPasword];
-    [self.defaults setObject:_sIncorrectPaswordMail forKey:kIncorrectPaswordMail];
-    [self.defaults setBool:_bSendLocationOnIncorrectPasword forKey:kSendLocationOnIncorrectPasword];
-    
+
 	// Monitoring enabled
 	[self.defaults setBool:_bMonitoringBluetooth forKey:kBluetoothMonitoring];
 	
@@ -122,26 +71,11 @@ NSString *kSendLocationOnIncorrectPasword   = @"SendLocationOnIncorrectPasword";
 	{
 		[self.defaults setObject:bluetoothData forKey:kBluetoothDevice];
 	}
-	
-	if( _keyCombo )
-	{
-		[self.defaults setObject:_keyCombo forKey:kGlobalHotKey];
-	}
-	
-	[self.defaults setBool:_bMonitoringUSB forKey:kUSBMonitoring];
-	[self.defaults setObject:_iUSBDeviceType forKey:kUSBDeviceType];
+
+    //password
+    [self.defaults setObject:_userPassword forKey:kUserPassword];
 	
 	[self.defaults synchronize];
-}
-
-- (LockingType)lockingType
-{
-	return [_iLockType integerValue];
-}
-
-- (DeviceType)deviceType
-{
-	return [_iUSBDeviceType integerValue];
 }
 
 @end

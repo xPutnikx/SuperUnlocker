@@ -15,8 +15,6 @@
             <connections>
                 <outlet property="btQuit" destination="Iin-2e-mSL" id="8w5-d2-dUA"/>
                 <outlet property="btSelectDevice" destination="gmA-3V-L3x" id="lYr-ij-kKE"/>
-                <outlet property="lbSelectedDevice" destination="ahq-7r-5SZ" id="v0l-MF-YJN"/>
-                <outlet property="tfMacPassword" destination="OOL-iv-YRx" id="NiR-nD-aws"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -693,6 +691,9 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="self.bluetoothListener.bluetoothName" id="nvG-fi-e08"/>
+                        </connections>
                     </textField>
                     <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-iv-YRx">
                         <rect key="frame" x="148" y="118" width="185" height="22"/>
@@ -704,6 +705,9 @@
                                 <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
+                        <connections>
+                            <action selector="changePassword:" target="Voe-Tx-rLC" id="Yyr-hU-m4G"/>
+                        </connections>
                     </secureTextField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-3V-L3x">
                         <rect key="frame" x="223" y="60" width="116" height="32"/>
