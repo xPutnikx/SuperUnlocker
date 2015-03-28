@@ -30,6 +30,9 @@
     if (_shouldLockMac == shouldLockMac) {
         return;
     }
+    if (self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
+        return;
+    }
     _shouldLockMac = shouldLockMac;
     NSInteger i = shouldLockMac ? 1 : 0;
     NSData *data = [NSData dataWithBytes:&i length: sizeof(i)];
@@ -85,8 +88,10 @@
             [self.peripheralManager addService:service];
             break;
         }
-        default:
+        default: {
+            NSLog(@"state is %ld", peripheral.state);
             break;
+        }
     }
 }
 

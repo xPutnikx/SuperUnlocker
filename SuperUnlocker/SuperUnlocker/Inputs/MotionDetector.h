@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, MotionState) {
+    MotionStateUnknown
+};
+
+
 @interface MotionDetector : NSObject
 
 - (void)start;
