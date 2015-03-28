@@ -8,11 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0531AC6859800EE17D9 /* BluetoothListener.m */; };
-		8215D0591AC68A1700EE17D9 /* DeviceKeeper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0571AC68A1700EE17D9 /* DeviceKeeper.m */; };
-		8215D05A1AC68A1700EE17D9 /* DeviceTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0581AC68A1700EE17D9 /* DeviceTracker.m */; };
 		8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */; };
-		821E569E1AC5CCD3000515A5 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */; };
-		821E569F1AC5CCD3000515A5 /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */; };
 		821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */; };
 		821E56A31AC5CCE2000515A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A21AC5CCE2000515A5 /* Cocoa.framework */; };
 		821E56AB1AC5F129000515A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 821E56AA1AC5F129000515A5 /* main.m */; };
@@ -73,14 +69,8 @@
 /* Begin PBXFileReference section */
 		8215D0521AC6859800EE17D9 /* BluetoothListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothListener.h; sourceTree = "<group>"; };
 		8215D0531AC6859800EE17D9 /* BluetoothListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothListener.m; sourceTree = "<group>"; };
-		8215D0551AC68A1700EE17D9 /* DeviceKeeper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceKeeper.h; path = Device/DeviceKeeper.h; sourceTree = "<group>"; };
-		8215D0561AC68A1700EE17D9 /* DeviceTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeviceTracker.h; path = Device/DeviceTracker.h; sourceTree = "<group>"; };
-		8215D0571AC68A1700EE17D9 /* DeviceKeeper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceKeeper.m; path = Device/DeviceKeeper.m; sourceTree = "<group>"; };
-		8215D0581AC68A1700EE17D9 /* DeviceTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeviceTracker.m; path = Device/DeviceTracker.m; sourceTree = "<group>"; };
 		8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerManager.h; sourceTree = "<group>"; };
 		8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerManager.m; sourceTree = "<group>"; };
-		821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetooth.framework; sourceTree = DEVELOPER_DIR; };
-		821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = DEVELOPER_DIR; };
 		821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/SecurityInterface.framework; sourceTree = DEVELOPER_DIR; };
 		821E56A21AC5CCE2000515A5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		821E56AA1AC5F129000515A5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -146,8 +136,6 @@
 			files = (
 				821E56A31AC5CCE2000515A5 /* Cocoa.framework in Frameworks */,
 				821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */,
-				821E569E1AC5CCD3000515A5 /* IOBluetooth.framework in Frameworks */,
-				821E569F1AC5CCD3000515A5 /* IOBluetoothUI.framework in Frameworks */,
 				A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,8 +165,6 @@
 				8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */,
 				821E56A21AC5CCE2000515A5 /* Cocoa.framework */,
 				821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */,
-				821E569C1AC5CCD3000515A5 /* IOBluetooth.framework */,
-				821E569D1AC5CCD3000515A5 /* IOBluetoothUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,17 +187,6 @@
 				B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */,
 			);
 			path = UserDefaults;
-			sourceTree = "<group>";
-		};
-		821E56A91AC5EF00000515A5 /* Device */ = {
-			isa = PBXGroup;
-			children = (
-				8215D0551AC68A1700EE17D9 /* DeviceKeeper.h */,
-				8215D0561AC68A1700EE17D9 /* DeviceTracker.h */,
-				8215D0571AC68A1700EE17D9 /* DeviceKeeper.m */,
-				8215D0581AC68A1700EE17D9 /* DeviceTracker.m */,
-			);
-			name = Device;
 			sourceTree = "<group>";
 		};
 		828D0D461ABDAA96002BEFC9 = {
@@ -286,7 +261,6 @@
 			children = (
 				8215D05E1AC68AF900EE17D9 /* UserDefaults */,
 				8215D0511AC6859800EE17D9 /* Listeners */,
-				821E56A91AC5EF00000515A5 /* Device */,
 				82A6B0151AC5CAA500EC00C7 /* AppDelegate.h */,
 				82A6B0191AC5CAA500EC00C7 /* RSSISmootheningFilter.h */,
 				82A6B01A1AC5CAA500EC00C7 /* Base.lproj */,
@@ -544,9 +518,7 @@
 			files = (
 				82A6B0331AC5CAA500EC00C7 /* MacGuarderHelper.m in Sources */,
 				8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */,
-				8215D05A1AC68A1700EE17D9 /* DeviceTracker.m in Sources */,
 				82A6B03A1AC5CAA500EC00C7 /* RSSISmootheningFilter.m in Sources */,
-				8215D0591AC68A1700EE17D9 /* DeviceKeeper.m in Sources */,
 				8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */,
 				821E56AB1AC5F129000515A5 /* main.m in Sources */,
 				82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */,
