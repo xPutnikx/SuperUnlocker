@@ -48,9 +48,6 @@ NSString *password = @"piupiu";
     if(!r) return;
     IORegistryEntrySetCFProperty(r, CFSTR("IORequestIdle"), kCFBooleanTrue);
     IOObjectRelease(r);
-    
-    
-    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(unlock) userInfo:nil repeats:NO];
 }
 
 - (void)unlock

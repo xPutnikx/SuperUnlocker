@@ -7,15 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import "MotionDetector.h"
+
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) MotionDetector *motionDetector;
+
 @end
+
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.motionDetector = [[MotionDetector alloc] init];
+    [self.motionDetector start];
     // Override point for customization after application launch.
     return YES;
 }
