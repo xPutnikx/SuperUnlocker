@@ -7,6 +7,14 @@
 //
 
 #import "MainViewController.h"
+#import <AVFoundation/AVFoundation.h>
+
+@interface MainViewController()
+
+@property (nonatomic, strong) AVAudioPlayer *player;
+
+@end
+
 
 @implementation MainViewController
 @synthesize sendBtn;
@@ -17,6 +25,25 @@
     [super viewDidLoad];
     centmanager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    NSURL *audioFileLocationURL = [[NSBundle mainBundle] URLForResource:@"sound" withExtension:@"caf"];
+    
+    NSError *error;
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileLocationURL error:&error];
+    [self.player setNumberOfLoops:100];
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    } else {
+        //Make sure the system follows our playback status
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [[AVAudioSession sharedInstance] setActive: YES error: nil];
+        
+        //Load the audio into memory
+        [self.player play];
+    }
 }
 
 - (IBAction)disconnect:(id)sender {

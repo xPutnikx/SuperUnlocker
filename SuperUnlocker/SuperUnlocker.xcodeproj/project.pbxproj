@@ -37,6 +37,10 @@
 		82A6B03C1AC5CAA500EC00C7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02E1AC5CAA500EC00C7 /* Info.plist */; };
 		82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */; };
 		A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
+		A1A3525F1AC6BB42002EC254 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */; };
+		A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A352621AC6BF59002EC254 /* MotionDetector.m */; };
+		A1A352651AC6C527002EC254 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A352641AC6C527002EC254 /* AVFoundation.framework */; };
+		A1A352681AC6C694002EC254 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352671AC6C694002EC254 /* sound.caf */; };
 		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +122,11 @@
 		82A6B02D1AC5CAA500EC00C7 /* DevicesConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DevicesConfig.plist; sourceTree = "<group>"; };
 		82A6B02E1AC5CAA500EC00C7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
+		A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A1A352611AC6BF59002EC254 /* MotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionDetector.h; sourceTree = "<group>"; };
+		A1A352621AC6BF59002EC254 /* MotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionDetector.m; sourceTree = "<group>"; };
+		A1A352641AC6C527002EC254 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A1A352671AC6C694002EC254 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
 		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
 		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
 		E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A352651AC6C527002EC254 /* AVFoundation.framework in Frameworks */,
+				A1A3525F1AC6BB42002EC254 /* CoreMotion.framework in Frameworks */,
 				8278342F1ABF1AEA006F5A63 /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,6 +185,8 @@
 		1ACA95C07774A9D38332359C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A1A352641AC6C527002EC254 /* AVFoundation.framework */,
+				A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */,
 				8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */,
 				821E56A21AC5CCE2000515A5 /* Cocoa.framework */,
 				821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */,
@@ -241,6 +254,8 @@
 		828D0D511ABDAA96002BEFC9 /* SuperUnlocker */ = {
 			isa = PBXGroup;
 			children = (
+				A1A352661AC6C694002EC254 /* Resources */,
+				A1A352601AC6BF3B002EC254 /* Inputs */,
 				828D0D561ABDAA96002BEFC9 /* AppDelegate.h */,
 				828D0D571ABDAA96002BEFC9 /* AppDelegate.m */,
 				828D0D591ABDAA96002BEFC9 /* ViewController.h */,
@@ -355,6 +370,23 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		A1A352601AC6BF3B002EC254 /* Inputs */ = {
+			isa = PBXGroup;
+			children = (
+				A1A352611AC6BF59002EC254 /* MotionDetector.h */,
+				A1A352621AC6BF59002EC254 /* MotionDetector.m */,
+			);
+			path = Inputs;
+			sourceTree = "<group>";
+		};
+		A1A352661AC6C694002EC254 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A1A352671AC6C694002EC254 /* sound.caf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -441,6 +473,11 @@
 					828D0D4E1ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
 						DevelopmentTeam = HAA7HHCXKP;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					828D0D671ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
@@ -484,6 +521,7 @@
 			files = (
 				828D0D5E1ABDAA96002BEFC9 /* Main.storyboard in Resources */,
 				828D0D631ABDAA96002BEFC9 /* LaunchScreen.xib in Resources */,
+				A1A352681AC6C694002EC254 /* sound.caf in Resources */,
 				828D0D601ABDAA96002BEFC9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -523,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */,
 				828D0D5B1ABDAA96002BEFC9 /* ViewController.m in Sources */,
 				828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */,
 				828D0D551ABDAA96002BEFC9 /* main.m in Sources */,
