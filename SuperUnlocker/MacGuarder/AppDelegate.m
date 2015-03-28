@@ -69,134 +69,124 @@
 }
 
 
-#pragma mark peripheralManagerDelegate
-
-- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
-    NSLog(@"0");
-    switch (peripheral.state) {
-        case CBPeripheralManagerStatePoweredOn: {
-            CBUUID *cUDID = [CBUUID UUIDWithString:@"DA18"];
-            CBUUID *cUDID1 = [CBUUID UUIDWithString:@"DA17"];
-            CBUUID *cUDID2 = [CBUUID UUIDWithString:@"DA16"];
-
-
-            CBUUID *sUDID = [CBUUID UUIDWithString:@"EBA38950-0D9B-4DBA-B0DF-BC7196DD44FC"];
-            characteristic = [[CBMutableCharacteristic alloc] initWithType:cUDID properties:CBCharacteristicPropertyNotify value:nil permissions:CBAttributePermissionsReadable];
-            characteristic1 = [[CBMutableCharacteristic alloc] initWithType:cUDID1 properties:CBCharacteristicPropertyWrite value:nil permissions:CBAttributePermissionsWriteable];
-            characteristic2 = [[CBMutableCharacteristic alloc] initWithType:cUDID2 properties:CBCharacteristicPropertyRead value:nil permissions:CBAttributePermissionsReadable];
-            NSLog(@"characteristic %ld, %ld, %ld", characteristic.properties, characteristic1.properties, characteristic2.properties);
-            servicea = [[CBMutableService alloc] initWithType:sUDID primary:YES];
-            servicea.characteristics = @[characteristic, characteristic1, characteristic2];
-            [peripheral addService:servicea];
-        }
+#pragma mark central methods
+//start scan for server
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central{
+    switch (central.state) {
+        case CBCentralManagerStatePoweredOn:
+            NSLog(@"0");
+            [centmanager scanForPeripheralsWithServices:
+                    @[
+                            [CBUUID UUIDWithString:@"FC44DD96-71BC-DFB0-BA4D-9B0D5089A3EB"],
+                            [CBUUID UUIDWithString:@"EBA38950-0D9B-4DBA-B0DF-BC7196DD44FC"]
+                    ] options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
             break;
 
         default:
-            NSLog(@"State %li", peripheral.state);
+            NSLog(@"%i",central.state);
             break;
     }
 }
 
+//start to connect to server
+- (void) centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)aPeripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
+    if ([RSSI floatValue]>=-60.f) {
+        NSLog(@"1");
+        [central stopScan];
+        aCperipheral = aPeripheral;
+        [central connectPeripheral:aCperipheral options:nil];
 
-- (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveReadRequest:(CBATTRequest *)request {
-    NSString *mainString = [NSString stringWithFormat:@"GN123"];
-    NSData *cmainData = [mainString dataUsingEncoding:NSUTF8StringEncoding];
-    request.value = cmainData;
-    [peripheral respondToRequest:request withResult:CBATTErrorSuccess];
-}
-
-//call when received data
-- (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveWriteRequests:(NSArray *)requests {
-    for (CBATTRequest *aReq in requests) {
-        NSLog([[NSString alloc] initWithData:aReq.value encoding:NSUTF8StringEncoding]);
-        if([connectedDevice isEqualToString:((CBATTRequest *)requests.firstObject).central.identifier.UUIDString]) {
-            if (![_macGuarderHelper isScreenLocked]) {
-                [_macGuarderHelper lock];
-            } else {
-                [_macGuarderHelper unlock];
-            }
-            [peripheral respondToRequest:aReq withResult:CBATTErrorSuccess];
-        }
     }
 }
 
-
-- (void)   peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central
-didSubscribeToCharacteristic:(CBCharacteristic *)characteristic12 {
-    NSLog(@"Core:%@", central.identifier.UUIDString);
-    NSLog(@"Connected");
-    connectedDevice = central.identifier.UUIDString;
-    [self writeData:peripheral];
+- (void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
+    NSLog(@"Failed:%@",error);
 }
 
-
-- (void)peripheralManager:(CBPeripheralManager *)peripheral didAddService:(CBService *)service error:(NSError *)error {
-    NSLog(@"1");
-    NSDictionary *advertisingData = @{CBAdvertisementDataLocalNameKey : @"KhaosT", CBAdvertisementDataServiceUUIDsKey : @[[CBUUID UUIDWithString:@"EBA38950-0D9B-4DBA-B0DF-BC7196DD44FC"]]};
-    [peripheral startAdvertising:advertisingData];
-}
-
-- (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral error:(NSError *)error {
+//connected to peripheral
+- (void) centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)aPeripheral
+{
+    NSLog(@"Connected:%p",aPeripheral.UUID);
     NSLog(@"2");
+    [aCperipheral setDelegate:self];
+    [aCperipheral discoverServices:nil];
 }
 
-
-- (void)writeData:(CBPeripheralManager *)peripheral {
-    NSDictionary *dict = @{@"NAME" : @"Khaos Tian", @"EMAIL" : @"khaos.tian@gmail.com"};
-    mainData = [NSJSONSerialization dataWithJSONObject:dict options:kNilOptions error:nil];
-    while ([self hasData]) {
-        if ([peripheral updateValue:[self getNextData] forCharacteristic:characteristic onSubscribedCentrals:nil]) {
-            [self ridData];
-        } else {
-            return;
+- (void) peripheral:(CBPeripheral *)aPeripheral didDiscoverServices:(NSError *)error {
+    NSLog(@"3");
+    for (CBService *aService in aPeripheral.services){
+        if ([aService.UUID isEqual:[CBUUID UUIDWithString:@"EBA38950-0D9B-4DBA-B0DF-BC7196DD44FC"]]) {
+            [aPeripheral discoverCharacteristics:nil forService:aService];
         }
     }
-    NSString *stra = @"ENDAL";
-    NSData *dataa = [stra dataUsingEncoding:NSUTF8StringEncoding];
-    [peripheral updateValue:dataa forCharacteristic:characteristic onSubscribedCentrals:nil];
 }
 
-#pragma mark supported methods
 
-- (BOOL)hasData {
-    if ([mainData length] > 0) {
-        return YES;
+- (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+    NSLog(@"Finish Write\n");
+    NSLog(@"5");
+//    [TextView insertText:@"Finish Write\n"];
+}
+
+- (void)peripheral:(CBPeripheral *)aPeripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error {
+    NSData *updatedValue = characteristic.value;
+    NSLog(@"%@", [[NSString alloc] initWithData:updatedValue encoding:NSUTF8StringEncoding]);
+    if ([[[NSString alloc] initWithData:updatedValue encoding:NSUTF8StringEncoding] isEqualToString:@"ENDAL"]) {
+        [centmanager cancelPeripheralConnection:aPeripheral];
+//        [TextView insertText:[NSString stringWithFormat:@"%@\n", [[NSJSONSerialization JSONObjectWithData:finaldata options:kNilOptions error:nil] description]]];
     } else {
-        return NO;
+//        [finaldata appendData:updatedValue];
     }
 }
 
-- (void)ridData {
-    if ([mainData length] > 19) {
-        mainData = [mainData subdataWithRange:NSRangeFromString(range)];
-    } else {
-        mainData = nil;
+- (void) peripheral:(CBPeripheral *)aPeripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
+{
+    NSLog(@"4");
+    for (CBCharacteristic *aChar in service.characteristics) {
+        NSLog(@"%@", aChar.UUID);
+//            [TextView insertText:[NSString stringWithFormat:@"Characteristic UUID:%@\n", aChar.UUID]];
+        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"DA18"]]) {
+            NSLog(@"%lu", aChar.properties);
+//                [TextView insertText:[NSString stringWithFormat:@"Characteristic Prop:%lu\n", aChar.properties]];
+            [aPeripheral setNotifyValue:YES forCharacteristic:aChar];
+        }
+        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"DA17"]]) {
+            //NSLog(@"Find DA17");
+            NSLog(@"%lu", aChar.properties);
+//                [TextView insertText:[NSString stringWithFormat:@"Characteristic Prop:%lu\n", aChar.properties]];
+            NSString *mainString = [NSString stringWithFormat:@"ping"];
+            NSData *mainData = [mainString dataUsingEncoding:NSUTF8StringEncoding];
+            [aPeripheral writeValue:mainData forCharacteristic:aChar type:CBCharacteristicWriteWithResponse];
+        }
+        if ([aChar.UUID isEqual:[CBUUID UUIDWithString:@"DA16"]]) {
+            NSLog(@"Find DA16");
+            NSLog(@"%lu", aChar.properties);
+//                [TextView insertText:[NSString stringWithFormat:@"Characteristic Prop:%lu\n", aChar.properties]];
+//                [aPeripheral readValueForCharacteristic:aChar];
+        }
     }
-}
 
-- (NSData *)getNextData {
-    NSData *data;
-    if ([mainData length] > 19) {
-        unsigned long datarest = [mainData length] - 20;
-        data = [mainData subdataWithRange:NSRangeFromString(@"{0,20}")];
-        range = [NSString stringWithFormat:@"{20,%lu}", datarest];
-    } else {
-        unsigned long datarest = [mainData length];
-        range = [NSString stringWithFormat:@"{0,%lu}", datarest];
-        data = [mainData subdataWithRange:NSRangeFromString(range)];
-    }
-    return data;
 }
 
 - (void)makeAction:(id)sender {
 
 }
 
+
+- (void)willEnterBackgroud{
+    [centmanager stopScan];
+}
+
+- (void)willBacktoForeground{
+    [centmanager scanForPeripheralsWithServices:nil options:nil];
+}
+
+
 #pragma mark default methods
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     _macGuarderHelper = [[MacGuarderHelper alloc] initWithSettings:self.userSettings];
-  
-    manager = [[CBPeripheralManager alloc] initWithDelegate:self queue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 1)];
+
+    centmanager = [[CBCentralManager alloc]initWithDelegate:self queue:nil];
 
     //* By BLE
     self.btSelectDevice.Enabled = YES;

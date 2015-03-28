@@ -40,6 +40,7 @@
 		A1A352681AC6C694002EC254 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352671AC6C694002EC254 /* sound.caf */; };
 		A1A3526A1AC6C854002EC254 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352691AC6C854002EC254 /* silence.caf */; };
 		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
+		B4D7A905E0222A394B729A81 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */; };
 		B4D7ACC3C7DFBF824A629F75 /* AuthDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7A34B2009D1432F520F6F /* AuthDataProvider.m */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,8 @@
 		A1A352671AC6C694002EC254 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
 		A1A352691AC6C854002EC254 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
 		B4D7A34B2009D1432F520F6F /* AuthDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthDataProvider.m; sourceTree = "<group>"; };
+		B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralViewController.m; sourceTree = "<group>"; };
+		B4D7ABDA58345C84CB1FC713 /* PeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralViewController.h; sourceTree = "<group>"; };
 		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
 		B4D7AFA44CB797B7E087933F /* AuthDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthDataProvider.h; sourceTree = "<group>"; };
 		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
@@ -252,6 +255,8 @@
 				828D0D7B1ABDAE4F002BEFC9 /* MainViewController.m */,
 				B4D7AFA44CB797B7E087933F /* AuthDataProvider.h */,
 				B4D7A34B2009D1432F520F6F /* AuthDataProvider.m */,
+				B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */,
+				B4D7ABDA58345C84CB1FC713 /* PeripheralViewController.h */,
 			);
 			path = SuperUnlocker;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 				828D0D551ABDAA96002BEFC9 /* main.m in Sources */,
 				828D0D7C1ABDAE4F002BEFC9 /* MainViewController.m in Sources */,
 				B4D7ACC3C7DFBF824A629F75 /* AuthDataProvider.m in Sources */,
+				B4D7A905E0222A394B729A81 /* PeripheralViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

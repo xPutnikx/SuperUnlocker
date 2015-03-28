@@ -15,9 +15,4 @@
     CBPeripheral *aCperipheral;
 }
 
-@property (weak, nonatomic) IBOutlet UIButton *sendBtn;
-
--(IBAction)clickToSend:(id)sender;
-
-
 @end

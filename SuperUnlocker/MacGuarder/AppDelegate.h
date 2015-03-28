@@ -14,17 +14,9 @@
 @class BluetoothListener;
 @class MacGuarderHelper;
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CBPeripheralManagerDelegate>
-{
-    __weak SFAuthorizationView *_authorizationView;
-    CBPeripheralManager *manager;
-    CBMutableCharacteristic *characteristic;
-    CBMutableCharacteristic *characteristic1;
-    CBMutableCharacteristic *characteristic2;
-    CBMutableService *servicea;
-    NSData *mainData;
-    NSString *range;
-
+@interface AppDelegate : NSObject  <NSApplicationDelegate, CBCentralManagerDelegate,CBPeripheralDelegate> {
+    CBCentralManager *centmanager;
+    CBPeripheral *aCperipheral;
 }
 
 @property (assign) IBOutlet NSWindow *window;
