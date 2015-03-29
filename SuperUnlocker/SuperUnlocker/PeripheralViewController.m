@@ -4,6 +4,7 @@
 //
 
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <AVFoundation/AVFoundation.h>
 #import "PeripheralViewController.h"
 #import "Peripheral.h"
 
@@ -11,6 +12,8 @@
 
 @property (nonatomic, strong) Peripheral *peripheral;
 @property (nonatomic, assign) BOOL shouldLock;
+
+@property (nonatomic, strong) AVAudioPlayer *player;
 
 @end
 
@@ -20,6 +23,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.peripheral = [Peripheral sharedInstance];
+    
+    NSURL *audioFileLocationURL = [[NSBundle mainBundle] URLForResource:@"silence" withExtension:@"caf"];
+    
+    NSError *error;
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileLocationURL error:&error];
+    [self.player setNumberOfLoops:100];
+    
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    } else {
+        //Make sure the system follows our playback status
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+        [[AVAudioSession sharedInstance] setActive: YES error: nil];
+        
+        //Load the audio into memory
+        [self.player play];
+    }
 }
 
 - (IBAction)sendPush:(id)sender {

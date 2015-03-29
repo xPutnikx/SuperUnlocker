@@ -30,6 +30,9 @@
     if (_shouldLockMac == shouldLockMac) {
         return;
     }
+    if (self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
+        return;
+    }
     _shouldLockMac = shouldLockMac;
     NSInteger i = shouldLockMac ? 1 : 0;
     NSData *data = [NSData dataWithBytes:&i length: sizeof(i)];
@@ -47,9 +50,6 @@
 }
 
 - (void)setOnPower:(BOOL)onPower {
-    if (self.isOnPower == onPower) {
-        return;
-    }
     _onPower = onPower;
     NSInteger i = self.isOnPower ? 1 : 0;
     NSData *data = [NSData dataWithBytes:&i length: sizeof(i)];
@@ -66,6 +66,7 @@
     if (self) {
         _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
         _subscribeCentrals = [[NSMutableArray alloc] init];
+        _onPower = YES;
     }
     
     return self;
@@ -87,8 +88,10 @@
             [self.peripheralManager addService:service];
             break;
         }
-        default:
+        default: {
+            NSLog(@"state is %ld", peripheral.state);
             break;
+        }
     }
 }
 
@@ -114,6 +117,7 @@
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic {
     NSLog(@"did subscribe");
+    _onPower = YES;
     NSArray *centralsWithSameUuid = [self.subscribeCentrals filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self.identifier.UUIDString == %@", central.identifier.UUIDString]];
     if (centralsWithSameUuid.count == 0) {
         [self.subscribeCentrals addObject:central];
@@ -121,6 +125,7 @@
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic {
+    NSLog(@"unsubscribe");
     [self.subscribeCentrals removeObject:central];
 }
 
