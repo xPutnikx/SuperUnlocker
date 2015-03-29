@@ -227,9 +227,9 @@
 
 - (void)makeAction:(id)sender {
     NSLog(@"@Out of range");
-//    if(![_macGuarderHelper isScreenLocked]){
-//        [_macGuarderHelper lock];
-//    }
+    if(![_macGuarderHelper isScreenLocked]){
+        [_macGuarderHelper lock];
+    }
     if(centmanager != nil && aCperipheral != nil) {
         [centmanager cancelPeripheralConnection:aCperipheral];
         [centmanager                    scanForPeripheralsWithServices:

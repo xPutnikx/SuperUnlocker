@@ -25,7 +25,9 @@
 
 @end
 
-@implementation BluetoothListener
+@implementation BluetoothListener{
+    int countDownLatch;
+};
 
 - (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
 {
@@ -37,6 +39,7 @@
         [self updateDeviceName];
         
         _bluetoothTimerInterval = 3;
+        countDownLatch = 2;
         
         _guiQueue = [[NSOperationQueue alloc] init];
         _queue = [[NSOperationQueue alloc] init];
@@ -68,6 +71,7 @@
                                                      selector:@selector(handleTimer:)
                                                      userInfo:nil
                                                       repeats:YES];
+    NSLog(@"start listen");
 }
 
 - (void)stopListen
@@ -81,6 +85,7 @@
     [_guiQueue cancelAllOperations];
     
     [[NSOperationQueue mainQueue] cancelAllOperations];
+    NSLog(@"stop listen");
 }
 
 - (void)changeDevice
@@ -115,18 +120,27 @@
 {
     if (_bluetoothDevice)
     {
-        if ([_bluetoothDevice remoteNameRequest:nil] == kIOReturnSuccess)
-        {
+//        if ([_bluetoothDevice remoteNameRequest:nil] == kIOReturnSuccess)
+//        {
             BluetoothHCIRSSIValue rssi = [_bluetoothDevice rawRSSI];
-            return rssi >= -60 && rssi <= 20;
-        }
+            if(rssi < -60) {
+                NSLog(@"rssi ------- %d", rssi);
+            }else{
+                NSLog(@"rssi %d", rssi);
+            }
+            if(rssi == 127 && !_bluetoothDevice.isConnected){
+                [_bluetoothDevice openConnection];
+            }
+            return rssi > -60;
+//        }
     }
-    
+
     return NO;
 }
 
 - (void)handleTimer:(NSTimer *)theTimer
 {
+    NSLog(@"Tick");
     if (![[_queue operations] count])
     {
         [_queue addOperationWithBlock:^ {
@@ -135,6 +149,7 @@
             
             if( result )
             {
+                countDownLatch = 2;
                 if( _bluetoothDevicePriorStatus == OutOfRange )
                 {
                     self.bluetoothDevicePriorStatus = InRange;
@@ -143,11 +158,13 @@
             }
             else
             {
+                --countDownLatch;
                 if( _bluetoothDevicePriorStatus == InRange )
                 {
-                    self.bluetoothDevicePriorStatus = OutOfRange;
-                    
-                    [self makeAction:self];
+                    if(countDownLatch == 0) {
+                        self.bluetoothDevicePriorStatus = OutOfRange;
+                        [self makeAction:self];
+                    }
                 }
             }
         }];
