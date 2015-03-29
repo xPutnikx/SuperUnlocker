@@ -21,6 +21,8 @@
 @property (nonatomic, strong) CBMutableCharacteristic *shouldLockCharacterestic;
 @property (nonatomic, strong) CBMutableCharacteristic *onPowerCharacterestic;
 
+@property (nonatomic, assign) BOOL shouldLockMac;
+
 @end
 
 
@@ -58,6 +60,14 @@
 
 - (void)disconnect {
     self.onPower = NO;
+}
+
+- (void)lock {
+    self.shouldLockMac = YES;
+}
+
+- (void)unlock {
+    self.shouldLockMac = NO;
 }
 
 - (instancetype)init {

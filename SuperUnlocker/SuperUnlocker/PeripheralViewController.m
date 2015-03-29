@@ -11,9 +11,9 @@
 @interface PeripheralViewController()
 
 @property (nonatomic, strong) Peripheral *peripheral;
-@property (nonatomic, assign) BOOL shouldLock;
 
 @property (nonatomic, strong) AVAudioPlayer *player;
+@property (nonatomic, strong) IBOutlet UIButton *lockButton;
 
 @end
 
@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.peripheral = [Peripheral sharedInstance];
+    self.lockButton.selected = NO;// unlock for selected, lock for not selected
+
     
     NSURL *audioFileLocationURL = [[NSBundle mainBundle] URLForResource:@"silence" withExtension:@"caf"];
     
@@ -43,12 +45,12 @@
 }
 
 - (IBAction)sendPush:(id)sender {
-    self.shouldLock = !self.shouldLock;
-    self.peripheral.shouldLockMac = self.shouldLock;
-}
-
-- (IBAction)disconnect:(id)sender {
-    [self.peripheral disconnect];
+    self.lockButton.selected = !self.lockButton.selected;
+    if (self.lockButton.selected) {//// unlock for selected, lock for not selected
+        [self.peripheral unlock];
+    } else {
+        [self.peripheral lock];
+    }
 }
 
 @end

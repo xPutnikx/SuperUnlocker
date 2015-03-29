@@ -10,10 +10,11 @@
 
 @interface Peripheral : NSObject
 
-@property (nonatomic, assign) BOOL shouldLockMac;
 @property (nonatomic, assign, getter = isOnPower) BOOL onPower;
 
 + (instancetype)sharedInstance;
 - (void)disconnect;
+- (void)lock;
+- (void)unlock;
 
 @end
