@@ -45,12 +45,12 @@
 }
 
 - (IBAction)sendPush:(id)sender {
-    self.lockButton.selected = !self.lockButton.selected;
     if (self.lockButton.selected) {//// unlock for selected, lock for not selected
         [self.peripheral unlock];
     } else {
         [self.peripheral lock];
     }
+    self.lockButton.selected = !self.lockButton.selected;
 }
 
 @end
