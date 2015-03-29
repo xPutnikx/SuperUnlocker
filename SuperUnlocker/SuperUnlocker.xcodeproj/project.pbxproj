@@ -31,6 +31,7 @@
 		82A6B03A1AC5CAA500EC00C7 /* RSSISmootheningFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B02B1AC5CAA500EC00C7 /* RSSISmootheningFilter.m */; };
 		82A6B03B1AC5CAA500EC00C7 /* DevicesConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02D1AC5CAA500EC00C7 /* DevicesConfig.plist */; };
 		82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */; };
+		A143692D1AC8053D0032CE0B /* BluetoothMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = A143692C1AC8053D0032CE0B /* BluetoothMonitor.m */; };
 		A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		A1A3525F1AC6BB42002EC254 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */; };
 		A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A352621AC6BF59002EC254 /* MotionDetector.m */; };
@@ -117,6 +118,8 @@
 		82A6B02E1AC5CAA500EC00C7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 		9E70F8000F353E5CD6E724B8 /* Pods-SuperUnlocker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperUnlocker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperUnlocker/Pods-SuperUnlocker.debug.xcconfig"; sourceTree = "<group>"; };
+		A143692B1AC8053D0032CE0B /* BluetoothMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothMonitor.h; sourceTree = "<group>"; };
+		A143692C1AC8053D0032CE0B /* BluetoothMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothMonitor.m; sourceTree = "<group>"; };
 		A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A1A352611AC6BF59002EC254 /* MotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionDetector.h; sourceTree = "<group>"; };
 		A1A352621AC6BF59002EC254 /* MotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionDetector.m; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 				828D0D5C1ABDAA96002BEFC9 /* Main.storyboard */,
 				A1A352661AC6C694002EC254 /* Resources */,
 				828D0D521ABDAA96002BEFC9 /* Supporting Files */,
+				A143692B1AC8053D0032CE0B /* BluetoothMonitor.h */,
+				A143692C1AC8053D0032CE0B /* BluetoothMonitor.m */,
 			);
 			path = SuperUnlocker;
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 				828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */,
 				A1F28E8C1AC6FB1300C6D876 /* Peripheral.m in Sources */,
 				828D0D551ABDAA96002BEFC9 /* main.m in Sources */,
+				A143692D1AC8053D0032CE0B /* BluetoothMonitor.m in Sources */,
 				B4D7A905E0222A394B729A81 /* PeripheralViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

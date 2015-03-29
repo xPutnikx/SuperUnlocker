@@ -7,6 +7,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import "PeripheralViewController.h"
 #import "Peripheral.h"
+#import "BluetoothMonitor.h"
+
+static NSString *const BluetoothStatePath = @"bluetoothOn";
+
 
 @interface PeripheralViewController()
 
@@ -15,6 +19,10 @@
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, strong) IBOutlet UIButton *lockButton;
 
+@property (nonatomic, strong) BluetoothMonitor *bluetoothMonitor;
+
+@property (nonatomic, weak) IBOutlet UIImageView *offStateImage;
+
 @end
 
 
@@ -22,6 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.offStateImage.hidden = YES;
+    self.bluetoothMonitor = [[BluetoothMonitor alloc] init];
+    [self.bluetoothMonitor addObserver:self forKeyPath:BluetoothStatePath options:NSKeyValueObservingOptionNew context:nil];
+    
     self.peripheral = [Peripheral sharedInstance];
     self.lockButton.selected = NO;// unlock for selected, lock for not selected
 
@@ -51,6 +63,18 @@
         [self.peripheral lock];
     }
     self.lockButton.selected = !self.lockButton.selected;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:BluetoothStatePath]) {
+        BOOL isOn = [[change objectForKey:NSKeyValueChangeNewKey] boolValue];
+        self.offStateImage.hidden = isOn;
+        self.lockButton.hidden = !isOn;
+    }
+}
+
+- (void)dealloc {
+    [self.bluetoothMonitor removeObserver:self forKeyPath:BluetoothStatePath];
 }
 
 @end

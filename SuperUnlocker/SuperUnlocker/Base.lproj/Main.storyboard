@@ -29,17 +29,25 @@
                                     <action selector="sendPush:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HlM-cL-xLL"/>
                                 </connections>
                             </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bl_off" translatesAutoresizingMaskIntoConstraints="NO" id="epf-fA-QLU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="epf-fA-QLU" secondAttribute="bottom" id="4pH-Z6-6zG"/>
+                            <constraint firstItem="epf-fA-QLU" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="AKD-BR-sL5"/>
                             <constraint firstItem="zOa-ih-E2b" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="CGV-4b-I1I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zOa-ih-E2b" secondAttribute="trailing" constant="-16" id="CgT-7Y-GBA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="epf-fA-QLU" secondAttribute="trailing" constant="-16" id="Rwd-3X-V3S"/>
+                            <constraint firstItem="epf-fA-QLU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="eNb-YP-Rkg"/>
                             <constraint firstItem="zOa-ih-E2b" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="j6W-jr-WnH"/>
                             <constraint firstAttribute="bottomMargin" secondItem="zOa-ih-E2b" secondAttribute="bottom" id="rfl-rJ-fLB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lockButton" destination="zOa-ih-E2b" id="Wcj-Of-NTa"/>
+                        <outlet property="offStateImage" destination="epf-fA-QLU" id="nSU-6q-b0F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -47,6 +55,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bl_off" width="139" height="148"/>
         <image name="lock" width="161" height="33"/>
         <image name="unlock" width="202" height="33"/>
     </resources>
