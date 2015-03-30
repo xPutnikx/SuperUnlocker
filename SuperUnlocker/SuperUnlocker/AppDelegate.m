@@ -24,9 +24,8 @@ static NSString * const MotionDetectorStatePath = @"motionState";
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    self.motionDetector = [[MotionDetector alloc] init];
+//    self.motionDetector = [MotionDetector sharedInstance];
 //    [self.motionDetector start];
-//    [self.motionDetector addObserver:self forKeyPath:MotionDetectorStatePath options:NSKeyValueObservingOptionNew context:nil];
     return YES;
 }
 
@@ -51,9 +50,11 @@ static NSString * const MotionDetectorStatePath = @"motionState";
 //}
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    NSLog(@"will terminate");
+//    NSLog(@"will terminate");
     [[Peripheral sharedInstance] disconnect];
-    [self.motionDetector removeObserver:self forKeyPath:MotionDetectorStatePath];
+//    [self.motionDetector removeObserver:self forKeyPath:MotionDetectorStatePath];
+//    [self.motionDetector stop];
+//    [self.motionDetector log];
 }
 
 @end

@@ -8,6 +8,7 @@
 #import "PeripheralViewController.h"
 #import "Peripheral.h"
 #import "BluetoothMonitor.h"
+#import "MotionDetector.h"
 
 static NSString *const BluetoothStatePath = @"bluetoothOn";
 
@@ -22,6 +23,7 @@ static NSString *const BluetoothStatePath = @"bluetoothOn";
 @property (nonatomic, strong) BluetoothMonitor *bluetoothMonitor;
 
 @property (nonatomic, weak) IBOutlet UIImageView *offStateImage;
+@property (nonatomic, weak) IBOutlet UIView *logView;
 
 @end
 
@@ -30,6 +32,7 @@ static NSString *const BluetoothStatePath = @"bluetoothOn";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.logView removeFromSuperview];
     self.offStateImage.hidden = YES;
     self.bluetoothMonitor = [[BluetoothMonitor alloc] init];
     [self.bluetoothMonitor addObserver:self forKeyPath:BluetoothStatePath options:NSKeyValueObservingOptionNew context:nil];
@@ -75,6 +78,29 @@ static NSString *const BluetoothStatePath = @"bluetoothOn";
 
 - (void)dealloc {
     [self.bluetoothMonitor removeObserver:self forKeyPath:BluetoothStatePath];
+}
+
+- (IBAction)intermediateLog {
+    [[MotionDetector sharedInstance] intermediateLog];
+}
+
+- (IBAction)logLock {
+    [[MotionDetector sharedInstance] logLock];
+}
+- (IBAction)logUnLock {
+    [[MotionDetector sharedInstance] logUnLock];
+}
+
+- (IBAction)logNoAction {
+    [[MotionDetector sharedInstance] logNoAction];
+}
+
+- (IBAction)logStartIdle {
+    [[MotionDetector sharedInstance] startIdle];
+}
+
+- (IBAction)logStopIdle {
+    [[MotionDetector sharedInstance] stopIdle];
 }
 
 @end
