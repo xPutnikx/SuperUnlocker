@@ -26,136 +26,27 @@
                                 </state>
                                 <state key="selected" image="unlock"/>
                                 <connections>
-                                    <action selector="sendPush:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HlM-cL-xLL"/>
+                                    <action selector="changeLockState:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YiI-F7-Pud"/>
                                 </connections>
                             </button>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bl_off" translatesAutoresizingMaskIntoConstraints="NO" id="epf-fA-QLU">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4O-Bl-8VW">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUH-Kq-mwW">
-                                        <rect key="frame" x="277" y="99" width="46" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="46" id="AcR-tO-7cu"/>
-                                            <constraint firstAttribute="height" constant="30" id="evP-JD-DLe"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="Lock">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logLock" destination="vXZ-lx-hvc" eventType="touchUpInside" id="g7N-dQ-osG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gl-kO-gOh">
-                                        <rect key="frame" x="255" y="137" width="91" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="hSh-wJ-RDV"/>
-                                            <constraint firstAttribute="width" constant="91" id="ldW-aM-vE5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="Unlock">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logUnLock" destination="vXZ-lx-hvc" eventType="touchUpInside" id="DAv-C0-9xU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-Xk-tvd">
-                                        <rect key="frame" x="255" y="175" width="91" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="91" id="0EA-P9-bap"/>
-                                            <constraint firstAttribute="height" constant="30" id="u7H-Vb-zcz"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="No action">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logNoAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ycB-Ad-LrE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LtL-0v-8eu">
-                                        <rect key="frame" x="255" y="208" width="91" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="IZG-6J-2b8"/>
-                                            <constraint firstAttribute="width" constant="91" id="b5u-gc-x6L"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="Stop">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logStartIdle" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fNl-az-P4X"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNt-Hh-nz4">
-                                        <rect key="frame" x="255" y="246" width="91" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="91" id="Rae-Sx-EPK"/>
-                                            <constraint firstAttribute="height" constant="30" id="hJx-ur-85w"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="Start">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="logStopIdle" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xan-Qd-dPq"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Puv-lE-b53">
-                                        <rect key="frame" x="277" y="277" width="46" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="9pf-EL-hUo"/>
-                                            <constraint firstAttribute="width" constant="46" id="PZB-Oq-vH5"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="Log">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="intermediateLog" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IHX-y2-bdb"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="9EZ-Xk-tvd" firstAttribute="top" secondItem="0gl-kO-gOh" secondAttribute="bottom" constant="8" id="1Fc-Fh-bCJ"/>
-                                    <constraint firstAttribute="centerX" secondItem="cUH-Kq-mwW" secondAttribute="centerX" id="6q0-tO-8oG"/>
-                                    <constraint firstItem="cUH-Kq-mwW" firstAttribute="top" secondItem="q4O-Bl-8VW" secondAttribute="top" constant="99" id="Bmf-8u-hgf"/>
-                                    <constraint firstItem="LtL-0v-8eu" firstAttribute="top" secondItem="9EZ-Xk-tvd" secondAttribute="bottom" constant="3" id="HW8-3v-WbF"/>
-                                    <constraint firstAttribute="centerX" secondItem="9EZ-Xk-tvd" secondAttribute="centerX" id="M3w-hZ-GTW"/>
-                                    <constraint firstAttribute="centerX" secondItem="Puv-lE-b53" secondAttribute="centerX" id="PeZ-bO-w80"/>
-                                    <constraint firstAttribute="centerX" secondItem="0gl-kO-gOh" secondAttribute="centerX" id="dSH-mQ-phI"/>
-                                    <constraint firstItem="Puv-lE-b53" firstAttribute="top" secondItem="NNt-Hh-nz4" secondAttribute="bottom" constant="1" id="dUq-zu-YJk"/>
-                                    <constraint firstItem="0gl-kO-gOh" firstAttribute="top" secondItem="cUH-Kq-mwW" secondAttribute="bottom" constant="8" id="lAF-nK-5U9"/>
-                                    <constraint firstAttribute="centerX" secondItem="NNt-Hh-nz4" secondAttribute="centerX" id="nAs-GU-31Q"/>
-                                    <constraint firstItem="NNt-Hh-nz4" firstAttribute="top" secondItem="LtL-0v-8eu" secondAttribute="bottom" constant="8" id="oRB-Ze-sHN"/>
-                                    <constraint firstAttribute="centerX" secondItem="LtL-0v-8eu" secondAttribute="centerX" id="z7F-Jh-Vmo"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="epf-fA-QLU" secondAttribute="bottom" id="4pH-Z6-6zG"/>
-                            <constraint firstItem="q4O-Bl-8VW" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="6kI-2T-nhi"/>
                             <constraint firstItem="epf-fA-QLU" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="AKD-BR-sL5"/>
                             <constraint firstItem="zOa-ih-E2b" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="CGV-4b-I1I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zOa-ih-E2b" secondAttribute="trailing" constant="-16" id="CgT-7Y-GBA"/>
-                            <constraint firstItem="q4O-Bl-8VW" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Ocl-SF-xqL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="epf-fA-QLU" secondAttribute="trailing" constant="-16" id="Rwd-3X-V3S"/>
                             <constraint firstItem="epf-fA-QLU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="eNb-YP-Rkg"/>
                             <constraint firstItem="zOa-ih-E2b" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="j6W-jr-WnH"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="q4O-Bl-8VW" secondAttribute="bottom" id="rGv-EM-mnU"/>
                             <constraint firstAttribute="bottomMargin" secondItem="zOa-ih-E2b" secondAttribute="bottom" id="rfl-rJ-fLB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q4O-Bl-8VW" secondAttribute="trailing" constant="-16" id="vY1-Lo-XNu"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lockButton" destination="zOa-ih-E2b" id="Wcj-Of-NTa"/>
-                        <outlet property="logView" destination="q4O-Bl-8VW" id="Ih7-Zm-h0X"/>
                         <outlet property="offStateImage" destination="epf-fA-QLU" id="nSU-6q-b0F"/>
                     </connections>
                 </viewController>

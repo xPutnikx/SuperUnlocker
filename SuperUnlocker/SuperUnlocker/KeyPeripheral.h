@@ -1,5 +1,5 @@
 //
-//  Peripheral.h
+//  KeyPeripheral.h
 //  SuperUnlocker
 //
 //  Created by Sveta Dedunovich on 3/28/15.
@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Peripheral : NSObject
+
+@interface KeyPeripheral : NSObject
 
 @property (nonatomic, assign, getter = isOnPower) BOOL onPower;
 
 + (instancetype)sharedInstance;
-- (void)disconnect;
+
 - (void)lock;
 - (void)unlock;
+
+- (void)disconnect;
 
 @end

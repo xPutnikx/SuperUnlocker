@@ -12,6 +12,6 @@
 
 @interface PeripheralViewController : UIViewController
 
-- (IBAction)sendPush:(id)sender;
+- (IBAction)changeLockState:(id)sender;
 
 @end

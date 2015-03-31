@@ -6,7 +6,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <AVFoundation/AVFoundation.h>
 #import "PeripheralViewController.h"
-#import "Peripheral.h"
+#import "KeyPeripheral.h"
 #import "BluetoothMonitor.h"
 #import "MotionDetector.h"
 
@@ -15,7 +15,7 @@ static NSString *const BluetoothStatePath = @"bluetoothOn";
 
 @interface PeripheralViewController()
 
-@property (nonatomic, strong) Peripheral *peripheral;
+@property (nonatomic, strong) KeyPeripheral *peripheral;
 
 @property (nonatomic, strong) AVAudioPlayer *player;
 @property (nonatomic, strong) IBOutlet UIButton *lockButton;
@@ -23,7 +23,6 @@ static NSString *const BluetoothStatePath = @"bluetoothOn";
 @property (nonatomic, strong) BluetoothMonitor *bluetoothMonitor;
 
 @property (nonatomic, weak) IBOutlet UIImageView *offStateImage;
-@property (nonatomic, weak) IBOutlet UIView *logView;
 
 @end
 
@@ -32,20 +31,19 @@ static NSString *const BluetoothStatePath = @"bluetoothOn";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.logView removeFromSuperview];
+    
     self.offStateImage.hidden = YES;
     self.bluetoothMonitor = [[BluetoothMonitor alloc] init];
     [self.bluetoothMonitor addObserver:self forKeyPath:BluetoothStatePath options:NSKeyValueObservingOptionNew context:nil];
     
-    self.peripheral = [Peripheral sharedInstance];
+    self.peripheral = [KeyPeripheral sharedInstance];
     self.lockButton.selected = NO;// unlock for selected, lock for not selected
-
     
     NSURL *audioFileLocationURL = [[NSBundle mainBundle] URLForResource:@"silence" withExtension:@"caf"];
     
     NSError *error;
     self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioFileLocationURL error:&error];
-    [self.player setNumberOfLoops:100];
+    [self.player setNumberOfLoops:NSIntegerMax];
     
     if (error) {
         NSLog(@"%@", [error localizedDescription]);
@@ -59,7 +57,7 @@ static NSString *const BluetoothStatePath = @"bluetoothOn";
     }
 }
 
-- (IBAction)sendPush:(id)sender {
+- (IBAction)changeLockState:(id)sender {
     if (self.lockButton.selected) {//// unlock for selected, lock for not selected
         [self.peripheral unlock];
     } else {
@@ -78,29 +76,6 @@ static NSString *const BluetoothStatePath = @"bluetoothOn";
 
 - (void)dealloc {
     [self.bluetoothMonitor removeObserver:self forKeyPath:BluetoothStatePath];
-}
-
-- (IBAction)intermediateLog {
-    [[MotionDetector sharedInstance] intermediateLog];
-}
-
-- (IBAction)logLock {
-    [[MotionDetector sharedInstance] logLock];
-}
-- (IBAction)logUnLock {
-    [[MotionDetector sharedInstance] logUnLock];
-}
-
-- (IBAction)logNoAction {
-    [[MotionDetector sharedInstance] logNoAction];
-}
-
-- (IBAction)logStartIdle {
-    [[MotionDetector sharedInstance] startIdle];
-}
-
-- (IBAction)logStopIdle {
-    [[MotionDetector sharedInstance] stopIdle];
 }
 
 @end

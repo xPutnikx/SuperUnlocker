@@ -7,54 +7,17 @@
 //
 
 #import "AppDelegate.h"
-#import "MotionDetector.h"
-#import "Peripheral.h"
-
-
-static NSString * const MotionDetectorStatePath = @"motionState";
-
-
-@interface AppDelegate ()
-
-@property (nonatomic, strong) MotionDetector *motionDetector;
-
-@end
+#import "KeyPeripheral.h"
 
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    self.motionDetector = [MotionDetector sharedInstance];
-//    [self.motionDetector start];
     return YES;
 }
 
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-//    if ([keyPath isEqualToString:MotionDetectorStatePath]) {
-//        MotionState motionState = [[change objectForKey:NSKeyValueChangeNewKey] integerValue];
-//        switch (motionState) {
-//            case MotionStateUnknown: {
-//                NSLog(@"unknown");
-//                break;
-//            }
-//            case MotionStateStationary: {
-//                [Peripheral sharedInstance].shouldLockMac = NO;
-//                break;
-//            }
-//            case MotionStateWalked: {
-//                [Peripheral sharedInstance].shouldLockMac = YES;
-//                break;
-//            }
-//        }
-//    }
-//}
-
 - (void)applicationWillTerminate:(UIApplication *)application {
-//    NSLog(@"will terminate");
-    [[Peripheral sharedInstance] disconnect];
-//    [self.motionDetector removeObserver:self forKeyPath:MotionDetectorStatePath];
-//    [self.motionDetector stop];
-//    [self.motionDetector log];
+    [[KeyPeripheral sharedInstance] disconnect];
 }
 
 @end
