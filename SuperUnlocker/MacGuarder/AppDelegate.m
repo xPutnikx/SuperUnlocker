@@ -107,7 +107,7 @@
     connectedDevice = peripheral.name;
     aCperipheral = peripheral;
     [aCperipheral setDelegate:self];
-    [aCperipheral discoverServices:nil];
+    [aCperipheral discoverServices:@[[CBUUID UUIDWithString:UnlockerServiceUuid]]];
 }
 
 - (void)peripheral:(CBPeripheral *)aPeripheral didDiscoverServices:(NSError *)error {

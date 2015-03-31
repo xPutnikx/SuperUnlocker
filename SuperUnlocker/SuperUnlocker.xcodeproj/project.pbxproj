@@ -14,6 +14,7 @@
 		821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */; };
 		821E56A31AC5CCE2000515A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A21AC5CCE2000515A5 /* Cocoa.framework */; };
 		821E56AB1AC5F129000515A5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 821E56AA1AC5F129000515A5 /* main.m */; };
+		822DAD491AC7FE1200C8F6C6 /* shield.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 822DAD481AC7FE1200C8F6C6 /* shield.jpg */; };
 		8278342F1ABF1AEA006F5A63 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		828D0D551ABDAA96002BEFC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D541ABDAA96002BEFC9 /* main.m */; };
 		828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D571ABDAA96002BEFC9 /* AppDelegate.m */; };
@@ -87,6 +88,7 @@
 		821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/SecurityInterface.framework; sourceTree = DEVELOPER_DIR; };
 		821E56A21AC5CCE2000515A5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		821E56AA1AC5F129000515A5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		822DAD481AC7FE1200C8F6C6 /* shield.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = shield.jpg; path = SuperUnlocker/Images.xcassets/shield.jpg; sourceTree = SOURCE_ROOT; };
 		8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		828D0D4F1ABDAA96002BEFC9 /* SuperUnlocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuperUnlocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		828D0D531ABDAA96002BEFC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				828D0D5F1ABDAA96002BEFC9 /* Images.xcassets */,
+				822DAD481AC7FE1200C8F6C6 /* shield.jpg */,
 				A1A352691AC6C854002EC254 /* silence.caf */,
 				A1A352671AC6C694002EC254 /* sound.caf */,
 			);
@@ -487,7 +490,7 @@
 				TargetAttributes = {
 					828D0D4E1ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = HAA7HHCXKP;
+						DevelopmentTeam = Q9XAZK223S;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -536,6 +539,7 @@
 			files = (
 				828D0D5E1ABDAA96002BEFC9 /* Main.storyboard in Resources */,
 				828D0D631ABDAA96002BEFC9 /* LaunchScreen.xib in Resources */,
+				822DAD491AC7FE1200C8F6C6 /* shield.jpg in Resources */,
 				A1A352681AC6C694002EC254 /* sound.caf in Resources */,
 				828D0D601ABDAA96002BEFC9 /* Images.xcassets in Resources */,
 				A1A3526A1AC6C854002EC254 /* silence.caf in Resources */,
@@ -769,7 +773,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -802,6 +805,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -811,7 +815,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SuperUnlocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -820,6 +823,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

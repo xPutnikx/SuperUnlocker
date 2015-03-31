@@ -120,19 +120,19 @@
 {
     if (_bluetoothDevice)
     {
-//        if ([_bluetoothDevice remoteNameRequest:nil] == kIOReturnSuccess)
-//        {
-            BluetoothHCIRSSIValue rssi = [_bluetoothDevice rawRSSI];
-            if(rssi < -60) {
-                NSLog(@"rssi ------- %d", rssi);
-            }else{
-                NSLog(@"rssi %d", rssi);
-            }
-            if(rssi == 127 && !_bluetoothDevice.isConnected){
+        if ([_bluetoothDevice remoteNameRequest:nil] == kIOReturnSuccess)
+        {
+//            BluetoothHCIRSSIValue rssi = [_bluetoothDevice rawRSSI];
+//            if(rssi < -60) {
+//                NSLog(@"rssi ------- %d", rssi);
+//            }else{
+//                NSLog(@"rssi %d", rssi);
+//            }
+            if(!_bluetoothDevice.isConnected){
                 [_bluetoothDevice openConnection];
             }
-            return rssi > -60;
-//        }
+            return YES;
+        }
     }
 
     return NO;

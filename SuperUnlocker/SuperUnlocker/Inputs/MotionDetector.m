@@ -51,7 +51,7 @@
     self.accelerometerLog = [[NSMutableString alloc] init];
     self.gyroLog = [[NSMutableString alloc] init];
     self.actionLog = [[NSMutableString alloc] init];
-
+    
     [self startAccelerometer];
     [self startGyro];
     [self startUserAccelerometer];
@@ -80,7 +80,7 @@
             [self.gyroLog appendFormat:@"%@\n", str];
         });
     }];
-
+    
 }
 
 - (void)startUserAccelerometer {

@@ -24,8 +24,9 @@ static NSString * const MotionDetectorStatePath = @"motionState";
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    self.motionDetector = [MotionDetector sharedInstance];
-//    [self.motionDetector start];
+    self.motionDetector = [[MotionDetector alloc] init];
+    [self.motionDetector start];
+//    [self.motionDetector addObserver:self forKeyPath:MotionDetectorStatePath options:NSKeyValueObservingOptionNew context:nil];
     return YES;
 }
 
