@@ -3,15 +3,11 @@
 // Copyright (c) 2015 ProductDevBy. All rights reserved.
 //
 
+#import "BackgroundViewController.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@class CBMutableService;
-@class SFAuthorizationView;
 
-
-@interface PeripheralViewController : UIViewController
-
-- (IBAction)changeLockState:(id)sender;
+@interface PeripheralViewController : BackgroundViewController
 
 @end

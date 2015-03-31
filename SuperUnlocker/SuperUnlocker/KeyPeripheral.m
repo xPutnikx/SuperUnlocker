@@ -11,6 +11,7 @@
 #import "CommonConstants.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <UIKit/UIKit.h>
+#import <libextobjc/EXTScope.h>
 
 
 @interface KeyPeripheral ()<CBPeripheralManagerDelegate>
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) CBMutableCharacteristic *onPowerCharacterestic;
 
 @property (nonatomic, assign) BOOL shouldLockMac;
+
+@property (nonatomic, strong) CBMutableService *unlockerService;
 
 @end
 
@@ -42,13 +45,20 @@
     if (self) {
         _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
         _subscribeCentrals = [[NSMutableArray alloc] init];
-        _onPower = YES;
+        
+        @weakify(self);
+        [RACObserve(self.peripheralManager, state) subscribeNext:^(id aState) {
+            @strongify(self);
+            CBPeripheralManagerState state = [aState integerValue];
+            self.bluetoothIsOn = state == CBPeripheralManagerStatePoweredOn;
+        }];
+        
     }
     return self;
 }
 
 - (void)disconnect {
-    self.onPower = NO;
+    self.bluetoothIsOn = NO;
 }
 
 - (void)lock {
@@ -75,18 +85,17 @@
     [self.peripheralManager updateValue:data forCharacteristic:characteristic onSubscribedCentrals:self.subscribeCentrals];
 }
 
-- (void)setOnPower:(BOOL)onPower {
-    if (_onPower == onPower ||
+- (void)setbluetoothIsOn:(BOOL)bluetoothIsOn {
+    if (_bluetoothIsOn == bluetoothIsOn ||
         self.peripheralManager.state != CBPeripheralManagerStatePoweredOn) {
         return;
     }
-    _onPower = onPower;
-    [self updateValue:_onPower forCharacteristic:self.onPowerCharacterestic];
+    _bluetoothIsOn = bluetoothIsOn;
+    [self updateValue:_bluetoothIsOn forCharacteristic:self.onPowerCharacterestic];
 }
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
     NSLog(@"0 peripheral did update state, %ld", peripheral.state);
-    
     switch (peripheral.state) {
         case CBPeripheralManagerStatePoweredOn: {
             [self createUnlockerService];
@@ -99,6 +108,10 @@
 }
 
 - (void)createUnlockerService {// TODO try to make service primary
+    BOOL serviceAlreadyExists = _unlockerService != nil;
+    if (serviceAlreadyExists) {
+        return;
+    }
     CBUUID *serviceUuid = [CBUUID UUIDWithString:UnlockerServiceUuid];
     CBMutableService *service = [[CBMutableService alloc] initWithType:serviceUuid primary:YES];
     CBUUID *shouldLockCharacteresticUuid = [CBUUID UUIDWithString:ShouldLockCharacteristicUuid];
@@ -106,8 +119,8 @@
     CBUUID *onPowerCharacteresticUuid = [CBUUID UUIDWithString:OnPowerCharacteristicUuid];
     self.onPowerCharacterestic = [[CBMutableCharacteristic alloc] initWithType:onPowerCharacteresticUuid properties:CBCharacteristicPropertyNotify value:nil permissions:CBAttributePermissionsReadable];
     service.characteristics = @[self.shouldLockCharacterestic, self.onPowerCharacterestic];
-    
-    [self.peripheralManager addService:service];
+    _unlockerService = service;
+    [self.peripheralManager addService:_unlockerService];
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didAddService:(CBService *)service error:(NSError *)error {
@@ -126,7 +139,6 @@
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic {
     NSLog(@"3 central did subscribe to characteristic with uuid %@", characteristic.UUID);
-    _onPower = YES;// if someone was able to subscribe, we are on power
     NSPredicate *sameUuid = [NSPredicate predicateWithFormat:@"self.identifier.UUIDString == %@", central.identifier.UUIDString];
     NSArray *centralsWithSameUuid = [self.subscribeCentrals filteredArrayUsingPredicate:sameUuid];
     if (centralsWithSameUuid.count == 0) {

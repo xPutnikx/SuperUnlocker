@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 
 @interface KeyPeripheral : NSObject
 
-@property (nonatomic, assign, getter = isOnPower) BOOL onPower;
+@property (nonatomic, assign) BOOL bluetoothIsOn;
 
 + (instancetype)sharedInstance;
 

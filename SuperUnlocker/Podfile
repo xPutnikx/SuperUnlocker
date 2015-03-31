@@ -5,4 +5,5 @@ target 'SuperUnlocker' do
   	platform :ios, 8.0
   	pod 'libextobjc/EXTScope', '~> 0.4'
 	pod 'MBProgressHUD', '~> 0.8'
+    pod 'ReactiveCocoa', '2.4.7'
 end
