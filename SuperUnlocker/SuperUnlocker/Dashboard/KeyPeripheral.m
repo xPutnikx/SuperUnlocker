@@ -7,11 +7,12 @@
 //
 
 #import "KeyPeripheral.h"
-
 #import "CommonConstants.h"
+
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <UIKit/UIKit.h>
 #import <libextobjc/EXTScope.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 
 @interface KeyPeripheral ()<CBPeripheralManagerDelegate>

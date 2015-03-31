@@ -31,18 +31,18 @@
 		82A6B03A1AC5CAA500EC00C7 /* RSSISmootheningFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B02B1AC5CAA500EC00C7 /* RSSISmootheningFilter.m */; };
 		82A6B03B1AC5CAA500EC00C7 /* DevicesConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02D1AC5CAA500EC00C7 /* DevicesConfig.plist */; };
 		82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */; };
-		A1664C0C1ACABB1B008BA2E7 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C0B1ACABB1B008BA2E7 /* BackgroundViewController.m */; };
+		A1664C151ACABD58008BA2E7 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */; };
+		A1664C161ACABD58008BA2E7 /* KeyPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C121ACABD58008BA2E7 /* KeyPeripheral.m */; };
+		A1664C171ACABD58008BA2E7 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */; };
 		A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		A1A3525F1AC6BB42002EC254 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */; };
 		A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A352621AC6BF59002EC254 /* MotionDetector.m */; };
 		A1A352651AC6C527002EC254 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A352641AC6C527002EC254 /* AVFoundation.framework */; };
 		A1A352681AC6C694002EC254 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352671AC6C694002EC254 /* sound.caf */; };
 		A1A3526A1AC6C854002EC254 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352691AC6C854002EC254 /* silence.caf */; };
-		A1F28E8C1AC6FB1300C6D876 /* KeyPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F28E8B1AC6FB1300C6D876 /* KeyPeripheral.m */; };
 		A1F28E901AC6FBED00C6D876 /* CommonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */; };
 		A1F28E911AC6FBED00C6D876 /* CommonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */; };
 		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
-		B4D7A905E0222A394B729A81 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */; };
 		D43DD63B4F66465D737A34C8 /* libPods-SuperUnlocker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */; };
 /* End PBXBuildFile section */
 
@@ -118,20 +118,20 @@
 		82A6B02E1AC5CAA500EC00C7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 		9E70F8000F353E5CD6E724B8 /* Pods-SuperUnlocker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperUnlocker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperUnlocker/Pods-SuperUnlocker.debug.xcconfig"; sourceTree = "<group>"; };
-		A1664C0A1ACABB1B008BA2E7 /* BackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundViewController.h; sourceTree = "<group>"; };
-		A1664C0B1ACABB1B008BA2E7 /* BackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundViewController.m; sourceTree = "<group>"; };
+		A1664C0E1ACABD58008BA2E7 /* BackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundViewController.h; sourceTree = "<group>"; };
+		A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundViewController.m; sourceTree = "<group>"; };
+		A1664C111ACABD58008BA2E7 /* KeyPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyPeripheral.h; sourceTree = "<group>"; };
+		A1664C121ACABD58008BA2E7 /* KeyPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyPeripheral.m; sourceTree = "<group>"; };
+		A1664C131ACABD58008BA2E7 /* PeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralViewController.h; sourceTree = "<group>"; };
+		A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralViewController.m; sourceTree = "<group>"; };
 		A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A1A352611AC6BF59002EC254 /* MotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionDetector.h; sourceTree = "<group>"; };
 		A1A352621AC6BF59002EC254 /* MotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionDetector.m; sourceTree = "<group>"; };
 		A1A352641AC6C527002EC254 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A1A352671AC6C694002EC254 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
 		A1A352691AC6C854002EC254 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
-		A1F28E8A1AC6FB1300C6D876 /* KeyPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyPeripheral.h; sourceTree = "<group>"; };
-		A1F28E8B1AC6FB1300C6D876 /* KeyPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyPeripheral.m; sourceTree = "<group>"; };
 		A1F28E8E1AC6FBED00C6D876 /* CommonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonConstants.h; sourceTree = "<group>"; };
 		A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonConstants.m; sourceTree = "<group>"; };
-		B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralViewController.m; sourceTree = "<group>"; };
-		B4D7ABDA58345C84CB1FC713 /* PeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralViewController.h; sourceTree = "<group>"; };
 		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
 		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
 		C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperUnlocker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,19 +256,14 @@
 		828D0D511ABDAA96002BEFC9 /* SuperUnlocker */ = {
 			isa = PBXGroup;
 			children = (
-				A1A352601AC6BF3B002EC254 /* Inputs */,
 				828D0D561ABDAA96002BEFC9 /* AppDelegate.h */,
 				828D0D571ABDAA96002BEFC9 /* AppDelegate.m */,
-				B4D7ABDA58345C84CB1FC713 /* PeripheralViewController.h */,
-				B4D7A8E168309EB50E468AD7 /* PeripheralViewController.m */,
-				A1664C0A1ACABB1B008BA2E7 /* BackgroundViewController.h */,
-				A1664C0B1ACABB1B008BA2E7 /* BackgroundViewController.m */,
-				A1F28E8A1AC6FB1300C6D876 /* KeyPeripheral.h */,
-				A1F28E8B1AC6FB1300C6D876 /* KeyPeripheral.m */,
-				828D0D611ABDAA96002BEFC9 /* LaunchScreen.xib */,
-				828D0D5C1ABDAA96002BEFC9 /* Main.storyboard */,
+				A1664C0D1ACABD58008BA2E7 /* Base */,
+				A1664C101ACABD58008BA2E7 /* Dashboard */,
+				A1A352601AC6BF3B002EC254 /* Inputs */,
 				A1A352661AC6C694002EC254 /* Resources */,
 				828D0D521ABDAA96002BEFC9 /* Supporting Files */,
+				A1664C181ACABD7D008BA2E7 /* Xib */,
 			);
 			path = SuperUnlocker;
 			sourceTree = "<group>";
@@ -370,6 +365,35 @@
 				82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		A1664C0D1ACABD58008BA2E7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A1664C0E1ACABD58008BA2E7 /* BackgroundViewController.h */,
+				A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		A1664C101ACABD58008BA2E7 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A1664C111ACABD58008BA2E7 /* KeyPeripheral.h */,
+				A1664C121ACABD58008BA2E7 /* KeyPeripheral.m */,
+				A1664C131ACABD58008BA2E7 /* PeripheralViewController.h */,
+				A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		A1664C181ACABD7D008BA2E7 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				828D0D611ABDAA96002BEFC9 /* LaunchScreen.xib */,
+				828D0D5C1ABDAA96002BEFC9 /* Main.storyboard */,
+			);
+			name = Xib;
 			sourceTree = "<group>";
 		};
 		A1A352601AC6BF3B002EC254 /* Inputs */ = {
@@ -610,12 +634,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */,
+				A1664C171ACABD58008BA2E7 /* PeripheralViewController.m in Sources */,
 				A1F28E901AC6FBED00C6D876 /* CommonConstants.m in Sources */,
 				828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */,
-				A1F28E8C1AC6FB1300C6D876 /* KeyPeripheral.m in Sources */,
-				A1664C0C1ACABB1B008BA2E7 /* BackgroundViewController.m in Sources */,
+				A1664C161ACABD58008BA2E7 /* KeyPeripheral.m in Sources */,
+				A1664C151ACABD58008BA2E7 /* BackgroundViewController.m in Sources */,
 				828D0D551ABDAA96002BEFC9 /* main.m in Sources */,
-				B4D7A905E0222A394B729A81 /* PeripheralViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
