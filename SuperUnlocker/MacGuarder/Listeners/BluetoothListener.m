@@ -44,7 +44,7 @@
         _guiQueue = [[NSOperationQueue alloc] init];
         _queue = [[NSOperationQueue alloc] init];
 
-        self.userSettings.bMonitoringBluetooth = YES;
+        self.userSettings.bMonitoringBluetooth = NO;
         if (self.userSettings.bMonitoringBluetooth)
         {
             [self startListen];
@@ -140,7 +140,7 @@
 
 - (void)handleTimer:(NSTimer *)theTimer
 {
-    NSLog(@"Tick");
+//    NSLog(@"Tick");
     if (![[_queue operations] count])
     {
         [_queue addOperationWithBlock:^ {
