@@ -5,8 +5,6 @@
 
 #import "PeripheralViewController.h"
 #import "KeyPeripheral.h"
-#import "BluetoothMonitor.h"
-#import "MotionDetector.h"
 
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <AVFoundation/AVFoundation.h>
