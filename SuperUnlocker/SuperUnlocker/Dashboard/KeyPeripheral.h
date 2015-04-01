@@ -12,6 +12,7 @@
 @interface KeyPeripheral : NSObject
 
 @property (nonatomic, assign) BOOL bluetoothIsOn;
+@property (nonatomic, assign) BOOL hasConnectedDevice;
 
 + (instancetype)sharedInstance;
 

@@ -8,6 +8,7 @@
 
 #import "KeyPeripheral.h"
 #import "CommonConstants.h"
+#import "SubscribersStore.h"
 
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <UIKit/UIKit.h>
@@ -17,8 +18,8 @@
 
 @interface KeyPeripheral ()<CBPeripheralManagerDelegate>
 
-@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
-@property (nonatomic, strong) NSMutableArray *subscribeCentrals;
+@property (nonatomic, strong) CBPeripheralManager *peripheralManager;
+@property (nonatomic, strong) SubscribersStore *subsribersStore;
 
 @property (nonatomic, strong) CBMutableCharacteristic *shouldLockCharacterestic;
 @property (nonatomic, strong) CBMutableCharacteristic *onPowerCharacterestic;
@@ -45,13 +46,18 @@
     self = [super init];
     if (self) {
         _peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
-        _subscribeCentrals = [[NSMutableArray alloc] init];
-        
+        _subsribersStore = [[SubscribersStore alloc] init];
+        _hasConnectedDevice = NO;
         @weakify(self);
         [RACObserve(self.peripheralManager, state) subscribeNext:^(id aState) {
             @strongify(self);
             CBPeripheralManagerState state = [aState integerValue];
             self.bluetoothIsOn = state == CBPeripheralManagerStatePoweredOn;
+        }];
+        
+        [RACObserve(self.subsribersStore, subscribersExist) subscribeNext:^(id subscribersExist) {
+            @strongify(self);
+            self.hasConnectedDevice = [subscribersExist boolValue];
         }];
         
     }
@@ -82,8 +88,8 @@
 - (void)updateValue:(BOOL)newValue forCharacteristic:(CBMutableCharacteristic *)characteristic {
     NSInteger i = newValue ? 1 : 0;
     NSData *data = [NSData dataWithBytes:&i length: sizeof(i)];
-    
-    [self.peripheralManager updateValue:data forCharacteristic:characteristic onSubscribedCentrals:self.subscribeCentrals];
+    NSArray *subscribers = [self.subsribersStore subscribedCentralsForCharacteristic:characteristic];
+    [self.peripheralManager updateValue:data forCharacteristic:characteristic onSubscribedCentrals:subscribers];
 }
 
 - (void)setbluetoothIsOn:(BOOL)bluetoothIsOn {
@@ -96,7 +102,7 @@
 }
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
-    NSLog(@"0 peripheral did update state, %ld", peripheral.state);
+    NSLog(@"0 peripheral did update state, %ld", (long)peripheral.state);
     switch (peripheral.state) {
         case CBPeripheralManagerStatePoweredOn: {
             [self createUnlockerService];
@@ -140,16 +146,12 @@
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic {
     NSLog(@"3 central did subscribe to characteristic with uuid %@", characteristic.UUID);
-    NSPredicate *sameUuid = [NSPredicate predicateWithFormat:@"self.identifier.UUIDString == %@", central.identifier.UUIDString];
-    NSArray *centralsWithSameUuid = [self.subscribeCentrals filteredArrayUsingPredicate:sameUuid];
-    if (centralsWithSameUuid.count == 0) {
-        [self.subscribeCentrals addObject:central];
-    }
+    [self.subsribersStore central:central didSubscribeForCharacteristic:characteristic];
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic {
     NSLog(@"4 central did unsubscribe from characteristic with uuid %@", characteristic.UUID);
-    [self.subscribeCentrals removeObject:central];
+    [self.subsribersStore central:central didUnsubscribeFromCharacteristic:characteristic];
 }
 
 #pragma mark - Unused peripheral callbacks

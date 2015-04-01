@@ -34,6 +34,7 @@
 		A1664C151ACABD58008BA2E7 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */; };
 		A1664C161ACABD58008BA2E7 /* KeyPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C121ACABD58008BA2E7 /* KeyPeripheral.m */; };
 		A1664C171ACABD58008BA2E7 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */; };
+		A1664C1B1ACBEE24008BA2E7 /* SubscribersStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C1A1ACBEE24008BA2E7 /* SubscribersStore.m */; };
 		A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		A1A3525F1AC6BB42002EC254 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */; };
 		A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A352621AC6BF59002EC254 /* MotionDetector.m */; };
@@ -124,6 +125,8 @@
 		A1664C121ACABD58008BA2E7 /* KeyPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyPeripheral.m; sourceTree = "<group>"; };
 		A1664C131ACABD58008BA2E7 /* PeripheralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeripheralViewController.h; sourceTree = "<group>"; };
 		A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralViewController.m; sourceTree = "<group>"; };
+		A1664C191ACBEE24008BA2E7 /* SubscribersStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribersStore.h; sourceTree = "<group>"; };
+		A1664C1A1ACBEE24008BA2E7 /* SubscribersStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribersStore.m; sourceTree = "<group>"; };
 		A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A1A352611AC6BF59002EC254 /* MotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionDetector.h; sourceTree = "<group>"; };
 		A1A352621AC6BF59002EC254 /* MotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionDetector.m; sourceTree = "<group>"; };
@@ -383,6 +386,8 @@
 				A1664C121ACABD58008BA2E7 /* KeyPeripheral.m */,
 				A1664C131ACABD58008BA2E7 /* PeripheralViewController.h */,
 				A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */,
+				A1664C191ACBEE24008BA2E7 /* SubscribersStore.h */,
+				A1664C1A1ACBEE24008BA2E7 /* SubscribersStore.m */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -634,6 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */,
+				A1664C1B1ACBEE24008BA2E7 /* SubscribersStore.m in Sources */,
 				A1664C171ACABD58008BA2E7 /* PeripheralViewController.m in Sources */,
 				A1F28E901AC6FBED00C6D876 /* CommonConstants.m in Sources */,
 				828D0D581ABDAA96002BEFC9 /* AppDelegate.m in Sources */,

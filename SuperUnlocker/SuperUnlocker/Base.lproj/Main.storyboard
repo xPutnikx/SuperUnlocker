@@ -29,21 +29,44 @@
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bl_off" translatesAutoresizingMaskIntoConstraints="NO" id="epf-fA-QLU">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naS-tc-O28">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="f8i-7b-hFd">
+                                        <rect key="frame" x="282" y="282" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="37" id="ER3-Q4-utY"/>
+                                            <constraint firstAttribute="height" constant="37" id="rbb-Sl-I7w"/>
+                                        </constraints>
+                                        <color key="color" red="0.21960784494876862" green="0.24313725531101227" blue="0.29411765933036804" alpha="1" colorSpace="deviceRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="f8i-7b-hFd" secondAttribute="centerY" id="Xng-xm-Pjh"/>
+                                    <constraint firstAttribute="centerX" secondItem="f8i-7b-hFd" secondAttribute="centerX" id="fct-SE-3F5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="epf-fA-QLU" secondAttribute="bottom" id="4pH-Z6-6zG"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="naS-tc-O28" secondAttribute="bottom" id="7dw-8S-8TA"/>
                             <constraint firstItem="epf-fA-QLU" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="AKD-BR-sL5"/>
                             <constraint firstItem="zOa-ih-E2b" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="CGV-4b-I1I"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zOa-ih-E2b" secondAttribute="trailing" constant="-16" id="CgT-7Y-GBA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="epf-fA-QLU" secondAttribute="trailing" constant="-16" id="Rwd-3X-V3S"/>
+                            <constraint firstItem="naS-tc-O28" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="ZSj-dq-wbT"/>
                             <constraint firstItem="epf-fA-QLU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="eNb-YP-Rkg"/>
+                            <constraint firstItem="naS-tc-O28" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="heb-I8-Kuu"/>
                             <constraint firstItem="zOa-ih-E2b" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="j6W-jr-WnH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="naS-tc-O28" secondAttribute="trailing" constant="-16" id="mAu-45-vAZ"/>
                             <constraint firstAttribute="bottomMargin" secondItem="zOa-ih-E2b" secondAttribute="bottom" id="rfl-rJ-fLB"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="lockButton" destination="zOa-ih-E2b" id="Wcj-Of-NTa"/>
+                        <outlet property="lookingForDeviceView" destination="naS-tc-O28" id="52G-ER-wxY"/>
                         <outlet property="offStateImage" destination="epf-fA-QLU" id="nSU-6q-b0F"/>
                     </connections>
                 </viewController>
