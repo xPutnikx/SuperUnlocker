@@ -17,5 +17,6 @@
 - (void)central:(CBCentral *)central didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic;
 - (NSArray *)subscribedCentrals;
 - (NSArray *)subscribedCentralsForCharacteristic:(CBCharacteristic *)characteristic;
+- (void)removeSubscribers;
 
 @end

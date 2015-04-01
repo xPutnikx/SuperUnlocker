@@ -69,5 +69,10 @@
     return @[];
 }
 
+- (void)removeSubscribers {
+    [self.subscribersByCharacteristicUuid removeAllObjects];
+    self.subscribersExist = NO;
+}
+
 
 @end

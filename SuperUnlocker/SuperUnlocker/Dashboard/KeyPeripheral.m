@@ -108,6 +108,10 @@
             [self createUnlockerService];
             break;
         }
+        case CBPeripheralManagerStatePoweredOff: {
+            [self.subsribersStore removeSubscribers];
+            break;
+        }
         default: {
             break;
         }
