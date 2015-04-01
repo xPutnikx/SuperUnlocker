@@ -80,7 +80,7 @@
             break;
 
         default:
-            NSLog(@"State %i", central.state);
+            NSLog(@"State %ld", (long)central.state);
             break;
     }
 }
@@ -125,10 +125,10 @@
     for (CBCharacteristic *aChar in service.characteristics) {
         NSLog(@"%@", aChar.UUID);
         if ([aChar.UUID isEqual:[CBUUID UUIDWithString:ShouldLockCharacteristicUuid]]) {
-            NSLog(@"%d", aChar.properties);
+            NSLog(@"%ld", (long)aChar.properties);
             [aPeripheral setNotifyValue:YES forCharacteristic:aChar];
         } else if ([aChar.UUID isEqual:[CBUUID UUIDWithString:OnPowerCharacteristicUuid]]) {
-            NSLog(@"%d", aChar.properties);
+            NSLog(@"%ld", (long)aChar.properties);
             [aPeripheral setNotifyValue:YES forCharacteristic:aChar];
             NSString *mainString = [NSString stringWithFormat:@"ping"];
             NSData *mainData = [mainString dataUsingEncoding:NSUTF8StringEncoding];
