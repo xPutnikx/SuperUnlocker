@@ -24,11 +24,5 @@ typedef NS_ENUM(NSInteger, MotionState) {
 - (MotionState)motionState;
 
 - (void)log;
-- (void)intermediateLog;
-- (void)logLock;
-- (void)logUnLock;
-- (void)logNoAction;
-- (void)startIdle;
-- (void)stopIdle;
 
 @end
