@@ -1,8 +1,19 @@
 # ignore all warnings from all pods
 inhibit_all_warnings!
 
-target 'SuperUnlocker' do
-  	platform :ios, 8.0
+def import_pods
     pod 'ReactiveCocoa', '2.4.7'
     pod 'libextobjc/EXTScope', '~> 0.4'
+end
+
+target :ios do
+    platform :ios, '8.0'
+    link_with 'SuperUnlocker'
+    import_pods
+end
+
+target :osx do
+    platform :osx, '10.10'
+    link_with 'MacGuarder'
+    import_pods
 end

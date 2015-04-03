@@ -23,7 +23,7 @@
 - (void)setPassword:(NSString*)password;    // set Mac password
 
 @property (nonatomic) id<LockManagerDelegate> lockDelegate;
-@property (nonatomic, weak) GuarderUserDefaults *userSettings;
+@property (nonatomic, strong) GuarderUserDefaults *userSettings;
 @property (nonatomic, strong) NSString *password;
 
 

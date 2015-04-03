@@ -66,6 +66,7 @@
 }
 
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    NSLog(@"%@", self.password);
     switch (central.state) {
         case CBCentralManagerStatePoweredOn: {
             NSLog(@"0 central is on");
@@ -83,20 +84,18 @@
     NSLog(@"1 central did discover peripheral %@", aPeripheral.name);
     [central stopScan];
     [central connectPeripheral:aPeripheral options:@{CBConnectPeripheralOptionNotifyOnDisconnectionKey : @(YES)}];
-//    NSDate *firstCheckDate = [NSDate dateWithTimeIntervalSinceNow:3];
-//    [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(timeoutConnection:) userInfo:@{@"peripheral" : aPeripheral}  repeats:YES];
     
-    NSDate *d = [NSDate dateWithTimeIntervalSinceNow: 3.0];
-    NSTimer *t = [[NSTimer alloc] initWithFireDate: d
-                                          interval: 1
-                                            target: self
-                                          selector:@selector(timeoutConnection:)
-                                          userInfo:@{@"peripheral" : aPeripheral}
-                                           repeats:YES];
-    
-    NSRunLoop *runner = [NSRunLoop currentRunLoop];
-    [runner addTimer:t forMode: NSDefaultRunLoopMode];
-//    [t fire];
+//    NSDate *d = [NSDate dateWithTimeIntervalSinceNow: 3.0];
+//    NSTimer *t = [[NSTimer alloc] initWithFireDate: d
+//                                          interval: 1
+//                                            target: self
+//                                          selector:@selector(timeoutConnection:)
+//                                          userInfo:@{@"peripheral" : aPeripheral}
+//                                           repeats:YES];
+//    
+//    NSRunLoop *runner = [NSRunLoop currentRunLoop];
+//    [runner addTimer:t forMode: NSDefaultRunLoopMode];
+////    [t fire];
 }
                             
 - (void)timeoutConnection:(NSTimer *)timer {

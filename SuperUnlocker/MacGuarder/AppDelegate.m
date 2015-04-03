@@ -20,7 +20,7 @@
 //periferial = server (phone)
 
 
-@interface AppDelegate () <ListenerManagerDelegate>
+@interface AppDelegate () <ListenerManagerDelegate, NSTextFieldDelegate>
 
 @property (nonatomic, strong) GuarderUserDefaults *userSettings;
 @property (nonatomic, strong) MacGuarderHelper *macGuard;
@@ -63,6 +63,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.userSettings = [[GuarderUserDefaults alloc] init];
+    [self.userSettings loadUserSettings];
     self.macGuard = [[MacGuarderHelper alloc] initWithSettings:self.userSettings];
     [LockCentral setMacGuarder:self.macGuard];
 
@@ -109,6 +110,11 @@
 //                @{CBCentralManagerScanOptionAllowDuplicatesKey : @(YES)}];
 //    }
 
+}
+
+- (void)controlTextDidChange:(NSNotification *)notification {
+    NSTextField *textField = [notification object];
+    NSLog(@"controlTextDidChange: stringValue == %@", [textField stringValue]);
 }
 
 @end
