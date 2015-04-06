@@ -114,7 +114,7 @@
 
 - (void)controlTextDidChange:(NSNotification *)notification {
     NSTextField *textField = [notification object];
-    NSLog(@"controlTextDidChange: stringValue == %@", [textField stringValue]);
+    self.userSettings.userPassword = [textField stringValue];
 }
 
 @end

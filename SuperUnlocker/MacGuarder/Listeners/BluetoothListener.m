@@ -123,11 +123,11 @@
 //        if ([_bluetoothDevice remoteNameRequest:nil] == kIOReturnSuccess)
 //        {
             BluetoothHCIRSSIValue rssi = [_bluetoothDevice rawRSSI];
-            if(rssi < -60) {
-                NSLog(@"rssi ------- %d", rssi);
-            }else{
-                NSLog(@"rssi %d", rssi);
-            }
+//            if(rssi < -60) {
+//                NSLog(@"rssi ------- %d", rssi);
+//            }else{
+//                NSLog(@"rssi %d", rssi);
+//            }
             if(rssi == 127 && !_bluetoothDevice.isConnected){
                 [_bluetoothDevice openConnection];
             }
