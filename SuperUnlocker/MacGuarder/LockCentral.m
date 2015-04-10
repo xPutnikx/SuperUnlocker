@@ -57,7 +57,9 @@
 
 - (void)startScanning {
     NSLog(@"central starts scanning");
-    [self.centralManager scanForPeripheralsWithServices:@[[CBUUID UUIDWithString:UnlockerServiceUuid]]
+
+    // if app is in background on iOS device it has no services, i.e. won't be found
+    [self.centralManager scanForPeripheralsWithServices:nil/*@[[CBUUID UUIDWithString:UnlockerServiceUuid]]*/
                                                 options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @(YES)}];
 }
 
@@ -83,7 +85,16 @@
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)aPeripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
     NSLog(@"1 central did discover peripheral %@", aPeripheral.name);
     [central stopScan];
-    [central connectPeripheral:aPeripheral options:@{CBConnectPeripheralOptionNotifyOnDisconnectionKey : @(YES)}];
+    NSArray *peripheralsToConnectTo = [central retrievePeripheralsWithIdentifiers:@[aPeripheral.identifier]];
+    if (peripheralsToConnectTo.count == 1) {
+        CBPeripheral *p = [peripheralsToConnectTo firstObject];
+        [central connectPeripheral:p options:@{CBConnectPeripheralOptionNotifyOnDisconnectionKey : @(YES)}];
+    } else if (peripheralsToConnectTo.count > 1) {
+        NSLog(@"to many peripherals retrieved");
+    } else {
+        NSLog(@"no peripherals retrieved");
+    }
+//    [central connectPeripheral:aPeripheral options:@{CBConnectPeripheralOptionNotifyOnDisconnectionKey : @(YES)}];
     
 //    NSDate *d = [NSDate dateWithTimeIntervalSinceNow: 3.0];
 //    NSTimer *t = [[NSTimer alloc] initWithFireDate: d
