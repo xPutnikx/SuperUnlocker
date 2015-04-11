@@ -6,11 +6,11 @@
 //  Copyright (c) 2014年 TrendMicro. All rights reserved.
 //
 
-#import "MacGuarderHelper.h"
+#import "MacGuarder.h"
 #import "ListenerManager.h"
 #import "GuarderUserDefaults.h"
 
-@implementation MacGuarderHelper
+@implementation MacGuarder
 
 - (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
 {
@@ -66,8 +66,6 @@
 
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, self.userSettings.password, nil]];
     [script executeAndReturnError:nil];
-
-    [_lockDelegate unLockSuccess];
 }
 
 @end

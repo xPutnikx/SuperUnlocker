@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class MacGuarderHelper;
+@class MacGuarder;
 
 
 @interface LockCentral : NSObject
 
 + (instancetype)sharedInstance;
-+ (void)setMacGuarder:(MacGuarderHelper *)macGuarder;
++ (void)setMacGuarder:(MacGuarder *)macGuarder;
 
 - (void)start;
 - (void)stop;

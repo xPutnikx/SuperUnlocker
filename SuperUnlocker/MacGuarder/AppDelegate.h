@@ -12,7 +12,7 @@
 
 @class GuarderUserDefaults;
 @class BluetoothListener;
-@class MacGuarderHelper;
+@class MacGuarder;
 
 @interface AppDelegate : NSObject  <NSApplicationDelegate>
 

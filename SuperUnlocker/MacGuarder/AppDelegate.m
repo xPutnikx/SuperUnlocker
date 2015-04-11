@@ -5,7 +5,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MacGuarderHelper.h"
+#import "MacGuarder.h"
 #import "BluetoothListener.h"
 #import "CommonConstants.h"
 #import "LockCentral.h"
@@ -24,7 +24,7 @@
 @interface AppDelegate () <ListenerManagerDelegate, NSTextFieldDelegate>
 
 @property (nonatomic, strong) GuarderUserDefaults *userSettings;
-@property (nonatomic, strong) MacGuarderHelper *macGuard;
+@property (nonatomic, strong) MacGuarder *macGuard;
 
 @end
 
@@ -68,7 +68,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.userSettings = [[GuarderUserDefaults alloc] init];
     [self.userSettings loadUserSettings];
-    self.macGuard = [[MacGuarderHelper alloc] initWithSettings:self.userSettings];
+    self.macGuard = [[MacGuarder alloc] initWithSettings:self.userSettings];
     [LockCentral setMacGuarder:self.macGuard];
 
 //    self.bluetoothListener = [[BluetoothListener alloc] initWithSettings:self.userSettings];

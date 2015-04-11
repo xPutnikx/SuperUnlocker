@@ -23,12 +23,9 @@
 		828D0D6F1ABDAA96002BEFC9 /* SuperUnlockerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D6E1ABDAA96002BEFC9 /* SuperUnlockerTests.m */; };
 		82A6AFF51AC5C8B700EC00C7 /* MacGuarderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6AFF41AC5C8B700EC00C7 /* MacGuarderTests.m */; };
 		82A6B0301AC5CAA500EC00C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B01B1AC5CAA500EC00C7 /* MainMenu.xib */; };
-		82A6B0311AC5CAA500EC00C7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */; };
-		82A6B0321AC5CAA500EC00C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B0201AC5CAA500EC00C7 /* InfoPlist.strings */; };
-		82A6B0331AC5CAA500EC00C7 /* MacGuarderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */; };
+		82A6B0331AC5CAA500EC00C7 /* MacGuarder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0241AC5CAA500EC00C7 /* MacGuarder.m */; };
 		82A6B0341AC5CAA500EC00C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B0251AC5CAA500EC00C7 /* Images.xcassets */; };
 		82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */; };
-		82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */; };
 		A1664C151ACABD58008BA2E7 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */; };
 		A1664C161ACABD58008BA2E7 /* KeyPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C121ACABD58008BA2E7 /* KeyPeripheral.m */; };
 		A1664C171ACABD58008BA2E7 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */; };
@@ -105,15 +102,12 @@
 		82A6AFF41AC5C8B700EC00C7 /* MacGuarderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MacGuarderTests.m; sourceTree = "<group>"; };
 		82A6B0151AC5CAA500EC00C7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		82A6B01C1AC5CAA500EC00C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MainMenu.xib; sourceTree = "<group>"; };
-		82A6B01F1AC5CAA500EC00C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = Credits.rtf; sourceTree = "<group>"; };
-		82A6B0211AC5CAA500EC00C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		82A6B0231AC5CAA500EC00C7 /* MacGuarderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacGuarderHelper.h; sourceTree = "<group>"; };
-		82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacGuarderHelper.m; sourceTree = "<group>"; };
+		82A6B0231AC5CAA500EC00C7 /* MacGuarder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacGuarder.h; path = Helper/MacGuarder.h; sourceTree = "<group>"; };
+		82A6B0241AC5CAA500EC00C7 /* MacGuarder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MacGuarder.m; path = Helper/MacGuarder.m; sourceTree = "<group>"; };
 		82A6B0251AC5CAA500EC00C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		82A6B02C1AC5CAA500EC00C7 /* MacGuarder-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MacGuarder-Prefix.pch"; sourceTree = "<group>"; };
 		82A6B02E1AC5CAA500EC00C7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 		9E70F8000F353E5CD6E724B8 /* Pods-SuperUnlocker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperUnlocker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperUnlocker/Pods-SuperUnlocker.debug.xcconfig"; sourceTree = "<group>"; };
 		A1664C0E1ACABD58008BA2E7 /* BackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundViewController.h; sourceTree = "<group>"; };
 		A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundViewController.m; sourceTree = "<group>"; };
@@ -298,15 +292,14 @@
 				82A6B0151AC5CAA500EC00C7 /* AppDelegate.h */,
 				82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */,
 				82A6B01A1AC5CAA500EC00C7 /* Base.lproj */,
-				82A6B01D1AC5CAA500EC00C7 /* en.lproj */,
-				82A6B0221AC5CAA500EC00C7 /* Helper */,
 				82A6B0251AC5CAA500EC00C7 /* Images.xcassets */,
 				8215D0511AC6859800EE17D9 /* Listeners */,
 				82A6AFDB1AC5C8B700EC00C7 /* Supporting Files */,
 				8215D05E1AC68AF900EE17D9 /* UserDefaults */,
-				82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */,
 				A1664C1C1ACC3F7F008BA2E7 /* LockCentral.h */,
 				A1664C1D1ACC3F7F008BA2E7 /* LockCentral.m */,
+				82A6B0231AC5CAA500EC00C7 /* MacGuarder.h */,
+				82A6B0241AC5CAA500EC00C7 /* MacGuarder.m */,
 				A1F540ED1AD94CCA009660DC /* DeviceSelector.h */,
 				A1F540EE1AD94CCA009660DC /* DeviceSelector.m */,
 			);
@@ -346,24 +339,6 @@
 				82A6B01B1AC5CAA500EC00C7 /* MainMenu.xib */,
 			);
 			path = Base.lproj;
-			sourceTree = "<group>";
-		};
-		82A6B01D1AC5CAA500EC00C7 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */,
-				82A6B0201AC5CAA500EC00C7 /* InfoPlist.strings */,
-			);
-			path = en.lproj;
-			sourceTree = "<group>";
-		};
-		82A6B0221AC5CAA500EC00C7 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				82A6B0231AC5CAA500EC00C7 /* MacGuarderHelper.h */,
-				82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		A1664C0D1ACABD58008BA2E7 /* Base */ = {
@@ -580,9 +555,6 @@
 			files = (
 				82A6B0301AC5CAA500EC00C7 /* MainMenu.xib in Resources */,
 				82A6B0341AC5CAA500EC00C7 /* Images.xcassets in Resources */,
-				82A6B0321AC5CAA500EC00C7 /* InfoPlist.strings in Resources */,
-				82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */,
-				82A6B0311AC5CAA500EC00C7 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,7 +628,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A6B0331AC5CAA500EC00C7 /* MacGuarderHelper.m in Sources */,
+				82A6B0331AC5CAA500EC00C7 /* MacGuarder.m in Sources */,
 				8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */,
 				A1664C1E1ACC3F7F008BA2E7 /* LockCentral.m in Sources */,
 				A1F28E911AC6FBED00C6D876 /* CommonConstants.m in Sources */,
@@ -714,22 +686,6 @@
 				82A6B01C1AC5CAA500EC00C7 /* Base */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82A6B01F1AC5CAA500EC00C7 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		82A6B0201AC5CAA500EC00C7 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82A6B0211AC5CAA500EC00C7 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

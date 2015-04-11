@@ -8,12 +8,9 @@
 
 #import "LockCentral.h"
 #import "CommonConstants.h"
-#import "MacGuarderHelper.h"
+#import "MacGuarder.h"
 #import "GuarderUserDefaults.h"
 #import <CoreBluetooth/CoreBluetooth.h>
-
-
-static const NSTimeInterval ConnectingTimeout = 10.0;
 
 
 @interface LockCentral ()<CBCentralManagerDelegate>
@@ -21,7 +18,7 @@ static const NSTimeInterval ConnectingTimeout = 10.0;
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
-@property (nonatomic, strong) MacGuarderHelper *macGuarder;
+@property (nonatomic, strong) MacGuarder *macGuarder;
 
 @end
 
@@ -52,7 +49,7 @@ static const NSTimeInterval ConnectingTimeout = 10.0;
     return instance;
 }
 
-+ (void)setMacGuarder:(MacGuarderHelper *)macGuarder {
++ (void)setMacGuarder:(MacGuarder *)macGuarder {
     [LockCentral sharedInstance].macGuarder = macGuarder;
 }
 
