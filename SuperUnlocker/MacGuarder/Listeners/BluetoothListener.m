@@ -5,7 +5,7 @@
 //
 
 #import "BluetoothListener.h"
-#import "GuarderUserDefaults.h"
+#import "Settings.h"
 #import "DeviceSelector.h"
 
 #import <IOBluetooth/objc/IOBluetoothSDPServiceRecord.h>
@@ -32,13 +32,12 @@
     int countDownLatch;
 };
 
-- (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
+- (instancetype)initWithSettings:(Settings *)aSettings
 {
     if (self = [super initWithSettings:aSettings])
     {
         _checkingInProgress = NO;
         self.bluetoothDevicePriorStatus = OutOfRange;
-        _bluetoothDevice = [NSKeyedUnarchiver unarchiveObjectWithData:self.userSettings.bluetoothData];
         [self updateDeviceName];
         
         _bluetoothTimerInterval = 3;

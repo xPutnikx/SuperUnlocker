@@ -10,7 +10,7 @@
 #import <SecurityInterface/SFAuthorizationView.h>
 #import <IOBluetooth/IOBluetooth.h>
 
-@class GuarderUserDefaults;
+@class Settings;
 @class BluetoothListener;
 @class MacGuarder;
 
@@ -26,6 +26,5 @@
 @property (weak) IBOutlet NSImageView	*bluetoothStatus;
 
 @property (nonatomic) BluetoothListener *bluetoothListener;
-@property (nonatomic, strong) NSString* user;
 
 @end

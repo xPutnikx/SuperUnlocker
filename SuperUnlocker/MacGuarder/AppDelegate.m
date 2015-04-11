@@ -23,53 +23,44 @@
 
 @interface AppDelegate () <ListenerManagerDelegate, NSTextFieldDelegate>
 
-@property (nonatomic, strong) GuarderUserDefaults *userSettings;
+@property (nonatomic, strong) Settings *settings;
 @property (nonatomic, strong) MacGuarder *macGuard;
+@property (nonatomic, strong) LockCentral *lockCentral;
 
 @end
 
 
 @implementation AppDelegate
 
-- (IBAction)didClickQuit:(id)sender {
-    [_userSettings savePass];
+- (IBAction)quit:(id)sender {
+    [_settings saveSettings];
     [[NSRunningApplication currentApplication] terminate];
 }
 
 - (IBAction)selectDevice:(id)sender {
     DeviceSelector *deviceSelector = [[DeviceSelector alloc] init];
     [deviceSelector selectDeviceWithHandler:^(NSString *deviceName) {
-        self.userSettings.selectedDeviceName = deviceName;
+        self.settings.deviceName = deviceName;
     }];
-}
-
-- (void)awakeFromNib {
-    // request a default admin user right
-    // PS:
-    // 1. This default admin user right is shared with other app, like Apple's Preferences->Sharing,
-    //    this means the lock they use are in sync mode.
-    //    Once the admin user logins Mac, this kind of right is got, and their locks are automatically unlocked.
-    // 2. But Apple's Preferences->Users & Groups app uses a higher super root user right,
-    //    even the admin user logins Mac, this kind of right is still not got, need to input password to get it.
-}
-
-#pragma mark - delegate
-
-- (void)authorizationViewDidAuthorize:(SFAuthorizationView *)view {
-
-}
-
-- (void)authorizationViewDidDeauthorize:(SFAuthorizationView *)view {
-
 }
 
 #pragma mark default methods
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    self.userSettings = [[GuarderUserDefaults alloc] init];
-    [self.userSettings loadUserSettings];
-    self.macGuard = [[MacGuarder alloc] initWithSettings:self.userSettings];
-    [LockCentral setMacGuarder:self.macGuard];
+    self.settings = [[Settings alloc] init];
+    self.macGuard = [[MacGuarder alloc] initWithSettings:self.settings];
+    self.lockCentral = [LockCentral sharedInstance];
+    
+    __weak typeof(self) welf = self;
+    self.lockCentral.shouldConnectDeviceHandler = ^BOOL(NSString *deviceName) {
+        return [welf.settings.deviceName isEqualToString:deviceName];
+    };
+    self.lockCentral.lockCommandHandler = ^() {
+        [welf.macGuard lock];
+    };
+    self.lockCentral.unlockCommandHandler = ^() {
+        [welf.macGuard unlock];
+    };
 
 //    self.bluetoothListener = [[BluetoothListener alloc] initWithSettings:self.userSettings];
 //    self.bluetoothListener.delegate = self;
@@ -83,13 +74,13 @@
     
     //* By BLE
     self.btSelectDevice.enabled = YES;
-    self.user = [NSString stringWithFormat:@"%d", getuid()];
-    self.passwordField.stringValue = _userSettings.password;
+    self.passwordField.stringValue = self.settings.password;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
     [self.bluetoothListener stopListen];
-    [[LockCentral sharedInstance] stop];
+    [self.lockCentral stop];
+    [self.settings saveSettings];
 }
 
 - (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus {
@@ -105,21 +96,12 @@
 
 - (void)makeAction:(id)sender {
     NSLog(@"@Out of range");
-    if(![self.macGuard isScreenLocked]){
-        [self.macGuard lock];
-    }
-//    if(centmanager != nil && aCperipheral != nil) {
-//        [centmanager cancelPeripheralConnection:aCperipheral];
-//        [centmanager                    scanForPeripheralsWithServices:
-//                @[[CBUUID UUIDWithString:UnlockerServiceUuid]] options:
-//                @{CBCentralManagerScanOptionAllowDuplicatesKey : @(YES)}];
-//    }
-
+    [self.macGuard lock];
 }
 
 - (void)controlTextDidChange:(NSNotification *)notification {
     NSTextField *textField = [notification object];
-    self.userSettings.password = [textField stringValue];
+    self.settings.password = [textField stringValue];
 }
 
 @end

@@ -8,11 +8,19 @@
 
 #import "MacGuarder.h"
 #import "ListenerManager.h"
-#import "GuarderUserDefaults.h"
+#import "Settings.h"
+
+
+@interface MacGuarder ()
+
+@property (nonatomic, strong) Settings *userSettings;
+
+@end
+
 
 @implementation MacGuarder
 
-- (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
+- (instancetype)initWithSettings:(Settings *)aSettings
 {
     if (self = [super init]) {
         _userSettings = aSettings;
@@ -35,9 +43,10 @@
     return locked;
 }
 
-- (void)lock
-{
-    if ([self isScreenLocked]) return;
+- (void)lock {
+    if ([self isScreenLocked]) {
+        return;
+    }
 
     NSLog(@"lock");
 
@@ -47,10 +56,11 @@
     IOObjectRelease(r);
 }
 
-- (void)unlock
-{
+- (void)unlock {
     NSLog(@"unlock");
-    if (![self isScreenLocked]) return;
+    if (![self isScreenLocked]) {
+        return;
+    }
 
 // wakeup display from idle status to show login window
     io_registry_entry_t r = IORegistryEntryFromPath(kIOMasterPortDefault, "IOService:/IOResources/IODisplayWrangler");

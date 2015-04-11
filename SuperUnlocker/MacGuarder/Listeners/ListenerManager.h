@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GuarderUserDefaults.h"
+#import "Settings.h"
 
-@class GuarderUserDefaults;
+@class Settings;
 
 @protocol ListenerManagerDelegate <NSObject>
 
@@ -19,13 +19,13 @@
 
 @interface ListenerManager : NSObject
 
-- (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithSettings:(Settings *)aSettings NS_DESIGNATED_INITIALIZER;
 
 - (void)startListen;
 - (void)stopListen;
 - (void)makeAction:(id)sender;
 
-@property (nonatomic, weak  ) GuarderUserDefaults *userSettings;
+@property (nonatomic, weak  ) Settings *userSettings;
 @property (nonatomic, weak  ) id<ListenerManagerDelegate> delegate;
 
 @end

@@ -8,13 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@class MacGuarder;
+
+typedef void (^LockCommandHandler)();
+typedef void (^UnlockCommandHandler)();
+typedef BOOL (^ShouldConnectDeviceHandler)(NSString *name);
 
 
 @interface LockCentral : NSObject
 
+@property (nonatomic, copy) LockCommandHandler lockCommandHandler;
+@property (nonatomic, copy) UnlockCommandHandler unlockCommandHandler;
+@property (nonatomic, copy) ShouldConnectDeviceHandler shouldConnectDeviceHandler;
+
 + (instancetype)sharedInstance;
-+ (void)setMacGuarder:(MacGuarder *)macGuarder;
 
 - (void)start;
 - (void)stop;

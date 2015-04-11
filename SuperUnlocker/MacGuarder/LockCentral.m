@@ -8,8 +8,6 @@
 
 #import "LockCentral.h"
 #import "CommonConstants.h"
-#import "MacGuarder.h"
-#import "GuarderUserDefaults.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 
 
@@ -18,7 +16,6 @@
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic, strong) CBPeripheral *peripheral;
 
-@property (nonatomic, strong) MacGuarder *macGuarder;
 
 @end
 
@@ -47,10 +44,6 @@
         instance = [[LockCentral alloc] init];
     });
     return instance;
-}
-
-+ (void)setMacGuarder:(MacGuarder *)macGuarder {
-    [LockCentral sharedInstance].macGuarder = macGuarder;
 }
 
 - (void)start {
@@ -109,7 +102,7 @@
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)aPeripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
     if ([self.peripheral.identifier isEqualTo:aPeripheral.identifier] ||
-        ![aPeripheral.name isEqualToString:self.macGuarder.userSettings.selectedDeviceName]) {
+        !self.shouldConnectDeviceHandler(aPeripheral.name)) {
         return;
     }
     NSLog(@"did discover peripheral %@", aPeripheral.name);
@@ -171,13 +164,10 @@
         BOOL needToLock = data == 1;
         
         if ([aPeripheral.identifier isEqualTo:self.peripheral.identifier]) {
-            BOOL isLocked = [self.macGuarder isScreenLocked];
-            if (needToLock && !isLocked) {
-                [self.macGuarder lock];
-            }
-            BOOL needUnlock = !needToLock;
-            if (needUnlock && isLocked) {
-                [self.macGuarder unlock];
+            if (needToLock) {
+                self.lockCommandHandler();
+            } else {
+                self.unlockCommandHandler();
             }
         }
     } else if ([characteristic.UUID.UUIDString isEqualToString:OnPowerCharacteristicUuid]) {

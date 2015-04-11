@@ -40,7 +40,7 @@
 		A1F28E901AC6FBED00C6D876 /* CommonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */; };
 		A1F28E911AC6FBED00C6D876 /* CommonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */; };
 		A1F540EF1AD94CCA009660DC /* DeviceSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F540EE1AD94CCA009660DC /* DeviceSelector.m */; };
-		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
+		B4D7A411854832CA4D1F5909 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* Settings.m */; };
 		D43DD63B4F66465D737A34C8 /* libPods-SuperUnlocker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */; };
 /* End PBXBuildFile section */
 
@@ -129,8 +129,8 @@
 		A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonConstants.m; sourceTree = "<group>"; };
 		A1F540ED1AD94CCA009660DC /* DeviceSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSelector.h; sourceTree = "<group>"; };
 		A1F540EE1AD94CCA009660DC /* DeviceSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSelector.m; sourceTree = "<group>"; };
-		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
-		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
+		B4D7AF6CAD03CA12951AAE99 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		B4D7AFD3EE98F65459E06284 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperUnlocker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7FFDED5C0498624EA4BBA3 /* Pods-SuperUnlocker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperUnlocker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperUnlocker/Pods-SuperUnlocker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,8 +214,8 @@
 		8215D05E1AC68AF900EE17D9 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */,
-				B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */,
+				B4D7AF6CAD03CA12951AAE99 /* Settings.h */,
+				B4D7AFD3EE98F65459E06284 /* Settings.m */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -636,7 +636,7 @@
 				8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */,
 				821E56AB1AC5F129000515A5 /* main.m in Sources */,
 				82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */,
-				B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */,
+				B4D7A411854832CA4D1F5909 /* Settings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

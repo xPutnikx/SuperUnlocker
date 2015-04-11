@@ -8,19 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol LockManagerDelegate;
-@class GuarderUserDefaults;
+
+@class Settings;
 
 
 @interface MacGuarder : NSObject
 
-- (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings;
-- (BOOL)isScreenLocked;                     // check if Mac is locked
+- (instancetype)initWithSettings:(Settings *)aSettings;
 
-- (void)lock;                               // lock the Mac
-- (void)unlock;                             // unlock the Macu
-
-
-@property (nonatomic, strong) GuarderUserDefaults *userSettings;
+- (void)lock;
+- (void)unlock;
 
 @end
