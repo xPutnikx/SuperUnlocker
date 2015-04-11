@@ -67,15 +67,15 @@
     self.macGuard = [[MacGuarderHelper alloc] initWithSettings:self.userSettings];
     [LockCentral setMacGuarder:self.macGuard];
 
-    self.bluetoothListener = [[BluetoothListener alloc] initWithSettings:self.userSettings];
-    self.bluetoothListener.delegate = self;
-    
-    __weak typeof(self) weakSelf = self;
-    self.bluetoothListener.bluetoothStatusChangedBlock = ^(BluetoothStatus bluetoothStatus) {
-        typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf updateBluetoothStatus:bluetoothStatus];
-    };
-    [self.bluetoothListener startListen];
+//    self.bluetoothListener = [[BluetoothListener alloc] initWithSettings:self.userSettings];
+//    self.bluetoothListener.delegate = self;
+//    
+//    __weak typeof(self) weakSelf = self;
+//    self.bluetoothListener.bluetoothStatusChangedBlock = ^(BluetoothStatus bluetoothStatus) {
+//        typeof(weakSelf) strongSelf = weakSelf;
+//        [strongSelf uupdateBluetoothStatus:bluetoothStatus];
+//    };
+//    [self.bluetoothListener startListen];
     
     //* By BLE
     self.btSelectDevice.Enabled = YES;
@@ -85,6 +85,7 @@
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
     [self.bluetoothListener stopListen];
+    [[LockCentral sharedInstance] stop];
 }
 
 - (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus {

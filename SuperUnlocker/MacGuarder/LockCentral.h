@@ -13,8 +13,6 @@
 
 @interface LockCentral : NSObject
 
-@property (nonatomic, strong) NSString *password;
-
 + (instancetype)sharedInstance;
 + (void)setMacGuarder:(MacGuarderHelper *)macGuarder;
 

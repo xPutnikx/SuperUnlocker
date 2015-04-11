@@ -14,10 +14,8 @@
 
 - (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
 {
-    if (self = [super init])
-    {
+    if (self = [super init]) {
         _userSettings = aSettings;
-        _password = _userSettings.userPassword;
     }
 
     return self;
@@ -66,15 +64,10 @@
             "tell application \"System Events\" to keystroke (ASCII character 8) \n"
             "tell application \"System Events\" to keystroke \"%@\" \n tell application \"System Events\" to keystroke return";
 
-    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, _password, nil]];
+    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, self.userSettings.userPassword, nil]];
     [script executeAndReturnError:nil];
 
     [_lockDelegate unLockSuccess];
 }
 
-- (void)setPassword:(NSString*)password
-{
-    _password = [password copy];
-    _userSettings.userPassword = _password;
-}
 @end

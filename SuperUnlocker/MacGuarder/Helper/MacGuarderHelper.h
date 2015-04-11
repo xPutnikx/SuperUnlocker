@@ -18,13 +18,9 @@
 - (BOOL)isScreenLocked;                     // check if Mac is locked
 
 - (void)lock;                               // lock the Mac
-- (void)unlock;                             // unlock the Mac
-
-- (void)setPassword:(NSString*)password;    // set Mac password
+- (void)unlock;                             // unlock the Macu
 
 @property (nonatomic) id<LockManagerDelegate> lockDelegate;
 @property (nonatomic, strong) GuarderUserDefaults *userSettings;
-@property (nonatomic, strong) NSString *password;
-
 
 @end
