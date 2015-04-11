@@ -9,6 +9,7 @@
 #import "BluetoothListener.h"
 #import "CommonConstants.h"
 #import "LockCentral.h"
+#import "DeviceSelector.h"
 
 #import <IOBluetooth/IOBluetooth.h>
 #import <IOBluetoothUI/IOBluetoothUI.h>
@@ -35,8 +36,11 @@
     [[NSRunningApplication currentApplication] terminate];
 }
 
-- (IBAction)didClickSelectDevice:(id)sender {
-    [self.bluetoothListener changeDevice];
+- (IBAction)selectDevice:(id)sender {
+    DeviceSelector *deviceSelector = [[DeviceSelector alloc] init];
+    [deviceSelector selectDeviceWithHandler:^(NSString *deviceName) {
+        self.userSettings.selectedDeviceName = deviceName;
+    }];
 }
 
 - (void)awakeFromNib {
@@ -78,9 +82,9 @@
 //    [self.bluetoothListener startListen];
     
     //* By BLE
-    self.btSelectDevice.Enabled = YES;
+    self.btSelectDevice.enabled = YES;
     self.user = [NSString stringWithFormat:@"%d", getuid()];
-    self.passwordField.stringValue = _userSettings.userPassword;
+    self.passwordField.stringValue = _userSettings.password;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
@@ -115,7 +119,7 @@
 
 - (void)controlTextDidChange:(NSNotification *)notification {
     NSTextField *textField = [notification object];
-    self.userSettings.userPassword = [textField stringValue];
+    self.userSettings.password = [textField stringValue];
 }
 
 @end

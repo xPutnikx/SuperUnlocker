@@ -6,6 +6,7 @@
 
 #import "BluetoothListener.h"
 #import "GuarderUserDefaults.h"
+#import "DeviceSelector.h"
 
 #import <IOBluetooth/objc/IOBluetoothSDPServiceRecord.h>
 #import <IOBluetooth/objc/IOBluetoothRFCOMMChannel.h>
@@ -22,6 +23,8 @@
 @property (nonatomic) NSTimer			*bluetoothTimer;
 
 @property (nonatomic) IOBluetoothDevice	*bluetoothDevice;
+
+@property (nonatomic, strong) DeviceSelector *deviceSelector;
 
 @end
 
@@ -43,6 +46,8 @@
         
         _guiQueue = [[NSOperationQueue alloc] init];
         _queue = [[NSOperationQueue alloc] init];
+        
+        _deviceSelector = [[DeviceSelector alloc] init];
 
         self.userSettings.bMonitoringBluetooth = NO;
         if (self.userSettings.bMonitoringBluetooth)
@@ -90,21 +95,24 @@
 
 - (void)changeDevice
 {
-    IOBluetoothDeviceSelectorController *deviceSelector = [IOBluetoothDeviceSelectorController deviceSelector];
-    [deviceSelector runModal];
-    
-    NSArray *results = [deviceSelector getResults];
-    
-    if( !results )
-    {
-        return;
-    }
-    
-    _bluetoothDevice = [results firstObject];
-    
-    NSData *deviceAsData = [NSKeyedArchiver archivedDataWithRootObject:_bluetoothDevice];
-    [self.userSettings saveUserSettingsWithBluetoothData:deviceAsData];
-    
+//    IOBluetoothDeviceSelectorController *deviceSelector = [IOBluetoothDeviceSelectorController deviceSelector];
+//    [deviceSelector runModal];
+//    
+//    NSArray *results = [deviceSelector getResults];
+//    
+//    if( !results )
+//    {
+//        return;
+//    }
+//    
+//    _bluetoothDevice = [results firstObject];
+//    
+//    NSData *deviceAsData = [NSKeyedArchiver archivedDataWithRootObject:_bluetoothDevice];
+//    [self.userSettings saveUserSettingsWithBluetoothData:deviceAsData];
+//
+    [self.deviceSelector selectDeviceWithHandler:^(NSString *deviceName) {
+        NSLog(@"%@", deviceName);
+    }];
     [self updateDeviceName];
 }
 

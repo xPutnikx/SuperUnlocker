@@ -42,6 +42,7 @@
 		A1A3526A1AC6C854002EC254 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352691AC6C854002EC254 /* silence.caf */; };
 		A1F28E901AC6FBED00C6D876 /* CommonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */; };
 		A1F28E911AC6FBED00C6D876 /* CommonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */; };
+		A1F540EF1AD94CCA009660DC /* DeviceSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F540EE1AD94CCA009660DC /* DeviceSelector.m */; };
 		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
 		D43DD63B4F66465D737A34C8 /* libPods-SuperUnlocker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,8 @@
 		A1A352691AC6C854002EC254 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
 		A1F28E8E1AC6FBED00C6D876 /* CommonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonConstants.h; sourceTree = "<group>"; };
 		A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonConstants.m; sourceTree = "<group>"; };
+		A1F540ED1AD94CCA009660DC /* DeviceSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSelector.h; sourceTree = "<group>"; };
+		A1F540EE1AD94CCA009660DC /* DeviceSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSelector.m; sourceTree = "<group>"; };
 		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
 		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
 		C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperUnlocker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,6 +307,8 @@
 				82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */,
 				A1664C1C1ACC3F7F008BA2E7 /* LockCentral.h */,
 				A1664C1D1ACC3F7F008BA2E7 /* LockCentral.m */,
+				A1F540ED1AD94CCA009660DC /* DeviceSelector.h */,
+				A1F540EE1AD94CCA009660DC /* DeviceSelector.m */,
 			);
 			path = MacGuarder;
 			sourceTree = "<group>";
@@ -655,6 +660,7 @@
 				8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */,
 				A1664C1E1ACC3F7F008BA2E7 /* LockCentral.m in Sources */,
 				A1F28E911AC6FBED00C6D876 /* CommonConstants.m in Sources */,
+				A1F540EF1AD94CCA009660DC /* DeviceSelector.m in Sources */,
 				8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */,
 				821E56AB1AC5F129000515A5 /* main.m in Sources */,
 				82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */,

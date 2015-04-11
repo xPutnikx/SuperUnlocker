@@ -64,7 +64,7 @@
             "tell application \"System Events\" to keystroke (ASCII character 8) \n"
             "tell application \"System Events\" to keystroke \"%@\" \n tell application \"System Events\" to keystroke return";
 
-    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, self.userSettings.userPassword, nil]];
+    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, self.userSettings.password, nil]];
     [script executeAndReturnError:nil];
 
     [_lockDelegate unLockSuccess];

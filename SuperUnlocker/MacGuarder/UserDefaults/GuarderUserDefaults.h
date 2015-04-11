@@ -14,7 +14,8 @@ typedef void (^IGRUserDefaultsBluetoothData)(NSData *bluetoothData);
 
 @property (nonatomic, assign) BOOL bMonitoringBluetooth;
 @property (nonatomic, strong) NSData *bluetoothData;
-@property (nonatomic, assign) NSString *userPassword;
+@property (nonatomic, assign) NSString *password;
+@property (nonatomic, strong) NSString *selectedDeviceName;
 
 - (void)loadUserSettings;
 - (void)saveUserSettingsWithBluetoothData:(NSData *)bluetoothData;

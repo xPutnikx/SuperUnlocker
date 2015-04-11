@@ -9,6 +9,7 @@
 #import "LockCentral.h"
 #import "CommonConstants.h"
 #import "MacGuarderHelper.h"
+#import "GuarderUserDefaults.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 
 
@@ -110,7 +111,8 @@ static const NSTimeInterval ConnectingTimeout = 10.0;
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)aPeripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
-    if ([self.peripheral.identifier isEqualTo:aPeripheral.identifier]) {
+    if ([self.peripheral.identifier isEqualTo:aPeripheral.identifier] ||
+        ![aPeripheral.name isEqualToString:self.macGuarder.userSettings.selectedDeviceName]) {
         return;
     }
     NSLog(@"did discover peripheral %@", aPeripheral.name);
