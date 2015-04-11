@@ -129,8 +129,8 @@
 		A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonConstants.m; sourceTree = "<group>"; };
 		A1F540ED1AD94CCA009660DC /* DeviceSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSelector.h; sourceTree = "<group>"; };
 		A1F540EE1AD94CCA009660DC /* DeviceSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSelector.m; sourceTree = "<group>"; };
-		B4D7AF6CAD03CA12951AAE99 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
-		B4D7AFD3EE98F65459E06284 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		B4D7AF6CAD03CA12951AAE99 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = UserDefaults/Settings.h; sourceTree = "<group>"; };
+		B4D7AFD3EE98F65459E06284 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = UserDefaults/Settings.m; sourceTree = "<group>"; };
 		C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperUnlocker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7FFDED5C0498624EA4BBA3 /* Pods-SuperUnlocker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperUnlocker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperUnlocker/Pods-SuperUnlocker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,15 +211,6 @@
 			path = Listeners;
 			sourceTree = "<group>";
 		};
-		8215D05E1AC68AF900EE17D9 /* UserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				B4D7AF6CAD03CA12951AAE99 /* Settings.h */,
-				B4D7AFD3EE98F65459E06284 /* Settings.m */,
-			);
-			path = UserDefaults;
-			sourceTree = "<group>";
-		};
 		828D0D461ABDAA96002BEFC9 = {
 			isa = PBXGroup;
 			children = (
@@ -295,9 +286,10 @@
 				82A6B0251AC5CAA500EC00C7 /* Images.xcassets */,
 				8215D0511AC6859800EE17D9 /* Listeners */,
 				82A6AFDB1AC5C8B700EC00C7 /* Supporting Files */,
-				8215D05E1AC68AF900EE17D9 /* UserDefaults */,
 				A1664C1C1ACC3F7F008BA2E7 /* LockCentral.h */,
 				A1664C1D1ACC3F7F008BA2E7 /* LockCentral.m */,
+				B4D7AF6CAD03CA12951AAE99 /* Settings.h */,
+				B4D7AFD3EE98F65459E06284 /* Settings.m */,
 				82A6B0231AC5CAA500EC00C7 /* MacGuarder.h */,
 				82A6B0241AC5CAA500EC00C7 /* MacGuarder.m */,
 				A1F540ED1AD94CCA009660DC /* DeviceSelector.h */,
