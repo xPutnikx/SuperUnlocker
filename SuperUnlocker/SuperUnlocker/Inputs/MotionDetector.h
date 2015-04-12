@@ -18,11 +18,9 @@ typedef NS_ENUM(NSInteger, MotionState) {
 @interface MotionDetector : NSObject
 
 + (instancetype)sharedInstance;
-
+- (instancetype) initWithMotionHandler: (void (^)()) motionHandler;
 - (void)start;
 - (void)stop;
 - (MotionState)motionState;
-
-- (void)log;
 
 @end

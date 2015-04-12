@@ -24,6 +24,10 @@
 @property (nonatomic, strong) NSMutableString *userAccelerometerLog;
 @property (nonatomic, strong) NSMutableString *actionLog;
 
+@property (nonatomic) BOOL wasFirstKnock;
+@property (nonatomic, strong) NSDate* firstKnockTime;
+@property (nonatomic, copy) void (^motionHandler)();
+
 @end
 
 
@@ -36,6 +40,15 @@
         instance = [[MotionDetector alloc] init];
     });
     return instance;
+}
+
+- (instancetype) initWithMotionHandler: (void (^)()) motionHandler{
+    self = [self init];
+    if(self){
+        self.motionHandler = motionHandler;
+    }
+    [self start];
+    return self;
 }
 
 - (instancetype)init {
@@ -53,7 +66,7 @@
     self.actionLog = [[NSMutableString alloc] init];
 
     [self startAccelerometer];
-    [self startGyro];
+//    [self startGyro];
     [self startUserAccelerometer];
 }
 
@@ -64,7 +77,7 @@
         NSString *str = [NSString stringWithFormat:@"%f, %f, %f, %@", fabs(accelerometerData.acceleration.x), fabs(accelerometerData.acceleration.y), fabs(accelerometerData.acceleration.z), [NSDate date]];
         str = [str stringByReplacingOccurrencesOfString:@"." withString:@","];
         dispatch_sync(dispatch_get_main_queue(), ^{
-            NSLog(@"%@", str);
+//            NSLog(@"Accell: %@", str);
             [self.accelerometerLog appendFormat:@"%@\n", str];
         });
     }];
@@ -87,12 +100,41 @@
     @weakify(self);
     [self.motionManager startDeviceMotionUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMDeviceMotion *motion, NSError *error) {
         @strongify(self);
+        float zVal = fabs(motion.userAcceleration.z);
+        float xVal = fabs(motion.userAcceleration.x);
+        float yVal = fabs(motion.userAcceleration.y);
+        BOOL wasKnock = NO;
+        @synchronized(self.firstKnockTime){
+        if(zVal > 0.5f){
+            wasKnock = YES;
+            NSTimeInterval deltaTime = 0.0;
+            NSDate *currentDate = [NSDate date];
+            if(self.firstKnockTime){
+                deltaTime = [currentDate timeIntervalSinceDate:self.firstKnockTime];
+                NSLog(@"delta time %f", deltaTime);
+            }
+            if(deltaTime > 0.1 && deltaTime < 0.2){
+                NSLog(@"knock");
+                self.motionHandler();
+                self.wasFirstKnock = NO;
+            }else{
+                self.firstKnockTime = currentDate;
+                self.wasFirstKnock = YES;
+            }
+        }else if(self.wasFirstKnock){
+            self.wasFirstKnock = NO;
+        }
+        }
+        
         NSString *str = [NSString stringWithFormat:@"%f, %f, %f, %@", fabs(motion.userAcceleration.x), fabs(motion.userAcceleration.y), fabs(motion.userAcceleration.z), [NSDate date]];
         str = [str stringByReplacingOccurrencesOfString:@"." withString:@","];
-        NSLog(@"Accell: %@", str);
+//        if(wasKnock){
+//            NSLog(@"Accell: %@", str);
+//        }
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.userAccelerometerLog appendFormat:@"%@\n", str];
         });
+
     }];
 }
 
@@ -100,58 +142,6 @@
     [self.motionManager stopAccelerometerUpdates];
     [self.motionManager stopDeviceMotionUpdates];
     [self.motionManager stopGyroUpdates];
-}
-
-- (void)log {
-    [self logAccelerometer];
-    [self logGyro];
-    [self logUserAccelerometer];
-    [self logActions];
-}
-
-- (void)logAccelerometer {
-    NSString *log = self.accelerometerLog;
-    NSError *er;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSDate *date = [NSDate date];
-    NSTimeInterval timeInterval = [date timeIntervalSince1970];
-    NSString *fileName = [NSString stringWithFormat:@"%f_accelerometer.txt", timeInterval];
-    NSString *p = [documentsDirectory stringByAppendingPathComponent:fileName];
-    [log writeToFile:p atomically:YES encoding:NSUTF8StringEncoding error:&er];
-    if (!er) {
-        NSLog(@"%@", er);
-    }
-}
-
-- (void)logGyro {
-    NSString *log = self.gyroLog;
-    NSError *er;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSDate *date = [NSDate date];
-    NSTimeInterval timeInterval = [date timeIntervalSince1970];
-    NSString *fileName = [NSString stringWithFormat:@"%f_gyro.txt", timeInterval];
-    NSString *p = [documentsDirectory stringByAppendingPathComponent:fileName];
-    [log writeToFile:p atomically:YES encoding:NSUTF8StringEncoding error:&er];
-    if (!er) {
-        NSLog(@"%@", er);
-    }
-}
-
-- (void)logUserAccelerometer {
-    NSString *log = self.gyroLog;
-    NSError *er;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSDate *date = [NSDate date];
-    NSTimeInterval timeInterval = [date timeIntervalSince1970];
-    NSString *fileName = [NSString stringWithFormat:@"%f_u_accelerometer.txt", timeInterval];
-    NSString *p = [documentsDirectory stringByAppendingPathComponent:fileName];
-    [log writeToFile:p atomically:YES encoding:NSUTF8StringEncoding error:&er];
-    if (!er) {
-        NSLog(@"%@", er);
-    }
 }
 
 /*
@@ -200,7 +190,6 @@
     NSString *log = [NSString stringWithFormat:@"%d, %@", 3, [NSDate date]];
     [self.actionLog appendFormat:@"%@\n", log];
     [self stop];
-    [self log];
 }
 
 - (void)stopIdle {
@@ -213,8 +202,10 @@
 - (void)intermediateLog {
     NSLog(@"intermediate log");
     [self stop];
-    [self log];
     [self start];
 }
 
+- (void)dealloc {
+    NSLog(@"deallocated motion manager");
+}
 @end

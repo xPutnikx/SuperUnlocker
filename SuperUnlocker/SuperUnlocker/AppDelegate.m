@@ -10,15 +10,35 @@
 #import "KeyPeripheral.h"
 #import "MotionDetector.h"
 
+@interface AppDelegate ()
+
+@property (nonatomic, strong) MotionDetector *motionDetector;
+
+@end
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[MotionDetector sharedInstance] start];
+    self.motionDetector = [[MotionDetector alloc] initWithMotionHandler:^(void) {
+        [[KeyPeripheral sharedInstance] lock];
+    }];
+    [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
+    
     return YES;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [[KeyPeripheral sharedInstance] disconnect];
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        // User was shaking the device. Post a notification named "shake."
+        NSLog(@"shake");
+//        [[NSNotificationCenter defaultCenter] postNotificationName:@"shake" object:self];
+    }
 }
 
 @end

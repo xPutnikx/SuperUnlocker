@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0531AC6859800EE17D9 /* BluetoothListener.m */; };
-		8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */; };
 		82167E731AC70C010000DFB0 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82167E711AC70C010000DFB0 /* IOBluetooth.framework */; };
 		82167E741AC70C010000DFB0 /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82167E721AC70C010000DFB0 /* IOBluetoothUI.framework */; };
 		821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */; };
@@ -26,6 +25,7 @@
 		82A6B0331AC5CAA500EC00C7 /* MacGuarder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0241AC5CAA500EC00C7 /* MacGuarder.m */; };
 		82A6B0341AC5CAA500EC00C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B0251AC5CAA500EC00C7 /* Images.xcassets */; };
 		82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */; };
+		89CBBC30C68A3388817300E5 /* libPods-MacGuarder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 855280529823B53268E33AEF /* libPods-MacGuarder.a */; };
 		A1664C151ACABD58008BA2E7 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */; };
 		A1664C161ACABD58008BA2E7 /* KeyPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C121ACABD58008BA2E7 /* KeyPeripheral.m */; };
 		A1664C171ACABD58008BA2E7 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */; };
@@ -77,8 +77,6 @@
 /* Begin PBXFileReference section */
 		8215D0521AC6859800EE17D9 /* BluetoothListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothListener.h; sourceTree = "<group>"; };
 		8215D0531AC6859800EE17D9 /* BluetoothListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothListener.m; sourceTree = "<group>"; };
-		8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerManager.h; sourceTree = "<group>"; };
-		8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerManager.m; sourceTree = "<group>"; };
 		82167E711AC70C010000DFB0 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		82167E721AC70C010000DFB0 /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = DEVELOPER_DIR; };
 		821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/SecurityInterface.framework; sourceTree = DEVELOPER_DIR; };
@@ -108,6 +106,7 @@
 		82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		82A6B02C1AC5CAA500EC00C7 /* MacGuarder-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MacGuarder-Prefix.pch"; sourceTree = "<group>"; };
 		82A6B02E1AC5CAA500EC00C7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		855280529823B53268E33AEF /* libPods-MacGuarder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MacGuarder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E70F8000F353E5CD6E724B8 /* Pods-SuperUnlocker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperUnlocker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperUnlocker/Pods-SuperUnlocker.debug.xcconfig"; sourceTree = "<group>"; };
 		A1664C0E1ACABD58008BA2E7 /* BackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundViewController.h; sourceTree = "<group>"; };
 		A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundViewController.m; sourceTree = "<group>"; };
@@ -133,6 +132,8 @@
 		B4D7AFD3EE98F65459E06284 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = UserDefaults/Settings.m; sourceTree = "<group>"; };
 		C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperUnlocker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7FFDED5C0498624EA4BBA3 /* Pods-SuperUnlocker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperUnlocker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperUnlocker/Pods-SuperUnlocker.release.xcconfig"; sourceTree = "<group>"; };
+		E1EAEC98CAEEAA53E814EA6B /* Pods-MacGuarder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacGuarder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MacGuarder/Pods-MacGuarder.debug.xcconfig"; sourceTree = "<group>"; };
+		F08B009FE9CD0F7D235480E7 /* Pods-MacGuarder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacGuarder.release.xcconfig"; path = "Pods/Target Support Files/Pods-MacGuarder/Pods-MacGuarder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +164,7 @@
 				821E56A31AC5CCE2000515A5 /* Cocoa.framework in Frameworks */,
 				821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */,
 				A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */,
+				89CBBC30C68A3388817300E5 /* libPods-MacGuarder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +183,8 @@
 			children = (
 				9E70F8000F353E5CD6E724B8 /* Pods-SuperUnlocker.debug.xcconfig */,
 				DD7FFDED5C0498624EA4BBA3 /* Pods-SuperUnlocker.release.xcconfig */,
+				E1EAEC98CAEEAA53E814EA6B /* Pods-MacGuarder.debug.xcconfig */,
+				F08B009FE9CD0F7D235480E7 /* Pods-MacGuarder.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -196,6 +200,7 @@
 				821E56A21AC5CCE2000515A5 /* Cocoa.framework */,
 				821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */,
 				C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */,
+				855280529823B53268E33AEF /* libPods-MacGuarder.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,8 +208,6 @@
 		8215D0511AC6859800EE17D9 /* Listeners */ = {
 			isa = PBXGroup;
 			children = (
-				8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */,
-				8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */,
 				8215D0521AC6859800EE17D9 /* BluetoothListener.h */,
 				8215D0531AC6859800EE17D9 /* BluetoothListener.m */,
 			);
@@ -437,9 +440,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82A6AFF61AC5C8B700EC00C7 /* Build configuration list for PBXNativeTarget "MacGuarder" */;
 			buildPhases = (
+				8FCC4C36C478B550CD0F07B0 /* Check Pods Manifest.lock */,
 				82A6AFD51AC5C8B700EC00C7 /* Sources */,
 				82A6AFD61AC5C8B700EC00C7 /* Frameworks */,
 				82A6AFD71AC5C8B700EC00C7 /* Resources */,
+				4A69E16C536BB4AA6FD9E700 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -479,7 +484,7 @@
 				TargetAttributes = {
 					828D0D4E1ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = HAA7HHCXKP;
+						DevelopmentTeam = Q9XAZK223S;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -560,6 +565,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A69E16C536BB4AA6FD9E700 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MacGuarder/Pods-MacGuarder-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FCC4C36C478B550CD0F07B0 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		9D57DA59D562CD9338A76C25 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -625,7 +660,6 @@
 				A1664C1E1ACC3F7F008BA2E7 /* LockCentral.m in Sources */,
 				A1F28E911AC6FBED00C6D876 /* CommonConstants.m in Sources */,
 				A1F540EF1AD94CCA009660DC /* DeviceSelector.m in Sources */,
-				8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */,
 				821E56AB1AC5F129000515A5 /* main.m in Sources */,
 				82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */,
 				B4D7A411854832CA4D1F5909 /* Settings.m in Sources */,
@@ -833,6 +867,7 @@
 		};
 		82A6AFF71AC5C8B700EC00C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1EAEC98CAEEAA53E814EA6B /* Pods-MacGuarder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";
@@ -856,6 +891,7 @@
 		};
 		82A6AFF81AC5C8B700EC00C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F08B009FE9CD0F7D235480E7 /* Pods-MacGuarder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "";

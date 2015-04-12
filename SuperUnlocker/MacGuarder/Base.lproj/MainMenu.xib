@@ -13,9 +13,9 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="btQuit" destination="Iin-2e-mSL" id="8w5-d2-dUA"/>
-                <outlet property="btSelectDevice" destination="gmA-3V-L3x" id="lYr-ij-kKE"/>
+                <outlet property="deviceNameCell" destination="oRs-gE-tiO" id="xYD-hO-n6D"/>
                 <outlet property="passwordField" destination="OOL-iv-YRx" id="7E0-g4-cOQ"/>
+                <outlet property="selectDeviceButton" destination="gmA-3V-L3x" id="mHu-QY-nyB"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -669,69 +669,91 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="Mac Pro Unlocker" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="335" y="390" width="353" height="160"/>
+        <window title="MacGuarder" allowsToolTipsWhenApplicationIsInactive="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <rect key="contentRect" x="335" y="390" width="353" height="111"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
             <view key="contentView" placeholderIntrinsicWidth="353" placeholderIntrinsicHeight="207" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="353" height="160"/>
+                <rect key="frame" x="0.0" y="1" width="353" height="111"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G1q-lV-peJ">
-                        <rect key="frame" x="18" y="118" width="102" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Password" id="0T7-EG-9Dy">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                    </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahq-7r-5SZ">
-                        <rect key="frame" x="18" y="69" width="317" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Please Select a Device" id="oRs-gE-tiO">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        </textFieldCell>
-                        <connections>
-                            <binding destination="Voe-Tx-rLC" name="value" keyPath="self.bluetoothListener.bluetoothName" id="nvG-fi-e08"/>
-                        </connections>
-                    </textField>
-                    <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-iv-YRx">
-                        <rect key="frame" x="148" y="118" width="185" height="22"/>
-                        <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="PU8-6P-AzS">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            <allowedInputSourceLocales>
-                                <string>NSAllRomanInputSourcesLocaleIdentifier</string>
-                            </allowedInputSourceLocales>
-                        </secureTextFieldCell>
-                        <connections>
-                            <outlet property="delegate" destination="Voe-Tx-rLC" id="F4f-jL-6r0"/>
-                        </connections>
-                    </secureTextField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-3V-L3x">
-                        <rect key="frame" x="223" y="60" width="116" height="32"/>
-                        <buttonCell key="cell" type="push" title="Select Device" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9NB-ud-atH">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="selectDevice:" target="Voe-Tx-rLC" id="mf6-S3-wCp"/>
-                        </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iin-2e-mSL">
-                        <rect key="frame" x="135" y="11" width="82" height="32"/>
-                        <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vcU-M6-fzV">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="quit:" target="Voe-Tx-rLC" id="dbz-5L-flD"/>
-                        </connections>
-                    </button>
+                    <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="titlebar" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="Nt8-ex-5cZ">
+                        <rect key="frame" x="0.0" y="-49" width="353" height="160"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ahq-7r-5SZ">
+                                <rect key="frame" x="18" y="68" width="195" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="cT9-9K-O9B"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Please Select a Device" id="oRs-gE-tiO">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G1q-lV-peJ">
+                                <rect key="frame" x="18" y="123" width="102" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Mac Password" id="0T7-EG-9Dy">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OOL-iv-YRx">
+                                <rect key="frame" x="148" y="118" width="185" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="FhQ-93-M3g"/>
+                                    <constraint firstAttribute="height" constant="22" id="XHb-ky-Vcd"/>
+                                </constraints>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="PU8-6P-AzS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                                <connections>
+                                    <outlet property="delegate" destination="Voe-Tx-rLC" id="F4f-jL-6r0"/>
+                                </connections>
+                            </secureTextField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-3V-L3x">
+                                <rect key="frame" x="223" y="65" width="116" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="RsL-af-ryl"/>
+                                    <constraint firstAttribute="width" constant="104" id="uob-t2-HwC"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Select Device" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9NB-ud-atH">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="selectDevice:" target="Voe-Tx-rLC" id="mf6-S3-wCp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="OOL-iv-YRx" firstAttribute="top" secondItem="Nt8-ex-5cZ" secondAttribute="top" constant="20" id="52Z-35-Dsj"/>
+                            <constraint firstAttribute="trailing" secondItem="OOL-iv-YRx" secondAttribute="trailing" constant="20" id="KTa-o8-hbQ"/>
+                            <constraint firstItem="G1q-lV-peJ" firstAttribute="leading" secondItem="ahq-7r-5SZ" secondAttribute="leading" id="Pva-0P-mod"/>
+                            <constraint firstItem="G1q-lV-peJ" firstAttribute="top" secondItem="OOL-iv-YRx" secondAttribute="top" id="Qyf-tO-Riu"/>
+                            <constraint firstAttribute="trailing" secondItem="gmA-3V-L3x" secondAttribute="trailing" constant="20" id="VTn-cb-xkB"/>
+                            <constraint firstAttribute="trailing" secondItem="ahq-7r-5SZ" secondAttribute="trailing" constant="142" id="aT8-L9-sa9"/>
+                            <constraint firstItem="ahq-7r-5SZ" firstAttribute="top" secondItem="OOL-iv-YRx" secondAttribute="bottom" constant="21" id="hjf-Y8-ia1"/>
+                            <constraint firstItem="gmA-3V-L3x" firstAttribute="top" secondItem="OOL-iv-YRx" secondAttribute="bottom" constant="25" id="oKF-X0-LJb"/>
+                            <constraint firstItem="OOL-iv-YRx" firstAttribute="leading" secondItem="G1q-lV-peJ" secondAttribute="trailing" constant="30" id="shm-pL-OXv"/>
+                            <constraint firstItem="ahq-7r-5SZ" firstAttribute="leading" secondItem="Nt8-ex-5cZ" secondAttribute="leading" constant="20" id="xJe-5L-2Wq"/>
+                        </constraints>
+                    </visualEffectView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Nt8-ex-5cZ" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="2ln-9y-Yll"/>
+                    <constraint firstItem="Nt8-ex-5cZ" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="afQ-jy-opi"/>
+                    <constraint firstAttribute="trailing" secondItem="Nt8-ex-5cZ" secondAttribute="trailing" id="oF8-f6-Xg3"/>
+                    <constraint firstAttribute="bottom" secondItem="Nt8-ex-5cZ" secondAttribute="bottom" constant="-49" id="pJ1-qO-ZmP"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="320.5" y="283.5"/>
         </window>
     </objects>
 </document>

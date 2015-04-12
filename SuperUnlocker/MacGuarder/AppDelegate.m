@@ -10,6 +10,7 @@
 #import "CommonConstants.h"
 #import "LockCentral.h"
 #import "DeviceSelector.h"
+#import "Settings.h"
 
 #import <IOBluetooth/IOBluetooth.h>
 #import <IOBluetoothUI/IOBluetoothUI.h>
@@ -21,26 +22,27 @@
 //periferial = server (phone)
 
 
-@interface AppDelegate () <ListenerManagerDelegate, NSTextFieldDelegate>
+@interface AppDelegate () <NSTextFieldDelegate>
 
 @property (nonatomic, strong) Settings *settings;
 @property (nonatomic, strong) MacGuarder *macGuard;
 @property (nonatomic, strong) LockCentral *lockCentral;
+@property (nonatomic, strong) BluetoothListener *bluetoothListener;
 
 @end
 
 
 @implementation AppDelegate
 
-- (IBAction)quit:(id)sender {
-    [_settings saveSettings];
-    [[NSRunningApplication currentApplication] terminate];
-}
-
 - (IBAction)selectDevice:(id)sender {
     DeviceSelector *deviceSelector = [[DeviceSelector alloc] init];
-    [deviceSelector selectDeviceWithHandler:^(NSString *deviceName) {
-        self.settings.deviceName = deviceName;
+    [deviceSelector selectDeviceWithHandler:^(IOBluetoothDevice *device) {
+        NSString *name = device.name;
+        self.settings.deviceName = name;
+        if (name != nil) {
+            self.deviceNameCell.title = name;
+        }
+        self.bluetoothListener.device = device;
     }];
 }
 
@@ -48,8 +50,16 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     self.settings = [[Settings alloc] init];
+    if (self.settings.deviceName.length > 0) {
+        self.deviceNameCell.title = self.settings.deviceName;
+    } else {
+        self.deviceNameCell.title = @"Please select device";
+    }
+
+    self.passwordField.stringValue = self.settings.password;
+    
     self.macGuard = [[MacGuarder alloc] initWithSettings:self.settings];
-    self.lockCentral = [LockCentral sharedInstance];
+    self.lockCentral = [[LockCentral alloc] init];
     
     __weak typeof(self) welf = self;
     self.lockCentral.shouldConnectDeviceHandler = ^BOOL(NSString *deviceName) {
@@ -61,37 +71,41 @@
     self.lockCentral.unlockCommandHandler = ^() {
         [welf.macGuard unlock];
     };
-
-//    self.bluetoothListener = [[BluetoothListener alloc] initWithSettings:self.userSettings];
-//    self.bluetoothListener.delegate = self;
-//    
-//    __weak typeof(self) weakSelf = self;
-//    self.bluetoothListener.bluetoothStatusChangedBlock = ^(BluetoothStatus bluetoothStatus) {
-//        typeof(weakSelf) strongSelf = weakSelf;
-//        [strongSelf uupdateBluetoothStatus:bluetoothStatus];
-//    };
-//    [self.bluetoothListener startListen];
     
-    //* By BLE
-    self.btSelectDevice.enabled = YES;
-    self.passwordField.stringValue = self.settings.password;
+//    self.bluetoothListener = [[BluetoothListener alloc] init];
+//    self.bluetoothListener.bluetoothStatusChangedBlock = ^(BluetoothStatus bluetoothStatus) {
+//        switch (bluetoothStatus) {
+//            case BluetoothStatusInRange: {
+//                [welf.macGuard unlock];
+//                break;
+//            }
+//            case BluetoothStatusOutOfRange: {
+//                [welf.macGuard lock];
+//                break;
+//            }
+//        }
+//    };
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
-    [self.bluetoothListener stopListen];
+//    [self.bluetoothListener stopListen];
     [self.lockCentral stop];
     [self.settings saveSettings];
 }
 
-- (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus {
-    NSImage *img = [NSImage imageNamed:(bluetoothStatus == InRange) ? @"on" : @"off"];
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
+}
 
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf.bluetoothStatus setImage:img];
-        [strongSelf.bluetoothStatus setNeedsDisplay:YES];
-    });
+- (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus {
+//    NSImage *img = [NSImage imageNamed:(bluetoothStatus == InRange) ? @"on" : @"off"];
+//
+//    __weak typeof(self) weakSelf = self;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        typeof(weakSelf) strongSelf = weakSelf;
+////        [strongSelf.bluetoothStatus setImage:img];
+////        [strongSelf.bluetoothStatus setNeedsDisplay:YES];
+//    });
 }
 
 - (void)makeAction:(id)sender {

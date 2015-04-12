@@ -36,16 +36,6 @@
 }
 
 #pragma mark - Public
-
-+ (instancetype)sharedInstance {
-    static LockCentral *instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[LockCentral alloc] init];
-    });
-    return instance;
-}
-
 - (void)start {
     NSLog(@"start");
     [self scanForPeripherals];
