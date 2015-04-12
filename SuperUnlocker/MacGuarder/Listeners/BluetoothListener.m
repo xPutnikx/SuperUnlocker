@@ -5,191 +5,116 @@
 //
 
 #import "BluetoothListener.h"
-#import "Settings.h"
-#import "DeviceSelector.h"
 
 #import <IOBluetooth/objc/IOBluetoothSDPServiceRecord.h>
 #import <IOBluetooth/objc/IOBluetoothRFCOMMChannel.h>
 #import <IOBluetoothUI/objc/IOBluetoothDeviceSelectorController.h>
 
+static NSInteger const TimerInterval = 3;
+static NSInteger const MaxCountdownValue = 3;
+static NSInteger const MinCountdownValue = 0;
+
+
 @interface BluetoothListener ()
 
 @property (nonatomic) NSOperationQueue	*queue;
-@property (nonatomic) NSOperationQueue	*guiQueue;
 
 //Bluetooth
-@property (nonatomic) NSInteger	bluetoothTimerInterval;
-@property (nonatomic) BluetoothStatus	bluetoothDevicePriorStatus;
-@property (nonatomic) NSTimer			*bluetoothTimer;
+@property (nonatomic, assign) BluetoothStatus bluetoothDeviceStatus;
+@property (nonatomic, strong) IOBluetoothDevice	*bluetoothDevice;
 
-@property (nonatomic) IOBluetoothDevice	*bluetoothDevice;
-
-@property (nonatomic, strong) DeviceSelector *deviceSelector;
+@property (nonatomic, assign) int countDownLatch;
+@property (nonatomic, strong) NSTimer *bluetoothTimer;
 
 @end
 
-@implementation BluetoothListener{
-    int countDownLatch;
-};
 
-- (instancetype)initWithSettings:(Settings *)aSettings
-{
-    if (self = [super initWithSettings:aSettings])
-    {
-        _checkingInProgress = NO;
-        self.bluetoothDevicePriorStatus = OutOfRange;
-        [self updateDeviceName];
-        
-        _bluetoothTimerInterval = 3;
-        countDownLatch = 2;
-        
-        _guiQueue = [[NSOperationQueue alloc] init];
+@implementation BluetoothListener
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _bluetoothDeviceStatus = BluetoothStatusOutOfRange;
+        _countDownLatch = MaxCountdownValue;
         _queue = [[NSOperationQueue alloc] init];
-        
-        _deviceSelector = [[DeviceSelector alloc] init];
-
-        self.userSettings.bluetoothMonitoringEnabled = NO;
-        if (self.userSettings.isBluetoothMonitoringEnabled)
-        {
-            [self startListen];
-        }
     }
     
     return self;
 }
 
-- (void)startListen
-{
-    if (![_bluetoothDevice isConnected])
-    {
-        IOReturn rt = [_bluetoothDevice openConnection:self];
-        self.bluetoothDevicePriorStatus = OutOfRange;
-        if (rt != kIOReturnSuccess)
-        {
+- (void)setDevice:(IOBluetoothDevice *)bluetoothDevice {
+    if (_bluetoothDevice == bluetoothDevice) {
+        return;
+    }
+    [self stop];
+    _bluetoothDevice = bluetoothDevice;
+    [self start];
+}
+
+- (void)start {
+    if ([self connectDevice]) {
+        self.bluetoothTimer = [NSTimer scheduledTimerWithTimeInterval:TimerInterval target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
+        NSLog(@"start listen %@", self.bluetoothDevice.name);
+    }
+}
+
+- (BOOL)connectDevice {
+    BOOL needConnectDevice = ![self.bluetoothDevice isConnected];
+    if (needConnectDevice) {
+        IOReturn connectionStatus = [_bluetoothDevice openConnection:self];
+        self.bluetoothDeviceStatus = BluetoothStatusOutOfRange;
+        if (connectionStatus != kIOReturnSuccess) {
             NSLog(@"Can't connect bluetoth device");
+            return NO;
         }
     }
-    
-    _bluetoothTimer = [NSTimer scheduledTimerWithTimeInterval:self.bluetoothTimerInterval
-                                                       target:self
-                                                     selector:@selector(handleTimer:)
-                                                     userInfo:nil
-                                                      repeats:YES];
-    NSLog(@"start listen");
+    return YES;
 }
 
-- (void)stopListen
-{
-    self.bluetoothDevicePriorStatus = OutOfRange;
+- (void)stop {
+    self.bluetoothDeviceStatus = BluetoothStatusOutOfRange;
+
+    [self.bluetoothDevice closeConnection];
+    [self.bluetoothTimer invalidate];
+    self.bluetoothTimer = nil;
     
-    [_bluetoothDevice closeConnection];
-    [_bluetoothTimer invalidate];
+    [self.queue cancelAllOperations];
     
-    [_queue cancelAllOperations];
-    [_guiQueue cancelAllOperations];
-    
-    [[NSOperationQueue mainQueue] cancelAllOperations];
-    NSLog(@"stop listen");
+    NSLog(@"stop listen %@", self.bluetoothDevice.name);
 }
 
-- (void)changeDevice
-{
-//    IOBluetoothDeviceSelectorController *deviceSelector = [IOBluetoothDeviceSelectorController deviceSelector];
-//    [deviceSelector runModal];
-//    
-//    NSArray *results = [deviceSelector getResults];
-//    
-//    if( !results )
-//    {
-//        return;
-//    }
-//    
-//    _bluetoothDevice = [results firstObject];
-//    
-//    NSData *deviceAsData = [NSKeyedArchiver archivedDataWithRootObject:_bluetoothDevice];
-//    [self.userSettings saveUserSettingsWithBluetoothData:deviceAsData];
-//
-    [self.deviceSelector selectDeviceWithHandler:^(NSString *deviceName) {
-        NSLog(@"%@", deviceName);
-    }];
-    [self updateDeviceName];
-}
-
-- (void)updateDeviceName
-{
-    if (_bluetoothDevice)
-    {
-        self.bluetoothName  = [NSString stringWithFormat:@"%@", [_bluetoothDevice name]];
-    }
-}
-
-- (BOOL)isInRange
-{
-    if (_bluetoothDevice)
-    {
-//        if ([_bluetoothDevice remoteNameRequest:nil] == kIOReturnSuccess)
-//        {
-            BluetoothHCIRSSIValue rssi = [_bluetoothDevice rawRSSI];
-//            if(rssi < -60) {
-//                NSLog(@"rssi ------- %d", rssi);
-//            }else{
-//                NSLog(@"rssi %d", rssi);
-//            }
-            if(rssi == 127 && !_bluetoothDevice.isConnected){
-                [_bluetoothDevice openConnection];
-            }
-            return rssi > -60;
-//        }
+- (BOOL)deviceIsInRange {
+    if (self.bluetoothDevice != nil) {
+        BluetoothHCIRSSIValue rssi = [_bluetoothDevice rawRSSI];
+        if (rssi == 127 && !_bluetoothDevice.isConnected) {
+            [_bluetoothDevice openConnection];
+        }
+        rssi = [_bluetoothDevice rawRSSI];
+        return rssi > -60;
     }
 
     return NO;
 }
 
-- (void)handleTimer:(NSTimer *)theTimer
-{
-//    NSLog(@"Tick");
-    if (![[_queue operations] count])
-    {
-        [_queue addOperationWithBlock:^ {
-            
-            BOOL result = [self isInRange];
-            
-            if( result )
-            {
-                countDownLatch = 2;
-                if( _bluetoothDevicePriorStatus == OutOfRange )
-                {
-                    self.bluetoothDevicePriorStatus = InRange;
-                    NSLog(@"@In Range");
-                }
+- (void)handleTimer:(NSTimer *)theTimer {
+    if ([self deviceIsInRange]) {
+        self.countDownLatch = MaxCountdownValue;
+        if (self.bluetoothDeviceStatus == BluetoothStatusOutOfRange) {
+            NSLog(@"%@ is in range", self.bluetoothDevice.name);
+            self.bluetoothDeviceStatus = BluetoothStatusInRange;
+            if (self.bluetoothStatusChangedBlock != nil) {
+                self.bluetoothStatusChangedBlock(self.bluetoothDeviceStatus);
             }
-            else
-            {
-                --countDownLatch;
-                if( _bluetoothDevicePriorStatus == InRange )
-                {
-                    if(countDownLatch == 0) {
-                        self.bluetoothDevicePriorStatus = OutOfRange;
-                        [self makeAction:self];
-                    }
-                }
+        }
+    } else {
+        --self.countDownLatch;
+        if (self.bluetoothDeviceStatus == BluetoothStatusInRange) {
+            if (self.countDownLatch == MinCountdownValue) {
+                NSLog(@"%@ is out of range", self.device.name);
+                self.bluetoothDeviceStatus = BluetoothStatusOutOfRange;
+                self.bluetoothStatusChangedBlock(self.bluetoothDeviceStatus);
             }
-        }];
-    }
-}
-
-- (void)setBluetoothDevicePriorStatus:(BluetoothStatus)bluetoothDevicePriorStatus
-{
-    if (_bluetoothDevicePriorStatus == bluetoothDevicePriorStatus)
-    {
-        return;
-    }
-    
-    _bluetoothDevicePriorStatus = bluetoothDevicePriorStatus;
-    
-    if (self.bluetoothStatusChangedBlock)
-    {
-        self.bluetoothStatusChangedBlock(_bluetoothDevicePriorStatus);
+        }
     }
 }
 

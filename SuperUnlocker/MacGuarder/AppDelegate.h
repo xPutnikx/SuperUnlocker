@@ -11,8 +11,6 @@
 #import <IOBluetooth/IOBluetooth.h>
 
 @class Settings;
-@class BluetoothListener;
-@class MacGuarder;
 
 @interface AppDelegate : NSObject  <NSApplicationDelegate>
 
@@ -20,7 +18,5 @@
 @property (nonatomic, weak) IBOutlet NSSecureTextField *passwordField;
 @property (nonatomic, weak) IBOutlet NSButton *selectDeviceButton;
 @property (nonatomic, weak) IBOutlet NSTextFieldCell *deviceNameCell;
-
-@property (nonatomic) BluetoothListener *bluetoothListener;
 
 @end

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D0531AC6859800EE17D9 /* BluetoothListener.m */; };
-		8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */; };
 		82167E731AC70C010000DFB0 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82167E711AC70C010000DFB0 /* IOBluetooth.framework */; };
 		82167E741AC70C010000DFB0 /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82167E721AC70C010000DFB0 /* IOBluetoothUI.framework */; };
 		821E56A11AC5CCDD000515A5 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */; };
@@ -78,8 +77,6 @@
 /* Begin PBXFileReference section */
 		8215D0521AC6859800EE17D9 /* BluetoothListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothListener.h; sourceTree = "<group>"; };
 		8215D0531AC6859800EE17D9 /* BluetoothListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothListener.m; sourceTree = "<group>"; };
-		8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerManager.h; sourceTree = "<group>"; };
-		8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenerManager.m; sourceTree = "<group>"; };
 		82167E711AC70C010000DFB0 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		82167E721AC70C010000DFB0 /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = DEVELOPER_DIR; };
 		821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk/System/Library/Frameworks/SecurityInterface.framework; sourceTree = DEVELOPER_DIR; };
@@ -211,8 +208,6 @@
 		8215D0511AC6859800EE17D9 /* Listeners */ = {
 			isa = PBXGroup;
 			children = (
-				8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */,
-				8215D05C1AC68A4C00EE17D9 /* ListenerManager.m */,
 				8215D0521AC6859800EE17D9 /* BluetoothListener.h */,
 				8215D0531AC6859800EE17D9 /* BluetoothListener.m */,
 			);
@@ -665,7 +660,6 @@
 				A1664C1E1ACC3F7F008BA2E7 /* LockCentral.m in Sources */,
 				A1F28E911AC6FBED00C6D876 /* CommonConstants.m in Sources */,
 				A1F540EF1AD94CCA009660DC /* DeviceSelector.m in Sources */,
-				8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */,
 				821E56AB1AC5F129000515A5 /* main.m in Sources */,
 				82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */,
 				B4D7A411854832CA4D1F5909 /* Settings.m in Sources */,

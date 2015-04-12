@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <IOBluetoothUI/objc/IOBluetoothDeviceSelectorController.h>
 
 
-typedef void (^DeviceSelectionHandler)(NSString *deviceName);
+typedef void (^DeviceSelectionHandler)(IOBluetoothDevice *device);
 
 
 @interface DeviceSelector : NSObject

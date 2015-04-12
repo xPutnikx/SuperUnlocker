@@ -4,23 +4,25 @@
 //
 //
 
-#import "ListenerManager.h"
+#import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, BluetoothStatus)
-{
-    InRange = 0,
-    OutOfRange
+
+@class IOBluetoothDevice;
+
+typedef NS_ENUM(NSUInteger, BluetoothStatus) {
+    BluetoothStatusInRange = 0,
+    BluetoothStatusOutOfRange
 };
 
-typedef void (^BluetoothStatusChangedBlock)(BluetoothStatus bluetoothStatus);
+typedef void (^BluetoothStatusHandler)(BluetoothStatus bluetoothStatus);
 
-@interface BluetoothListener : ListenerManager
 
-@property (nonatomic) NSString *bluetoothName;
-@property (nonatomic) BOOL checkingInProgress;
+@interface BluetoothListener : NSObject
 
-@property (nonatomic, copy) BluetoothStatusChangedBlock bluetoothStatusChangedBlock;
+@property (nonatomic, strong) IOBluetoothDevice *device;
+@property (nonatomic, copy) BluetoothStatusHandler bluetoothStatusChangedBlock;
 
-- (void)changeDevice;
+- (void)start;
+- (void)stop;
 
 @end
