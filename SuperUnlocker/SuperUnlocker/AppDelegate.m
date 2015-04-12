@@ -8,11 +8,12 @@
 
 #import "AppDelegate.h"
 #import "KeyPeripheral.h"
-
+#import "MotionDetector.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[MotionDetector sharedInstance] start];
     return YES;
 }
 

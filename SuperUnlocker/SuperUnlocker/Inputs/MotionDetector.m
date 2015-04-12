@@ -89,6 +89,7 @@
         @strongify(self);
         NSString *str = [NSString stringWithFormat:@"%f, %f, %f, %@", fabs(motion.userAcceleration.x), fabs(motion.userAcceleration.y), fabs(motion.userAcceleration.z), [NSDate date]];
         str = [str stringByReplacingOccurrencesOfString:@"." withString:@","];
+        NSLog(@"Accell: %@", str);
         dispatch_sync(dispatch_get_main_queue(), ^{
             [self.userAccelerometerLog appendFormat:@"%@\n", str];
         });
