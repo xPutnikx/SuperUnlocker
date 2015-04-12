@@ -32,11 +32,6 @@
 
 @implementation AppDelegate
 
-- (IBAction)quit:(id)sender {
-    [self.settings saveSettings];
-    [[NSRunningApplication currentApplication] terminate];
-}
-
 - (IBAction)selectDevice:(id)sender {
     DeviceSelector *deviceSelector = [[DeviceSelector alloc] init];
     [deviceSelector selectDeviceWithHandler:^(NSString *deviceName) {
@@ -89,6 +84,10 @@
     [self.bluetoothListener stopListen];
     [self.lockCentral stop];
     [self.settings saveSettings];
+}
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
 }
 
 - (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus {

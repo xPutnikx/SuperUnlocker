@@ -21,10 +21,6 @@
 @property (nonatomic, weak) IBOutlet NSButton *selectDeviceButton;
 @property (nonatomic, weak) IBOutlet NSTextFieldCell *deviceNameCell;
 
-@property (weak) IBOutlet NSButton *quitButton;
-
-@property (weak) IBOutlet NSImageView	*bluetoothStatus;
-
 @property (nonatomic) BluetoothListener *bluetoothListener;
 
 @end
