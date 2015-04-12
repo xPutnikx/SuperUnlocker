@@ -48,8 +48,8 @@
         
         _deviceSelector = [[DeviceSelector alloc] init];
 
-        self.userSettings.bMonitoringBluetooth = NO;
-        if (self.userSettings.bMonitoringBluetooth)
+        self.userSettings.bluetoothMonitoringEnabled = NO;
+        if (self.userSettings.isBluetoothMonitoringEnabled)
         {
             [self startListen];
         }

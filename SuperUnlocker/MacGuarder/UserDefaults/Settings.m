@@ -7,56 +7,41 @@
 //
 
 #import "Settings.h"
-
-static NSString * const DeviceNameKey = @"BluetoothDevice";
-static NSString * const BluetoothMonitoringKey = @"BluetoothMonitoring";
-static NSString * const PasswordKey = @"UserPassword";
+#import <SSKeychain/SSKeychain.h>
 
 
-@interface Settings ()
-
-@property (nonatomic, strong) NSUserDefaults *defaults;
-
-@end
+static NSString * const DeviceService = @"MacGuarderDevice";
+static NSString * const PasswordService = @"MacGuarderPassword";
 
 
 @implementation Settings
 
 - (instancetype)init {
-	if (self = [super init]) {
-		NSString *bundleIdentifier = [[NSBundle mainBundle] infoDictionary][@"CFBundleIdentifier"];
-		bundleIdentifier = [@"sandbox." stringByAppendingString:bundleIdentifier];
-        
-		self.defaults = [[NSUserDefaults alloc] initWithSuiteName:bundleIdentifier];
-		[self initialize];
+    self = [super init];
+	if (self) {
 		[self loadSettings];
 	}
-	
 	return self;
 }
 
-- (void)initialize {
-    // Create a dictionary
-    NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
-    defaultValues[BluetoothMonitoringKey] = @NO;
-    defaultValues[PasswordKey] = @"";
-
-    // Register the dictionary of defaults
-    [self.defaults registerDefaults: defaultValues];
-}
-
 - (void)loadSettings {
-    self.deviceName = [self.defaults stringForKey:DeviceNameKey];
-    self.password = [self.defaults stringForKey:PasswordKey];
-	// Monitoring enabled
-    self.bMonitoringBluetooth = [self.defaults boolForKey:BluetoothMonitoringKey];
+    self.password = [SSKeychain passwordForService:@"MacGuarderPassword" account:NSFullUserName()];
+    self.deviceName = [SSKeychain passwordForService:@"MacGuarderDevice" account:NSFullUserName()];
+    self.bluetoothMonitoringEnabled = NO;
 }
-
 
 - (void)saveSettings {
-    [self.defaults setObject:self.password forKey:PasswordKey];
-    [self.defaults setObject:self.deviceName forKey:DeviceNameKey];
-    [self.defaults synchronize];
+    NSString *account = NSFullUserName();
+    if (self.password == nil) {
+        [SSKeychain deletePasswordForService:PasswordService account:account];
+    } else {
+        [SSKeychain setPassword:self.password forService:PasswordService account:account];
+    }
+    if (self.deviceName == nil) {
+        [SSKeychain deletePasswordForService:DeviceService account:account];
+    } else {
+        [SSKeychain setPassword:self.deviceName forService:DeviceService account:account];
+    }
 }
 
 @end

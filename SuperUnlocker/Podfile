@@ -6,3 +6,8 @@ target 'SuperUnlocker' do
     pod 'libextobjc/EXTScope', '~> 0.4'
     pod 'ReactiveCocoa', '2.4.7'
 end
+
+target 'MacGuarder' do
+    platform :osx, 10.7
+    pod 'SSKeychain'
+end

@@ -11,7 +11,7 @@
 
 @interface Settings : NSObject
 
-@property (nonatomic, assign) BOOL bMonitoringBluetooth;
+@property (nonatomic, assign, getter=isBluetoothMonitoringEnabled) BOOL bluetoothMonitoringEnabled;
 
 @property (nonatomic, assign) NSString *password;
 @property (nonatomic, strong) NSString *deviceName;

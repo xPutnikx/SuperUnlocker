@@ -16,12 +16,12 @@
 
 @interface AppDelegate : NSObject  <NSApplicationDelegate>
 
-@property (weak) IBOutlet NSSecureTextField *passwordField;
+@property (nonatomic, assign) IBOutlet NSWindow *window;
+@property (nonatomic, weak) IBOutlet NSSecureTextField *passwordField;
+@property (nonatomic, weak) IBOutlet NSButton *selectDeviceButton;
+@property (nonatomic, weak) IBOutlet NSTextFieldCell *deviceNameCell;
 
-@property (assign) IBOutlet NSWindow *window;
-@property (weak) IBOutlet NSButton *btSelectDevice;
-
-@property (weak) IBOutlet NSButton *btQuit;
+@property (weak) IBOutlet NSButton *quitButton;
 
 @property (weak) IBOutlet NSImageView	*bluetoothStatus;
 

@@ -25,4 +25,8 @@
     onChange(bluetoothDevice.name);
 }
 
+- (void)dealloc {
+    NSLog(@"device selector deallocated");
+}
+
 @end

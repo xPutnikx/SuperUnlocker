@@ -13,9 +13,10 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="btQuit" destination="Iin-2e-mSL" id="8w5-d2-dUA"/>
-                <outlet property="btSelectDevice" destination="gmA-3V-L3x" id="lYr-ij-kKE"/>
+                <outlet property="deviceNameCell" destination="oRs-gE-tiO" id="xYD-hO-n6D"/>
                 <outlet property="passwordField" destination="OOL-iv-YRx" id="7E0-g4-cOQ"/>
+                <outlet property="quitButton" destination="Iin-2e-mSL" id="bxc-kc-X5x"/>
+                <outlet property="selectDeviceButton" destination="gmA-3V-L3x" id="mHu-QY-nyB"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>

@@ -33,7 +33,7 @@
 @implementation AppDelegate
 
 - (IBAction)quit:(id)sender {
-    [_settings saveSettings];
+    [self.settings saveSettings];
     [[NSRunningApplication currentApplication] terminate];
 }
 
@@ -41,6 +41,9 @@
     DeviceSelector *deviceSelector = [[DeviceSelector alloc] init];
     [deviceSelector selectDeviceWithHandler:^(NSString *deviceName) {
         self.settings.deviceName = deviceName;
+        if (deviceName != nil) {
+            self.deviceNameCell.title = deviceName;
+        }
     }];
 }
 
@@ -62,6 +65,11 @@
         [welf.macGuard unlock];
     };
 
+    if (self.settings.deviceName.length > 0) {
+        self.deviceNameCell.title = self.settings.deviceName;
+    } else {
+        self.deviceNameCell.title = @"Please select device";
+    }
 //    self.bluetoothListener = [[BluetoothListener alloc] initWithSettings:self.userSettings];
 //    self.bluetoothListener.delegate = self;
 //    
@@ -73,7 +81,7 @@
 //    [self.bluetoothListener startListen];
     
     //* By BLE
-    self.btSelectDevice.enabled = YES;
+    self.selectDeviceButton.enabled = YES;
     self.passwordField.stringValue = self.settings.password;
 }
 
