@@ -21,7 +21,7 @@ static NSInteger const MinCountdownValue = 0;
 
 //Bluetooth
 @property (nonatomic, assign) BluetoothStatus bluetoothDeviceStatus;
-@property (nonatomic, strong) IOBluetoothDevice	*bluetoothDevice;
+@property (nonatomic, copy) BluetoothStatusHandler bluetoothStatusChangedHandler;
 
 @property (nonatomic, assign) int countDownLatch;
 @property (nonatomic, strong) NSTimer *bluetoothTimer;
@@ -31,10 +31,11 @@ static NSInteger const MinCountdownValue = 0;
 
 @implementation BluetoothListener
 
-- (instancetype)init {
+- (instancetype)initWithStatusHandler:(BluetoothStatusHandler)onStatusChange {
     self = [super init];
     if (self) {
         _bluetoothDeviceStatus = BluetoothStatusOutOfRange;
+        _bluetoothStatusChangedHandler = onStatusChange;
         _countDownLatch = MaxCountdownValue;
         _queue = [[NSOperationQueue alloc] init];
     }
@@ -43,25 +44,25 @@ static NSInteger const MinCountdownValue = 0;
 }
 
 - (void)setDevice:(IOBluetoothDevice *)bluetoothDevice {
-    if (_bluetoothDevice == bluetoothDevice) {
+    if (_device == bluetoothDevice) {
         return;
     }
     [self stop];
-    _bluetoothDevice = bluetoothDevice;
+    _device = bluetoothDevice;
     [self start];
 }
 
 - (void)start {
     if ([self connectDevice]) {
         self.bluetoothTimer = [NSTimer scheduledTimerWithTimeInterval:TimerInterval target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
-        NSLog(@"start listen %@", self.bluetoothDevice.name);
+        NSLog(@"start listen %@", self.device.name);
     }
 }
 
 - (BOOL)connectDevice {
-    BOOL needConnectDevice = ![self.bluetoothDevice isConnected];
+    BOOL needConnectDevice = ![self.device isConnected];
     if (needConnectDevice) {
-        IOReturn connectionStatus = [_bluetoothDevice openConnection:self];
+        IOReturn connectionStatus = [_device openConnection:self];
         self.bluetoothDeviceStatus = BluetoothStatusOutOfRange;
         if (connectionStatus != kIOReturnSuccess) {
             NSLog(@"Can't connect bluetoth device");
@@ -74,22 +75,21 @@ static NSInteger const MinCountdownValue = 0;
 - (void)stop {
     self.bluetoothDeviceStatus = BluetoothStatusOutOfRange;
 
-    [self.bluetoothDevice closeConnection];
+    [self.device closeConnection];
     [self.bluetoothTimer invalidate];
     self.bluetoothTimer = nil;
     
     [self.queue cancelAllOperations];
     
-    NSLog(@"stop listen %@", self.bluetoothDevice.name);
+    NSLog(@"stop listen %@", self.device.name);
 }
 
 - (BOOL)deviceIsInRange {
-    if (self.bluetoothDevice != nil) {
-        BluetoothHCIRSSIValue rssi = [_bluetoothDevice rawRSSI];
-        if (rssi == 127 && !_bluetoothDevice.isConnected) {
-            [_bluetoothDevice openConnection];
+    if (self.device != nil) {
+        BluetoothHCIRSSIValue rssi = [self.device rawRSSI];
+        if (rssi == 127 && !self.device.isConnected) {
+            [self.device openConnection];
         }
-        rssi = [_bluetoothDevice rawRSSI];
         return rssi > -60;
     }
 
@@ -100,10 +100,10 @@ static NSInteger const MinCountdownValue = 0;
     if ([self deviceIsInRange]) {
         self.countDownLatch = MaxCountdownValue;
         if (self.bluetoothDeviceStatus == BluetoothStatusOutOfRange) {
-            NSLog(@"%@ is in range", self.bluetoothDevice.name);
+            NSLog(@"%@ is in range", self.device.name);
             self.bluetoothDeviceStatus = BluetoothStatusInRange;
-            if (self.bluetoothStatusChangedBlock != nil) {
-                self.bluetoothStatusChangedBlock(self.bluetoothDeviceStatus);
+            if (self.bluetoothStatusChangedHandler != nil) {
+                self.bluetoothStatusChangedHandler(self.bluetoothDeviceStatus);
             }
         }
     } else {
@@ -112,7 +112,7 @@ static NSInteger const MinCountdownValue = 0;
             if (self.countDownLatch == MinCountdownValue) {
                 NSLog(@"%@ is out of range", self.device.name);
                 self.bluetoothDeviceStatus = BluetoothStatusOutOfRange;
-                self.bluetoothStatusChangedBlock(self.bluetoothDeviceStatus);
+                self.bluetoothStatusChangedHandler(self.bluetoothDeviceStatus);
             }
         }
     }

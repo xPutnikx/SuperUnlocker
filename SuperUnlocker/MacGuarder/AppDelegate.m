@@ -55,12 +55,11 @@
     } else {
         self.deviceNameCell.title = @"Please select device";
     }
-    
-    self.selectDeviceButton.enabled = YES;
+
     self.passwordField.stringValue = self.settings.password;
     
     self.macGuard = [[MacGuarder alloc] initWithSettings:self.settings];
-    self.lockCentral = [LockCentral sharedInstance];
+    self.lockCentral = [[LockCentral alloc] init];
     
     __weak typeof(self) welf = self;
     self.lockCentral.shouldConnectDeviceHandler = ^BOOL(NSString *deviceName) {
@@ -73,19 +72,19 @@
         [welf.macGuard unlock];
     };
     
-    self.bluetoothListener = [[BluetoothListener alloc] init];
-    self.bluetoothListener.bluetoothStatusChangedBlock = ^(BluetoothStatus bluetoothStatus) {
-        switch (bluetoothStatus) {
-            case BluetoothStatusInRange: {
-                [welf.macGuard unlock];
-                break;
-            }
-            case BluetoothStatusOutOfRange: {
-                [welf.macGuard lock];
-                break;
-            }
-        }
-    };
+//    self.bluetoothListener = [[BluetoothListener alloc] init];
+//    self.bluetoothListener.bluetoothStatusChangedBlock = ^(BluetoothStatus bluetoothStatus) {
+//        switch (bluetoothStatus) {
+//            case BluetoothStatusInRange: {
+//                [welf.macGuard unlock];
+//                break;
+//            }
+//            case BluetoothStatusOutOfRange: {
+//                [welf.macGuard lock];
+//                break;
+//            }
+//        }
+//    };
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {

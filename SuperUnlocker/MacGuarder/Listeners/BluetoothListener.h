@@ -20,7 +20,8 @@ typedef void (^BluetoothStatusHandler)(BluetoothStatus bluetoothStatus);
 @interface BluetoothListener : NSObject
 
 @property (nonatomic, strong) IOBluetoothDevice *device;
-@property (nonatomic, copy) BluetoothStatusHandler bluetoothStatusChangedBlock;
+
+- (instancetype)initWithStatusHandler:(BluetoothStatusHandler)onStatusChange;
 
 - (void)start;
 - (void)stop;

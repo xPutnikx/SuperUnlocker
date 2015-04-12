@@ -20,8 +20,6 @@ typedef BOOL (^ShouldConnectDeviceHandler)(NSString *name);
 @property (nonatomic, copy) UnlockCommandHandler unlockCommandHandler;
 @property (nonatomic, copy) ShouldConnectDeviceHandler shouldConnectDeviceHandler;
 
-+ (instancetype)sharedInstance;
-
 - (void)start;
 - (void)stop;
 
