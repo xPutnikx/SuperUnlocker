@@ -91,14 +91,14 @@
 }
 
 - (void)updateBluetoothStatus:(BluetoothStatus)bluetoothStatus {
-    NSImage *img = [NSImage imageNamed:(bluetoothStatus == InRange) ? @"on" : @"off"];
-
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        typeof(weakSelf) strongSelf = weakSelf;
-        [strongSelf.bluetoothStatus setImage:img];
-        [strongSelf.bluetoothStatus setNeedsDisplay:YES];
-    });
+//    NSImage *img = [NSImage imageNamed:(bluetoothStatus == InRange) ? @"on" : @"off"];
+//
+//    __weak typeof(self) weakSelf = self;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        typeof(weakSelf) strongSelf = weakSelf;
+////        [strongSelf.bluetoothStatus setImage:img];
+////        [strongSelf.bluetoothStatus setNeedsDisplay:YES];
+//    });
 }
 
 - (void)makeAction:(id)sender {
