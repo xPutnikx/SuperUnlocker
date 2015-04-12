@@ -6,18 +6,24 @@
 //  Copyright (c) 2014年 TrendMicro. All rights reserved.
 //
 
-#import "MacGuarderHelper.h"
+#import "MacGuarder.h"
 #import "ListenerManager.h"
-#import "GuarderUserDefaults.h"
+#import "Settings.h"
 
-@implementation MacGuarderHelper
 
-- (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
+@interface MacGuarder ()
+
+@property (nonatomic, strong) Settings *userSettings;
+
+@end
+
+
+@implementation MacGuarder
+
+- (instancetype)initWithSettings:(Settings *)aSettings
 {
-    if (self = [super init])
-    {
+    if (self = [super init]) {
         _userSettings = aSettings;
-        _password = _userSettings.userPassword;
     }
 
     return self;
@@ -37,9 +43,10 @@
     return locked;
 }
 
-- (void)lock
-{
-    if ([self isScreenLocked]) return;
+- (void)lock {
+    if ([self isScreenLocked]) {
+        return;
+    }
 
     NSLog(@"lock");
 
@@ -49,10 +56,11 @@
     IOObjectRelease(r);
 }
 
-- (void)unlock
-{
+- (void)unlock {
     NSLog(@"unlock");
-    if (![self isScreenLocked]) return;
+    if (![self isScreenLocked]) {
+        return;
+    }
 
 // wakeup display from idle status to show login window
     io_registry_entry_t r = IORegistryEntryFromPath(kIOMasterPortDefault, "IOService:/IOResources/IODisplayWrangler");
@@ -66,15 +74,8 @@
             "tell application \"System Events\" to keystroke (ASCII character 8) \n"
             "tell application \"System Events\" to keystroke \"%@\" \n tell application \"System Events\" to keystroke return";
 
-    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, _password, nil]];
+    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:command, self.userSettings.password, nil]];
     [script executeAndReturnError:nil];
-
-    [_lockDelegate unLockSuccess];
 }
 
-- (void)setPassword:(NSString*)password
-{
-    _password = [password copy];
-    _userSettings.userPassword = _password;
-}
 @end

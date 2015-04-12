@@ -10,14 +10,12 @@
 #import <SecurityInterface/SFAuthorizationView.h>
 #import <IOBluetooth/IOBluetooth.h>
 
-@class GuarderUserDefaults;
+@class Settings;
 @class BluetoothListener;
-@class MacGuarderHelper;
+@class MacGuarder;
 
-@interface AppDelegate : NSObject  <NSApplicationDelegate, CBCentralManagerDelegate,CBPeripheralDelegate> {
-    CBCentralManager *centmanager;
-    CBPeripheral *aCperipheral;
-}
+@interface AppDelegate : NSObject  <NSApplicationDelegate>
+
 @property (weak) IBOutlet NSSecureTextField *passwordField;
 
 @property (assign) IBOutlet NSWindow *window;
@@ -27,9 +25,6 @@
 
 @property (weak) IBOutlet NSImageView	*bluetoothStatus;
 
-@property (nonatomic) GuarderUserDefaults *userSettings;
 @property (nonatomic) BluetoothListener *bluetoothListener;
-@property (nonatomic) MacGuarderHelper *macGuarderHelper;
-@property (nonatomic, strong) NSString* user;
 
 @end

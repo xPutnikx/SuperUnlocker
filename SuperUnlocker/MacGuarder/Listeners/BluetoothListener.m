@@ -5,7 +5,8 @@
 //
 
 #import "BluetoothListener.h"
-#import "GuarderUserDefaults.h"
+#import "Settings.h"
+#import "DeviceSelector.h"
 
 #import <IOBluetooth/objc/IOBluetoothSDPServiceRecord.h>
 #import <IOBluetooth/objc/IOBluetoothRFCOMMChannel.h>
@@ -23,19 +24,20 @@
 
 @property (nonatomic) IOBluetoothDevice	*bluetoothDevice;
 
+@property (nonatomic, strong) DeviceSelector *deviceSelector;
+
 @end
 
 @implementation BluetoothListener{
     int countDownLatch;
 };
 
-- (instancetype)initWithSettings:(GuarderUserDefaults *)aSettings
+- (instancetype)initWithSettings:(Settings *)aSettings
 {
     if (self = [super initWithSettings:aSettings])
     {
         _checkingInProgress = NO;
         self.bluetoothDevicePriorStatus = OutOfRange;
-        _bluetoothDevice = [NSKeyedUnarchiver unarchiveObjectWithData:self.userSettings.bluetoothData];
         [self updateDeviceName];
         
         _bluetoothTimerInterval = 3;
@@ -43,6 +45,8 @@
         
         _guiQueue = [[NSOperationQueue alloc] init];
         _queue = [[NSOperationQueue alloc] init];
+        
+        _deviceSelector = [[DeviceSelector alloc] init];
 
         self.userSettings.bMonitoringBluetooth = NO;
         if (self.userSettings.bMonitoringBluetooth)
@@ -90,21 +94,24 @@
 
 - (void)changeDevice
 {
-    IOBluetoothDeviceSelectorController *deviceSelector = [IOBluetoothDeviceSelectorController deviceSelector];
-    [deviceSelector runModal];
-    
-    NSArray *results = [deviceSelector getResults];
-    
-    if( !results )
-    {
-        return;
-    }
-    
-    _bluetoothDevice = [results firstObject];
-    
-    NSData *deviceAsData = [NSKeyedArchiver archivedDataWithRootObject:_bluetoothDevice];
-    [self.userSettings saveUserSettingsWithBluetoothData:deviceAsData];
-    
+//    IOBluetoothDeviceSelectorController *deviceSelector = [IOBluetoothDeviceSelectorController deviceSelector];
+//    [deviceSelector runModal];
+//    
+//    NSArray *results = [deviceSelector getResults];
+//    
+//    if( !results )
+//    {
+//        return;
+//    }
+//    
+//    _bluetoothDevice = [results firstObject];
+//    
+//    NSData *deviceAsData = [NSKeyedArchiver archivedDataWithRootObject:_bluetoothDevice];
+//    [self.userSettings saveUserSettingsWithBluetoothData:deviceAsData];
+//
+    [self.deviceSelector selectDeviceWithHandler:^(NSString *deviceName) {
+        NSLog(@"%@", deviceName);
+    }];
     [self updateDeviceName];
 }
 
@@ -123,11 +130,11 @@
 //        if ([_bluetoothDevice remoteNameRequest:nil] == kIOReturnSuccess)
 //        {
             BluetoothHCIRSSIValue rssi = [_bluetoothDevice rawRSSI];
-            if(rssi < -60) {
-                NSLog(@"rssi ------- %d", rssi);
-            }else{
-                NSLog(@"rssi %d", rssi);
-            }
+//            if(rssi < -60) {
+//                NSLog(@"rssi ------- %d", rssi);
+//            }else{
+//                NSLog(@"rssi %d", rssi);
+//            }
             if(rssi == 127 && !_bluetoothDevice.isConnected){
                 [_bluetoothDevice openConnection];
             }

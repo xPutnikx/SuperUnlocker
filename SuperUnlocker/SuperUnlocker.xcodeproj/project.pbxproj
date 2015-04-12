@@ -23,16 +23,14 @@
 		828D0D6F1ABDAA96002BEFC9 /* SuperUnlockerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828D0D6E1ABDAA96002BEFC9 /* SuperUnlockerTests.m */; };
 		82A6AFF51AC5C8B700EC00C7 /* MacGuarderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6AFF41AC5C8B700EC00C7 /* MacGuarderTests.m */; };
 		82A6B0301AC5CAA500EC00C7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B01B1AC5CAA500EC00C7 /* MainMenu.xib */; };
-		82A6B0311AC5CAA500EC00C7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */; };
-		82A6B0321AC5CAA500EC00C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B0201AC5CAA500EC00C7 /* InfoPlist.strings */; };
-		82A6B0331AC5CAA500EC00C7 /* MacGuarderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */; };
+		82A6B0331AC5CAA500EC00C7 /* MacGuarder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0241AC5CAA500EC00C7 /* MacGuarder.m */; };
 		82A6B0341AC5CAA500EC00C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B0251AC5CAA500EC00C7 /* Images.xcassets */; };
 		82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */; };
-		82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */; };
 		A1664C151ACABD58008BA2E7 /* BackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */; };
 		A1664C161ACABD58008BA2E7 /* KeyPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C121ACABD58008BA2E7 /* KeyPeripheral.m */; };
 		A1664C171ACABD58008BA2E7 /* PeripheralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */; };
 		A1664C1B1ACBEE24008BA2E7 /* SubscribersStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C1A1ACBEE24008BA2E7 /* SubscribersStore.m */; };
+		A1664C1E1ACC3F7F008BA2E7 /* LockCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C1D1ACC3F7F008BA2E7 /* LockCentral.m */; };
 		A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		A1A3525F1AC6BB42002EC254 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */; };
 		A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A352621AC6BF59002EC254 /* MotionDetector.m */; };
@@ -41,7 +39,8 @@
 		A1A3526A1AC6C854002EC254 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352691AC6C854002EC254 /* silence.caf */; };
 		A1F28E901AC6FBED00C6D876 /* CommonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */; };
 		A1F28E911AC6FBED00C6D876 /* CommonConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */; };
-		B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */; };
+		A1F540EF1AD94CCA009660DC /* DeviceSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1F540EE1AD94CCA009660DC /* DeviceSelector.m */; };
+		B4D7A411854832CA4D1F5909 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D7AFD3EE98F65459E06284 /* Settings.m */; };
 		D43DD63B4F66465D737A34C8 /* libPods-SuperUnlocker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +75,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1B6A5553FDDEEE54C5803AAC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8215D0521AC6859800EE17D9 /* BluetoothListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BluetoothListener.h; sourceTree = "<group>"; };
 		8215D0531AC6859800EE17D9 /* BluetoothListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BluetoothListener.m; sourceTree = "<group>"; };
 		8215D05B1AC68A4C00EE17D9 /* ListenerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenerManager.h; sourceTree = "<group>"; };
@@ -104,15 +102,12 @@
 		82A6AFF41AC5C8B700EC00C7 /* MacGuarderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MacGuarderTests.m; sourceTree = "<group>"; };
 		82A6B0151AC5CAA500EC00C7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		82A6B01C1AC5CAA500EC00C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = MainMenu.xib; sourceTree = "<group>"; };
-		82A6B01F1AC5CAA500EC00C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = Credits.rtf; sourceTree = "<group>"; };
-		82A6B0211AC5CAA500EC00C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
-		82A6B0231AC5CAA500EC00C7 /* MacGuarderHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacGuarderHelper.h; sourceTree = "<group>"; };
-		82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MacGuarderHelper.m; sourceTree = "<group>"; };
+		82A6B0231AC5CAA500EC00C7 /* MacGuarder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MacGuarder.h; path = Helper/MacGuarder.h; sourceTree = "<group>"; };
+		82A6B0241AC5CAA500EC00C7 /* MacGuarder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MacGuarder.m; path = Helper/MacGuarder.m; sourceTree = "<group>"; };
 		82A6B0251AC5CAA500EC00C7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		82A6B02C1AC5CAA500EC00C7 /* MacGuarder-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MacGuarder-Prefix.pch"; sourceTree = "<group>"; };
 		82A6B02E1AC5CAA500EC00C7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 		9E70F8000F353E5CD6E724B8 /* Pods-SuperUnlocker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperUnlocker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SuperUnlocker/Pods-SuperUnlocker.debug.xcconfig"; sourceTree = "<group>"; };
 		A1664C0E1ACABD58008BA2E7 /* BackgroundViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundViewController.h; sourceTree = "<group>"; };
 		A1664C0F1ACABD58008BA2E7 /* BackgroundViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundViewController.m; sourceTree = "<group>"; };
@@ -122,6 +117,8 @@
 		A1664C141ACABD58008BA2E7 /* PeripheralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeripheralViewController.m; sourceTree = "<group>"; };
 		A1664C191ACBEE24008BA2E7 /* SubscribersStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribersStore.h; sourceTree = "<group>"; };
 		A1664C1A1ACBEE24008BA2E7 /* SubscribersStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribersStore.m; sourceTree = "<group>"; };
+		A1664C1C1ACC3F7F008BA2E7 /* LockCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockCentral.h; sourceTree = "<group>"; };
+		A1664C1D1ACC3F7F008BA2E7 /* LockCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockCentral.m; sourceTree = "<group>"; };
 		A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A1A352611AC6BF59002EC254 /* MotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionDetector.h; sourceTree = "<group>"; };
 		A1A352621AC6BF59002EC254 /* MotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionDetector.m; sourceTree = "<group>"; };
@@ -130,12 +127,12 @@
 		A1A352691AC6C854002EC254 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
 		A1F28E8E1AC6FBED00C6D876 /* CommonConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonConstants.h; sourceTree = "<group>"; };
 		A1F28E8F1AC6FBED00C6D876 /* CommonConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonConstants.m; sourceTree = "<group>"; };
-		B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuarderUserDefaults.h; sourceTree = "<group>"; };
-		B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuarderUserDefaults.m; sourceTree = "<group>"; };
+		A1F540ED1AD94CCA009660DC /* DeviceSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSelector.h; sourceTree = "<group>"; };
+		A1F540EE1AD94CCA009660DC /* DeviceSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSelector.m; sourceTree = "<group>"; };
+		B4D7AF6CAD03CA12951AAE99 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = UserDefaults/Settings.h; sourceTree = "<group>"; };
+		B4D7AFD3EE98F65459E06284 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Settings.m; path = UserDefaults/Settings.m; sourceTree = "<group>"; };
 		C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SuperUnlocker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD7FFDED5C0498624EA4BBA3 /* Pods-SuperUnlocker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SuperUnlocker.release.xcconfig"; path = "Pods/Target Support Files/Pods-SuperUnlocker/Pods-SuperUnlocker.release.xcconfig"; sourceTree = "<group>"; };
-		E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		EF65A6DF2460593F9584962F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +179,6 @@
 		105506A3A3B4734CB3BC6E68 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E607686FE8C2FEB18428ADC8 /* Pods.debug.xcconfig */,
-				EF65A6DF2460593F9584962F /* Pods.release.xcconfig */,
 				9E70F8000F353E5CD6E724B8 /* Pods-SuperUnlocker.debug.xcconfig */,
 				DD7FFDED5C0498624EA4BBA3 /* Pods-SuperUnlocker.release.xcconfig */,
 			);
@@ -200,7 +195,6 @@
 				8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */,
 				821E56A21AC5CCE2000515A5 /* Cocoa.framework */,
 				821E56A01AC5CCDD000515A5 /* SecurityInterface.framework */,
-				1B6A5553FDDEEE54C5803AAC /* libPods.a */,
 				C20AD5BDD182614F757AC056 /* libPods-SuperUnlocker.a */,
 			);
 			name = Frameworks;
@@ -215,15 +209,6 @@
 				8215D0531AC6859800EE17D9 /* BluetoothListener.m */,
 			);
 			path = Listeners;
-			sourceTree = "<group>";
-		};
-		8215D05E1AC68AF900EE17D9 /* UserDefaults */ = {
-			isa = PBXGroup;
-			children = (
-				B4D7AF6CAD03CA12951AAE99 /* GuarderUserDefaults.h */,
-				B4D7AFD3EE98F65459E06284 /* GuarderUserDefaults.m */,
-			);
-			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		828D0D461ABDAA96002BEFC9 = {
@@ -298,13 +283,17 @@
 				82A6B0151AC5CAA500EC00C7 /* AppDelegate.h */,
 				82A6B0261AC5CAA500EC00C7 /* AppDelegate.m */,
 				82A6B01A1AC5CAA500EC00C7 /* Base.lproj */,
-				82A6B01D1AC5CAA500EC00C7 /* en.lproj */,
-				82A6B0221AC5CAA500EC00C7 /* Helper */,
 				82A6B0251AC5CAA500EC00C7 /* Images.xcassets */,
 				8215D0511AC6859800EE17D9 /* Listeners */,
 				82A6AFDB1AC5C8B700EC00C7 /* Supporting Files */,
-				8215D05E1AC68AF900EE17D9 /* UserDefaults */,
-				82A6B02F1AC5CAA500EC00C7 /* UserInfo.plist */,
+				A1664C1C1ACC3F7F008BA2E7 /* LockCentral.h */,
+				A1664C1D1ACC3F7F008BA2E7 /* LockCentral.m */,
+				B4D7AF6CAD03CA12951AAE99 /* Settings.h */,
+				B4D7AFD3EE98F65459E06284 /* Settings.m */,
+				82A6B0231AC5CAA500EC00C7 /* MacGuarder.h */,
+				82A6B0241AC5CAA500EC00C7 /* MacGuarder.m */,
+				A1F540ED1AD94CCA009660DC /* DeviceSelector.h */,
+				A1F540EE1AD94CCA009660DC /* DeviceSelector.m */,
 			);
 			path = MacGuarder;
 			sourceTree = "<group>";
@@ -342,24 +331,6 @@
 				82A6B01B1AC5CAA500EC00C7 /* MainMenu.xib */,
 			);
 			path = Base.lproj;
-			sourceTree = "<group>";
-		};
-		82A6B01D1AC5CAA500EC00C7 /* en.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */,
-				82A6B0201AC5CAA500EC00C7 /* InfoPlist.strings */,
-			);
-			path = en.lproj;
-			sourceTree = "<group>";
-		};
-		82A6B0221AC5CAA500EC00C7 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				82A6B0231AC5CAA500EC00C7 /* MacGuarderHelper.h */,
-				82A6B0241AC5CAA500EC00C7 /* MacGuarderHelper.m */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		A1664C0D1ACABD58008BA2E7 /* Base */ = {
@@ -576,9 +547,6 @@
 			files = (
 				82A6B0301AC5CAA500EC00C7 /* MainMenu.xib in Resources */,
 				82A6B0341AC5CAA500EC00C7 /* Images.xcassets in Resources */,
-				82A6B0321AC5CAA500EC00C7 /* InfoPlist.strings in Resources */,
-				82A6B03D1AC5CAA500EC00C7 /* UserInfo.plist in Resources */,
-				82A6B0311AC5CAA500EC00C7 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,13 +620,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A6B0331AC5CAA500EC00C7 /* MacGuarderHelper.m in Sources */,
+				82A6B0331AC5CAA500EC00C7 /* MacGuarder.m in Sources */,
 				8215D0541AC6859800EE17D9 /* BluetoothListener.m in Sources */,
+				A1664C1E1ACC3F7F008BA2E7 /* LockCentral.m in Sources */,
 				A1F28E911AC6FBED00C6D876 /* CommonConstants.m in Sources */,
+				A1F540EF1AD94CCA009660DC /* DeviceSelector.m in Sources */,
 				8215D05D1AC68A4C00EE17D9 /* ListenerManager.m in Sources */,
 				821E56AB1AC5F129000515A5 /* main.m in Sources */,
 				82A6B0351AC5CAA500EC00C7 /* AppDelegate.m in Sources */,
-				B4D7A411854832CA4D1F5909 /* GuarderUserDefaults.m in Sources */,
+				B4D7A411854832CA4D1F5909 /* Settings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,22 +678,6 @@
 				82A6B01C1AC5CAA500EC00C7 /* Base */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		82A6B01E1AC5CAA500EC00C7 /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82A6B01F1AC5CAA500EC00C7 /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		82A6B0201AC5CAA500EC00C7 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82A6B0211AC5CAA500EC00C7 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
