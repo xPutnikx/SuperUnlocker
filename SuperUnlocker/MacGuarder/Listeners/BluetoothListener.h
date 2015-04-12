@@ -22,8 +22,6 @@ typedef void (^BluetoothStatusHandler)(BluetoothStatus bluetoothStatus);
 @property (nonatomic, strong) IOBluetoothDevice *device;
 
 - (instancetype)initWithStatusHandler:(BluetoothStatusHandler)onStatusChange;
-
-- (void)start;
 - (void)stop;
 
 @end

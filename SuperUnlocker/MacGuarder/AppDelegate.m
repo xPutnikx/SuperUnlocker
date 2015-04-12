@@ -49,16 +49,24 @@
 #pragma mark default methods
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    // order matters
     self.settings = [[Settings alloc] init];
+    [self fillInterface];
+    self.macGuard = [[MacGuarder alloc] initWithSettings:self.settings];
+    [self initLockCentral];
+    [self initBluetoothListener];
+}
+
+- (void)fillInterface {
     if (self.settings.deviceName.length > 0) {
         self.deviceNameCell.title = self.settings.deviceName;
     } else {
         self.deviceNameCell.title = @"Please select device";
     }
-
     self.passwordField.stringValue = self.settings.password;
-    
-    self.macGuard = [[MacGuarder alloc] initWithSettings:self.settings];
+}
+
+- (void)initLockCentral {
     self.lockCentral = [[LockCentral alloc] init];
     
     __weak typeof(self) welf = self;
@@ -71,24 +79,35 @@
     self.lockCentral.unlockCommandHandler = ^() {
         [welf.macGuard unlock];
     };
-    
-//    self.bluetoothListener = [[BluetoothListener alloc] init];
-//    self.bluetoothListener.bluetoothStatusChangedBlock = ^(BluetoothStatus bluetoothStatus) {
-//        switch (bluetoothStatus) {
-//            case BluetoothStatusInRange: {
-//                [welf.macGuard unlock];
-//                break;
-//            }
-//            case BluetoothStatusOutOfRange: {
-//                [welf.macGuard lock];
-//                break;
-//            }
-//        }
-//    };
+}
+
+- (void)initBluetoothListener {
+    __weak typeof(self) welf = self;
+    self.bluetoothListener = [[BluetoothListener alloc] initWithStatusHandler:^(BluetoothStatus bluetoothStatus) {
+        switch (bluetoothStatus) {
+            case BluetoothStatusInRange: {
+                [welf.macGuard unlock];
+                break;
+            }
+            case BluetoothStatusOutOfRange: {
+                [welf.macGuard lock];
+                break;
+            }
+        }
+    }];
+    if (self.settings.deviceName.length > 0) {
+        NSArray *recents = [IOBluetoothDevice recentDevices:5];
+        NSPredicate *sameName = [NSPredicate predicateWithFormat:@"self.name == %@", self.settings.deviceName];
+        NSArray *filtered = [recents filteredArrayUsingPredicate:sameName];
+        if (filtered.count > 0) {
+            IOBluetoothDevice *device = [filtered firstObject];
+            self.bluetoothListener.device = device;
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification {
-//    [self.bluetoothListener stopListen];
+    [self.bluetoothListener stop];
     [self.lockCentral stop];
     [self.settings saveSettings];
 }
