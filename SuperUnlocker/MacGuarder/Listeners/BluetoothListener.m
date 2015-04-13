@@ -86,11 +86,13 @@ static NSInteger const MinCountdownValue = 0;
 
 - (BOOL)deviceIsInRange {
     if (self.device != nil) {
-        BluetoothHCIRSSIValue rssi = [self.device rawRSSI];
-        if (rssi == 127 && !self.device.isConnected) {
+        BluetoothHCIRSSIValue rssi = [self.device RSSI];
+        if (!self.device.isConnected) {
             [self.device openConnection];
         }
-        return rssi > -60;
+        rssi = [self.device RSSI];
+        NSLog(@"%d", rssi);
+        return rssi != 127;
     }
 
     return NO;
