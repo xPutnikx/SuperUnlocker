@@ -33,7 +33,7 @@
 		A1664C1E1ACC3F7F008BA2E7 /* LockCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = A1664C1D1ACC3F7F008BA2E7 /* LockCentral.m */; };
 		A1A3525A1AC6A23C002EC254 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8278342E1ABF1AEA006F5A63 /* CoreBluetooth.framework */; };
 		A1A3525F1AC6BB42002EC254 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */; };
-		A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A352621AC6BF59002EC254 /* MotionDetector.m */; };
+		A1A352631AC6BF59002EC254 /* DoubleKnockDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A352621AC6BF59002EC254 /* DoubleKnockDetector.m */; };
 		A1A352651AC6C527002EC254 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A352641AC6C527002EC254 /* AVFoundation.framework */; };
 		A1A352681AC6C694002EC254 /* sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352671AC6C694002EC254 /* sound.caf */; };
 		A1A3526A1AC6C854002EC254 /* silence.caf in Resources */ = {isa = PBXBuildFile; fileRef = A1A352691AC6C854002EC254 /* silence.caf */; };
@@ -119,8 +119,8 @@
 		A1664C1C1ACC3F7F008BA2E7 /* LockCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LockCentral.h; sourceTree = "<group>"; };
 		A1664C1D1ACC3F7F008BA2E7 /* LockCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LockCentral.m; sourceTree = "<group>"; };
 		A1A3525E1AC6BB42002EC254 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		A1A352611AC6BF59002EC254 /* MotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionDetector.h; sourceTree = "<group>"; };
-		A1A352621AC6BF59002EC254 /* MotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionDetector.m; sourceTree = "<group>"; };
+		A1A352611AC6BF59002EC254 /* DoubleKnockDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleKnockDetector.h; sourceTree = "<group>"; };
+		A1A352621AC6BF59002EC254 /* DoubleKnockDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleKnockDetector.m; sourceTree = "<group>"; };
 		A1A352641AC6C527002EC254 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A1A352671AC6C694002EC254 /* sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.caf; sourceTree = "<group>"; };
 		A1A352691AC6C854002EC254 /* silence.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = silence.caf; sourceTree = "<group>"; };
@@ -370,8 +370,8 @@
 		A1A352601AC6BF3B002EC254 /* Inputs */ = {
 			isa = PBXGroup;
 			children = (
-				A1A352611AC6BF59002EC254 /* MotionDetector.h */,
-				A1A352621AC6BF59002EC254 /* MotionDetector.m */,
+				A1A352611AC6BF59002EC254 /* DoubleKnockDetector.h */,
+				A1A352621AC6BF59002EC254 /* DoubleKnockDetector.m */,
 			);
 			path = Inputs;
 			sourceTree = "<group>";
@@ -484,7 +484,7 @@
 				TargetAttributes = {
 					828D0D4E1ABDAA96002BEFC9 = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = Q9XAZK223S;
+						DevelopmentTeam = HAA7HHCXKP;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -632,7 +632,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1A352631AC6BF59002EC254 /* MotionDetector.m in Sources */,
+				A1A352631AC6BF59002EC254 /* DoubleKnockDetector.m in Sources */,
 				A1664C1B1ACBEE24008BA2E7 /* SubscribersStore.m in Sources */,
 				A1664C171ACABD58008BA2E7 /* PeripheralViewController.m in Sources */,
 				A1F28E901AC6FBED00C6D876 /* CommonConstants.m in Sources */,
